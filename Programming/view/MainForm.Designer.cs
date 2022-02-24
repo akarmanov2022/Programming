@@ -1,4 +1,4 @@
-﻿namespace Programming
+﻿namespace Programming.view
 {
     partial class Form1
     {
