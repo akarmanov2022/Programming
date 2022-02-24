@@ -1,6 +1,6 @@
 namespace Programming.model
 {
-    public enum TimeOfYear
+    public enum Seasons
     {
         Winter,
         Summer,

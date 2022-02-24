@@ -8,6 +8,6 @@ namespace Programming.model
         Action,
         Movie,
         Horrors,
-        Blockbuster
+        Block
     }
 }
