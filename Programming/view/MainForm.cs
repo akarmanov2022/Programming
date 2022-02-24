@@ -42,7 +42,7 @@ namespace Programming.view
             valuesListBox.Items.Clear();
             var item = ((ListBox) sender).SelectedItem;
             var type = (Type) item;
-            var values = Enum.GetValues(type);
+            var values = type.GetEnumValues();
             foreach (var value in values) valuesListBox.Items.Add(value);
         }
 
