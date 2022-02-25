@@ -9,13 +9,16 @@ namespace Programming.view
 {
     public partial class MainForm : Form
     {
-        private List<Type> _types = new List<Type>();
+        private List<Type> _types;
 
         public MainForm()
         {
             InitializeComponent();
+        }
 
-            _types.AddRange(new[]
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            _types = new List<Type>()
             {
                 typeof(Color),
                 typeof(Genre),
@@ -23,51 +26,48 @@ namespace Programming.view
                 typeof(Season),
                 typeof(TrainingType),
                 typeof(Weekday)
-            });
-        }
+            };
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
             var types = _types;
-            enumsListBox.Items.AddRange(types.ToArray());
-            enumsListBox.SetSelected(0, true);
+            ListBoxEnums.Items.AddRange(types.ToArray());
+            ListBoxEnums.SetSelected(0, true);
 
             var values = Enum.GetValues(typeof(Season));
-            foreach (var value in values) cbSeasons.Items.Add(value);
+            foreach (var value in values) ComboBoxSeasons.Items.Add(value);
         }
 
         private void enumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            valuesListBox.Items.Clear();
-            var item = ((ListBox) sender).SelectedItem;
+            ListBoxValues.Items.Clear();
+            var item = ListBoxEnums.SelectedItem;
             var type = (Type) item;
             var values = type.GetEnumValues();
-            foreach (var value in values) valuesListBox.Items.Add(value);
+            foreach (var value in values) ListBoxValues.Items.Add(value);
         }
 
         private void valuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var item = ((ListBox) sender).SelectedItem;
-            tbIntValue.Text = ((int) item).ToString();
+            var item = ListBoxValues.SelectedItem;
+            TextBoxIntValue.Text = ((int) item).ToString();
         }
 
         private void btnParse_Click(object sender, EventArgs e)
         {
-            var text = tbValueParse.Text;
+            var text = TextBoxValueParse.Text;
             var types = _types;
 
             foreach (var type in types)
             {
                 if (!Enum.IsDefined(type, text)) continue;
-                var o = Enum.Parse(type, text, true);
-                lbTextParse.Text = o + @" - " + (int) o;
+                var enumValue = Enum.Parse(type, text, true);
+                LabelTextParse.Text = enumValue + @" - " + (int) enumValue;
                 break;
             }
         }
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            var item = cbSeasons.SelectedItem;
+            var item = ComboBoxSeasons.SelectedItem;
             switch (item)
             {
                 case Season.Autumn:
