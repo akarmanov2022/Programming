@@ -49,7 +49,7 @@
         <Compile Include="model\Color.cs" />
         <Compile Include="model\Genre.cs" />
         <Compile Include="model\SmartphoneCompany.cs" />
-        <Compile Include="model\Seasons.cs" />
+        <Compile Include="model\Season.cs" />
         <Compile Include="model\TrainingType.cs" />
         <Compile Include="model\Weekday.cs" />
         <Compile Include="Program.cs" />

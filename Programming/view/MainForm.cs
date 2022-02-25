@@ -20,7 +20,7 @@ namespace Programming.view
                 typeof(Color),
                 typeof(Genre),
                 typeof(SmartphoneCompany),
-                typeof(Seasons),
+                typeof(Season),
                 typeof(TrainingType),
                 typeof(Weekday)
             });
@@ -32,7 +32,7 @@ namespace Programming.view
             enumsListBox.Items.AddRange(types.ToArray());
             enumsListBox.SetSelected(0, true);
 
-            var values = Enum.GetValues(typeof(Seasons));
+            var values = Enum.GetValues(typeof(Season));
             foreach (var value in values) cbSeasons.Items.Add(value);
         }
 
@@ -70,16 +70,16 @@ namespace Programming.view
             var item = cbSeasons.SelectedItem;
             switch (item)
             {
-                case Seasons.Autumn:
+                case Season.Autumn:
                     BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
-                case Seasons.Spring:
+                case Season.Spring:
                     BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
-                case Seasons.Summer:
+                case Season.Summer:
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
-                case Seasons.Winter:
+                case Season.Winter:
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
                 default:
