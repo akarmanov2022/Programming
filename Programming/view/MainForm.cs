@@ -48,7 +48,7 @@ namespace Programming.view
         private void valuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = ((ListBox) sender).SelectedItem;
-            tbIntValue.Text = item.GetHashCode().ToString();
+            tbIntValue.Text = ((int) item).ToString();
         }
 
         private void btnParse_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace Programming.view
             {
                 if (!Enum.IsDefined(type, text)) continue;
                 var o = Enum.Parse(type, text, true);
-                lbTextParse.Text = o + @" - " + o.GetHashCode();
+                lbTextParse.Text = o + @" - " + (int) o;
                 break;
             }
         }
