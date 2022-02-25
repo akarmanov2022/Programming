@@ -77,9 +77,11 @@ namespace Programming.view
                     BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 case Season.Summer:
+                    BackColor = System.Drawing.Color.White;
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
                 case Season.Winter:
+                    BackColor = System.Drawing.Color.White;
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
                 default:
