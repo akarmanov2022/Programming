@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using Programming.model;
 using Color = Programming.model.Color;
@@ -72,10 +71,10 @@ namespace Programming.view
             switch (item)
             {
                 case Seasons.Autumn:
-                    tabPageEnums.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
                 case Seasons.Spring:
-                    tabPageEnums.BackColor = ColorTranslator.FromHtml("#559c45");
+                    BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 case Seasons.Summer:
                     MessageBox.Show(@"Ура! Солнце!");
