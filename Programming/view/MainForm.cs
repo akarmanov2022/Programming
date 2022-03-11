@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Programming.model;
 using Color = Programming.model.Color;
@@ -56,10 +57,8 @@ namespace Programming.view
             var text = TextBoxValueParse.Text;
             var types = _types;
 
-            foreach (var type in types)
+            foreach (var enumValue in from type in types where Enum.IsDefined(type, text) select Enum.Parse(type, text, true))
             {
-                if (!Enum.IsDefined(type, text)) continue;
-                var enumValue = Enum.Parse(type, text, true);
                 LabelTextParse.Text = enumValue + @" - " + (int) enumValue;
                 break;
             }
