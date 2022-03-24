@@ -64,7 +64,7 @@ namespace Programming.View
                     Genre = genre.ToString(),
                     Duration = Random.Next(200),
                     Year = Random.Next(Film.MinYear, DateTime.Now.Year),
-                    Rating = Random.NextDouble(),
+                    Rating = Math.Round(Random.NextDouble(), 2),
                     Name = $"{genre}Film{Random.Next(100)}"
                 };
             }
@@ -96,8 +96,8 @@ namespace Programming.View
                 var colorId = Random.Next(0, colors.Length);
                 rectangles[i] = new Rectangle
                 {
-                    Length = Random.NextDouble() * 100,
-                    Width = Random.NextDouble() * 100,
+                    Length = Math.Round(Random.NextDouble() * 100, 2),
+                    Width = Math.Round(Random.NextDouble() * 100, 2),
                     Color = colors.GetValue(colorId).ToString()
                 };
             }
