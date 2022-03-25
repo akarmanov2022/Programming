@@ -1,6 +1,6 @@
-namespace Programming.Model
+namespace Programming.Model.Enum
 {
-    public enum Color
+    public enum EnumColor
     {
         White,
         Black,

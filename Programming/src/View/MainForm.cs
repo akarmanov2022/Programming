@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Programming.Model;
-using Color = Programming.Model.Color;
+using Color = Programming.Model.Enum.EnumColor;
 using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View
@@ -21,6 +21,8 @@ namespace Programming.View
 
         private Film[] _films;
         private Film _currentFilm;
+        private static readonly System.Drawing.Color BackColorSuccess = System.Drawing.Color.White;
+        private static readonly System.Drawing.Color BackColorError = System.Drawing.Color.LightPink;
 
         public MainForm()
         {
@@ -72,8 +74,9 @@ namespace Programming.View
             return films;
         }
 
-        private static int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth()
         {
+            var rectangles = _rectangles;
             var maxWidth = rectangles[0].Width;
             var rectangleId = 0;
             for (var i = 1; i < rectangles.Length; i++)
@@ -146,11 +149,11 @@ namespace Programming.View
                     BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 case Season.Summer:
-                    BackColor = System.Drawing.Color.White;
+                    BackColor = BackColorSuccess;
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
                 case Season.Winter:
-                    BackColor = System.Drawing.Color.White;
+                    BackColor = BackColorSuccess;
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
                 default:
@@ -160,8 +163,7 @@ namespace Programming.View
 
         private void ButtonClassesRectangleFind_Click(object sender, EventArgs e)
         {
-            var rectangles = _rectangles;
-            var index = FindRectangleWithMaxWidth(rectangles);
+            var index = FindRectangleWithMaxWidth();
 
             ListBoxClassesRectangles.SelectedIndex = index;
         }
@@ -181,13 +183,13 @@ namespace Programming.View
         {
             try
             {
-                TextBoxClassesRectangleLength.BackColor = System.Drawing.Color.White;
+                TextBoxClassesRectangleLength.BackColor = BackColorSuccess;
                 var text = TextBoxClassesRectangleLength.Text;
                 _currentRectangle.Length = double.Parse(text.Replace('.', ','));
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleLength.BackColor = System.Drawing.Color.LightPink;
+                TextBoxClassesRectangleLength.BackColor = BackColorError;
             }
         }
 
@@ -195,13 +197,13 @@ namespace Programming.View
         {
             try
             {
-                TextBoxClassesRectangleWidth.BackColor = System.Drawing.Color.White;
+                TextBoxClassesRectangleWidth.BackColor = BackColorSuccess;
                 var text = TextBoxClassesRectangleWidth.Text;
                 _currentRectangle.Width = double.Parse(text.Replace('.', ','));
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleWidth.BackColor = System.Drawing.Color.LightPink;
+                TextBoxClassesRectangleWidth.BackColor = BackColorError;
             }
         }
 
@@ -225,13 +227,13 @@ namespace Programming.View
 
         private void ButtonClassesFilmsFind_Click(object sender, EventArgs e)
         {
-            var films = _films;
-            var index = FindFilmWithMaxRating(films);
+            var index = FindFilmWithMaxRating();
             ListBoxClassesFilms.SelectedIndex = index;
         }
 
-        private static int FindFilmWithMaxRating(Film[] films)
+        private int FindFilmWithMaxRating()
         {
+            var films = _films;
             var maxRating = films[0].Rating;
             var filmId = 0;
             for (var i = 1; i < films.Length; i++)
@@ -248,13 +250,13 @@ namespace Programming.View
         {
             try
             {
-                TextBoxClassesFilmsDuration.BackColor = System.Drawing.Color.White;
+                TextBoxClassesFilmsDuration.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsDuration.Text;
                 _currentFilm.Duration = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsDuration.BackColor = System.Drawing.Color.LightPink;
+                TextBoxClassesFilmsDuration.BackColor = BackColorError;
             }
         }
 
@@ -262,13 +264,13 @@ namespace Programming.View
         {
             try
             {
-                TextBoxClassesFilmsYear.BackColor = System.Drawing.Color.White;
+                TextBoxClassesFilmsYear.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsYear.Text;
                 _currentFilm.Year = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsYear.BackColor = System.Drawing.Color.LightPink;
+                TextBoxClassesFilmsYear.BackColor = BackColorError;
             }
         }
 
@@ -276,13 +278,13 @@ namespace Programming.View
         {
             try
             {
-                TextBoxClassesFilmsRating.BackColor = System.Drawing.Color.White;
+                TextBoxClassesFilmsRating.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsRating.Text;
                 _currentFilm.Rating = double.Parse(text.Replace('.', ','));
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsRating.BackColor = System.Drawing.Color.LightPink;
+                TextBoxClassesFilmsRating.BackColor = BackColorError;
             }
         }
 
