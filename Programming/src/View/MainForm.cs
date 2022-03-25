@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Programming.Model;
+using Programming.Model.Enum;
 using Color = Programming.Model.Enum.EnumColor;
 using Rectangle = Programming.Model.Rectangle;
 

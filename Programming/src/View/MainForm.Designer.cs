@@ -413,7 +413,7 @@
             this.GroupBoxClassesRectangles.Controls.Add(this.ListBoxClassesRectangles);
             this.GroupBoxClassesRectangles.Location = new System.Drawing.Point(3, 3);
             this.GroupBoxClassesRectangles.Name = "GroupBoxClassesRectangles";
-            this.GroupBoxClassesRectangles.Size = new System.Drawing.Size(321, 223);
+            this.GroupBoxClassesRectangles.Size = new System.Drawing.Size(324, 223);
             this.GroupBoxClassesRectangles.TabIndex = 0;
             this.GroupBoxClassesRectangles.TabStop = false;
             this.GroupBoxClassesRectangles.Text = "Rectangles";
@@ -421,7 +421,7 @@
             // ButtonClassesRectangleFind
             // 
             this.ButtonClassesRectangleFind.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonClassesRectangleFind.Location = new System.Drawing.Point(240, 182);
+            this.ButtonClassesRectangleFind.Location = new System.Drawing.Point(243, 182);
             this.ButtonClassesRectangleFind.Name = "ButtonClassesRectangleFind";
             this.ButtonClassesRectangleFind.Size = new System.Drawing.Size(75, 23);
             this.ButtonClassesRectangleFind.TabIndex = 7;
@@ -433,7 +433,7 @@
             // 
             this.TextBoxClassesRectangleColor.Location = new System.Drawing.Point(148, 110);
             this.TextBoxClassesRectangleColor.Name = "TextBoxClassesRectangleColor";
-            this.TextBoxClassesRectangleColor.Size = new System.Drawing.Size(167, 20);
+            this.TextBoxClassesRectangleColor.Size = new System.Drawing.Size(170, 20);
             this.TextBoxClassesRectangleColor.TabIndex = 6;
             this.TextBoxClassesRectangleColor.TextChanged += new System.EventHandler(this.TextBoxClassesRectangleColor_TextChanged);
             // 
@@ -449,7 +449,7 @@
             // 
             this.TextBoxClassesRectangleWidth.Location = new System.Drawing.Point(148, 71);
             this.TextBoxClassesRectangleWidth.Name = "TextBoxClassesRectangleWidth";
-            this.TextBoxClassesRectangleWidth.Size = new System.Drawing.Size(167, 20);
+            this.TextBoxClassesRectangleWidth.Size = new System.Drawing.Size(170, 20);
             this.TextBoxClassesRectangleWidth.TabIndex = 4;
             this.TextBoxClassesRectangleWidth.TextChanged += new System.EventHandler(this.TextBoxClassesRectangleWidth_TextChanged);
             // 
@@ -465,7 +465,7 @@
             // 
             this.TextBoxClassesRectangleLength.Location = new System.Drawing.Point(148, 32);
             this.TextBoxClassesRectangleLength.Name = "TextBoxClassesRectangleLength";
-            this.TextBoxClassesRectangleLength.Size = new System.Drawing.Size(167, 20);
+            this.TextBoxClassesRectangleLength.Size = new System.Drawing.Size(170, 20);
             this.TextBoxClassesRectangleLength.TabIndex = 2;
             this.TextBoxClassesRectangleLength.TextChanged += new System.EventHandler(this.TextBoxClassesRectangleLength_TextChanged);
             // 

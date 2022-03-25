@@ -6,25 +6,25 @@ namespace Programming.Model
     {
         private int _audienceNumber;
 
-        public string Name { get; set; }
-
-        public string TeacherName { get; set; }
-
         public Discipline()
         {
         }
 
-        public Discipline(int audienceNumber, string name, string teacherName)
+        public Discipline(int audienceNumber, string titleName, string teacherName)
         {
             AudienceNumber = audienceNumber;
-            Name = name;
+            TitleName = titleName;
             TeacherName = teacherName;
         }
+
+        public string TitleName { get; set; }
+
+        public string TeacherName { get; set; }
 
         public int AudienceNumber
         {
             get => _audienceNumber;
-            set => _audienceNumber = value < 0 ? throw new AggregateException($"AudienceNumber < 0: {value}") : value;
+            set => _audienceNumber = value < 0 ? throw new ArgumentException($"AudienceNumber < 0: {value}") : value;
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace Programming.Model
+namespace Programming.Model.Enum
 {
     public enum Genre
     {
@@ -7,7 +7,7 @@ namespace Programming.Model
         Thriller,
         Action,
         Movie,
-        Horrors,
+        Horror,
         Block
     }
 }
