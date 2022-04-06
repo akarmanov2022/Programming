@@ -102,7 +102,8 @@ namespace Programming.View
                 {
                     Length = Math.Round(Random.NextDouble() * 100, 2),
                     Width = Math.Round(Random.NextDouble() * 100, 2),
-                    Color = colors.GetValue(colorId).ToString()
+                    Color = colors.GetValue(colorId).ToString(),
+                    Center = new Point2D(Random.Next(100), Random.Next(100))
                 };
             }
 
@@ -178,6 +179,7 @@ namespace Programming.View
             TextBoxClassesRectangleColor.Text = _currentRectangle.Color;
             TextBoxClassesRectangleLength.Text = _currentRectangle.Length.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleWidth.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
+            TextBoxClassesRectangleCenter.Text = _currentRectangle.Center.ToString();
         }
 
         private void TextBoxClassesRectangleLength_TextChanged(object sender, EventArgs e)
@@ -297,6 +299,11 @@ namespace Programming.View
         private void TextBoxClassesFilmsGenre_TextChanged(object sender, EventArgs e)
         {
             _currentFilm.Genre = TextBoxClassesFilmsGenre.Text;
+        }
+
+        private void TextBoxClassesRectangleCenter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
