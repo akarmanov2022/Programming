@@ -1,4 +1,5 @@
 using System;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -10,7 +11,7 @@ namespace Programming.Model
 
         private int _duration;
         private int _year;
-        private double _rating;
+        private int _rating;
         private readonly int _id;
 
         public string Name { get; set; }
@@ -22,7 +23,7 @@ namespace Programming.Model
             _id = _counter++;
         }
 
-        public Film(int duration, int year, double rating, string name, string genre)
+        public Film(int duration, int year, int rating, string name, string genre)
         {
             Duration = duration;
             Year = year;
@@ -35,41 +36,19 @@ namespace Programming.Model
         public int Duration
         {
             get => _duration;
-            set => _duration =
-                value >= 0 ? value : throw new ArgumentException($"Duration < 0: {value}");
+            set => _duration = Validator.AssertOnPositiveValue(value, nameof(Duration));
         }
 
         public int Year
         {
             get => _year;
-            set
-            {
-                if (value < MinYear)
-                {
-                    throw new ArgumentException($"Year < ${MinYear}: {value}");
-                }
-
-                if (value > DateTime.Now.Year)
-                {
-                    throw new ArgumentException($"Year > ${DateTime.Now.Year}: {value}");
-                }
-
-                _year = value;
-            }
+            set => _year = Validator.AssertOnPositiveValue(value, MinYear, DateTime.Now.Year, nameof(Year));
         }
 
-        public double Rating
+        public int Rating
         {
             get => _rating;
-            set
-            {
-                if (value < 0d || value > 1d)
-                {
-                    throw new ArgumentException($"Rating > 1 or Rating < 0: {value}");
-                }
-
-                _rating = value;
-            }
+            set => _rating = Validator.AssertOnPositiveValue(value, 0, 10, nameof(Rating));
         }
 
         public override string ToString()

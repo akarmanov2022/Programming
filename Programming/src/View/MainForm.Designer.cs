@@ -62,6 +62,8 @@
             this.LabelClassesFilmsDuration = new System.Windows.Forms.Label();
             this.ListBoxClassesFilms = new System.Windows.Forms.ListBox();
             this.GroupBoxClassesRectangles = new System.Windows.Forms.GroupBox();
+            this.TextBoxClassesRectangleCenter = new System.Windows.Forms.TextBox();
+            this.LabelClassesRectangleCenter = new System.Windows.Forms.Label();
             this.ButtonClassesRectangleFind = new System.Windows.Forms.Button();
             this.TextBoxClassesRectangleColor = new System.Windows.Forms.TextBox();
             this.LabelClassesRectangleColor = new System.Windows.Forms.Label();
@@ -70,6 +72,8 @@
             this.TextBoxClassesRectangleLength = new System.Windows.Forms.TextBox();
             this.LabelClassesRectangleLength = new System.Windows.Forms.Label();
             this.ListBoxClassesRectangles = new System.Windows.Forms.ListBox();
+            this.TextBoxClassesRectangleId = new System.Windows.Forms.TextBox();
+            this.LabelClassesRectangleId = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.tabPageEnums.SuspendLayout();
             this.gbWeekdayParsing.SuspendLayout();
@@ -293,9 +297,10 @@
             this.GroupBoxClassesFilms.Controls.Add(this.TextBoxClassesFilmsDuration);
             this.GroupBoxClassesFilms.Controls.Add(this.LabelClassesFilmsDuration);
             this.GroupBoxClassesFilms.Controls.Add(this.ListBoxClassesFilms);
-            this.GroupBoxClassesFilms.Location = new System.Drawing.Point(6, 232);
+            this.GroupBoxClassesFilms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GroupBoxClassesFilms.Location = new System.Drawing.Point(3, 226);
             this.GroupBoxClassesFilms.Name = "GroupBoxClassesFilms";
-            this.GroupBoxClassesFilms.Size = new System.Drawing.Size(321, 293);
+            this.GroupBoxClassesFilms.Size = new System.Drawing.Size(786, 293);
             this.GroupBoxClassesFilms.TabIndex = 8;
             this.GroupBoxClassesFilms.TabStop = false;
             this.GroupBoxClassesFilms.Text = "Films";
@@ -335,7 +340,7 @@
             // ButtonClassesFilmsFind
             // 
             this.ButtonClassesFilmsFind.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonClassesFilmsFind.Location = new System.Drawing.Point(240, 252);
+            this.ButtonClassesFilmsFind.Location = new System.Drawing.Point(705, 252);
             this.ButtonClassesFilmsFind.Name = "ButtonClassesFilmsFind";
             this.ButtonClassesFilmsFind.Size = new System.Drawing.Size(75, 23);
             this.ButtonClassesFilmsFind.TabIndex = 7;
@@ -403,6 +408,10 @@
             // 
             // GroupBoxClassesRectangles
             // 
+            this.GroupBoxClassesRectangles.Controls.Add(this.TextBoxClassesRectangleId);
+            this.GroupBoxClassesRectangles.Controls.Add(this.LabelClassesRectangleId);
+            this.GroupBoxClassesRectangles.Controls.Add(this.TextBoxClassesRectangleCenter);
+            this.GroupBoxClassesRectangles.Controls.Add(this.LabelClassesRectangleCenter);
             this.GroupBoxClassesRectangles.Controls.Add(this.ButtonClassesRectangleFind);
             this.GroupBoxClassesRectangles.Controls.Add(this.TextBoxClassesRectangleColor);
             this.GroupBoxClassesRectangles.Controls.Add(this.LabelClassesRectangleColor);
@@ -411,17 +420,34 @@
             this.GroupBoxClassesRectangles.Controls.Add(this.TextBoxClassesRectangleLength);
             this.GroupBoxClassesRectangles.Controls.Add(this.LabelClassesRectangleLength);
             this.GroupBoxClassesRectangles.Controls.Add(this.ListBoxClassesRectangles);
+            this.GroupBoxClassesRectangles.Dock = System.Windows.Forms.DockStyle.Top;
             this.GroupBoxClassesRectangles.Location = new System.Drawing.Point(3, 3);
             this.GroupBoxClassesRectangles.Name = "GroupBoxClassesRectangles";
-            this.GroupBoxClassesRectangles.Size = new System.Drawing.Size(324, 223);
+            this.GroupBoxClassesRectangles.Size = new System.Drawing.Size(786, 223);
             this.GroupBoxClassesRectangles.TabIndex = 0;
             this.GroupBoxClassesRectangles.TabStop = false;
             this.GroupBoxClassesRectangles.Text = "Rectangles";
             // 
+            // TextBoxClassesRectangleCenter
+            // 
+            this.TextBoxClassesRectangleCenter.Location = new System.Drawing.Point(148, 149);
+            this.TextBoxClassesRectangleCenter.Name = "TextBoxClassesRectangleCenter";
+            this.TextBoxClassesRectangleCenter.Size = new System.Drawing.Size(170, 20);
+            this.TextBoxClassesRectangleCenter.TabIndex = 9;
+            this.TextBoxClassesRectangleCenter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
+            // 
+            // LabelClassesRectangleCenter
+            // 
+            this.LabelClassesRectangleCenter.Location = new System.Drawing.Point(148, 133);
+            this.LabelClassesRectangleCenter.Name = "LabelClassesRectangleCenter";
+            this.LabelClassesRectangleCenter.Size = new System.Drawing.Size(167, 13);
+            this.LabelClassesRectangleCenter.TabIndex = 8;
+            this.LabelClassesRectangleCenter.Text = "Center:";
+            // 
             // ButtonClassesRectangleFind
             // 
             this.ButtonClassesRectangleFind.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonClassesRectangleFind.Location = new System.Drawing.Point(243, 182);
+            this.ButtonClassesRectangleFind.Location = new System.Drawing.Point(705, 182);
             this.ButtonClassesRectangleFind.Name = "ButtonClassesRectangleFind";
             this.ButtonClassesRectangleFind.Size = new System.Drawing.Size(75, 23);
             this.ButtonClassesRectangleFind.TabIndex = 7;
@@ -487,6 +513,22 @@
             this.ListBoxClassesRectangles.TabIndex = 0;
             this.ListBoxClassesRectangles.SelectedIndexChanged += new System.EventHandler(this.ListBoxClassesRectangles_SelectedIndexChanged);
             // 
+            // TextBoxClassesRectangleId
+            // 
+            this.TextBoxClassesRectangleId.Location = new System.Drawing.Point(324, 32);
+            this.TextBoxClassesRectangleId.Name = "TextBoxClassesRectangleId";
+            this.TextBoxClassesRectangleId.Size = new System.Drawing.Size(170, 20);
+            this.TextBoxClassesRectangleId.TabIndex = 11;
+            this.TextBoxClassesRectangleId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
+            // 
+            // LabelClassesRectangleId
+            // 
+            this.LabelClassesRectangleId.Location = new System.Drawing.Point(324, 16);
+            this.LabelClassesRectangleId.Name = "LabelClassesRectangleId";
+            this.LabelClassesRectangleId.Size = new System.Drawing.Size(167, 13);
+            this.LabelClassesRectangleId.TabIndex = 10;
+            this.LabelClassesRectangleId.Text = "Id:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,6 +554,12 @@
             this.GroupBoxClassesRectangles.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TextBox TextBoxClassesRectangleId;
+        private System.Windows.Forms.Label LabelClassesRectangleId;
+
+        private System.Windows.Forms.TextBox TextBoxClassesRectangleCenter;
+        private System.Windows.Forms.Label LabelClassesRectangleCenter;
 
         private System.Windows.Forms.TextBox TextBoxClassesFilmsGenre;
         private System.Windows.Forms.Label LabelClassesFilmsGenre;

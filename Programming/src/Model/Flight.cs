@@ -1,4 +1,6 @@
 using System;
+using System.Reflection;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -24,7 +26,7 @@ namespace Programming.Model
         public int Time
         {
             get => _time;
-            set => _time = value < 0 ? throw new ArgumentException($"Time < 0: {value}") : value;
+            set => _time = Validator.AssertOnPositiveValue(value, nameof(Time));
         }
     }
 }

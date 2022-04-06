@@ -67,7 +67,7 @@ namespace Programming.View
                     Genre = genre.ToString(),
                     Duration = Random.Next(200),
                     Year = Random.Next(Film.MinYear, DateTime.Now.Year),
-                    Rating = Math.Round(Random.NextDouble(), 2),
+                    Rating = Random.Next(10),
                     Name = $"{genre}Film{Random.Next(100)}"
                 };
             }
@@ -102,7 +102,8 @@ namespace Programming.View
                 {
                     Length = Math.Round(Random.NextDouble() * 100, 2),
                     Width = Math.Round(Random.NextDouble() * 100, 2),
-                    Color = colors.GetValue(colorId).ToString()
+                    Color = colors.GetValue(colorId).ToString(),
+                    Center = new Point2D(Random.Next(100), Random.Next(100))
                 };
             }
 
@@ -178,6 +179,8 @@ namespace Programming.View
             TextBoxClassesRectangleColor.Text = _currentRectangle.Color;
             TextBoxClassesRectangleLength.Text = _currentRectangle.Length.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleWidth.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
+            TextBoxClassesRectangleCenter.Text = _currentRectangle.Center.ToString();
+            TextBoxClassesRectangleId.Text = _currentRectangle.Id.ToString();
         }
 
         private void TextBoxClassesRectangleLength_TextChanged(object sender, EventArgs e)
@@ -281,7 +284,7 @@ namespace Programming.View
             {
                 TextBoxClassesFilmsRating.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsRating.Text;
-                _currentFilm.Rating = double.Parse(text.Replace('.', ','));
+                _currentFilm.Rating = int.Parse(text);
             }
             catch (Exception)
             {
@@ -297,6 +300,11 @@ namespace Programming.View
         private void TextBoxClassesFilmsGenre_TextChanged(object sender, EventArgs e)
         {
             _currentFilm.Genre = TextBoxClassesFilmsGenre.Text;
+        }
+
+        private void TextBox_KeyPressCancel(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
