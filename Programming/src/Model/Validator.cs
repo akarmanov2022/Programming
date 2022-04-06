@@ -24,5 +24,12 @@ namespace Programming.Model
                 ? value 
                 : throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
         }
+        
+        public static double AssertOnPositiveValue(double value, double min, double max, string propertyName)
+        {
+            return value >= min && value <= max
+                ? value 
+                : throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+        }
     }
 }
