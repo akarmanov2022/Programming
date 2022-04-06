@@ -24,7 +24,9 @@ namespace Programming.Model
         public int AudienceNumber
         {
             get => _audienceNumber;
-            set => _audienceNumber = value < 0 ? throw new ArgumentException($"AudienceNumber < 0: {value}") : value;
+            set => _audienceNumber = Validator.AssertOnPositiveValue(value, nameof(AudienceNumber));
         }
+        
+        
     }
 }

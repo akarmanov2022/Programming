@@ -67,7 +67,7 @@ namespace Programming.View
                     Genre = genre.ToString(),
                     Duration = Random.Next(200),
                     Year = Random.Next(Film.MinYear, DateTime.Now.Year),
-                    Rating = Math.Round(Random.NextDouble(), 2),
+                    Rating = Random.Next(10),
                     Name = $"{genre}Film{Random.Next(100)}"
                 };
             }
@@ -281,7 +281,7 @@ namespace Programming.View
             {
                 TextBoxClassesFilmsRating.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsRating.Text;
-                _currentFilm.Rating = double.Parse(text.Replace('.', ','));
+                _currentFilm.Rating = int.Parse(text);
             }
             catch (Exception)
             {

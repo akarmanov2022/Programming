@@ -24,7 +24,7 @@ namespace Programming.Model
         public int Duration
         {
             get => _duration;
-            set => _duration = value < 0 ? throw new ArgumentException($"Width < 0: {value}") : value;
+            set => _duration = Validator.AssertOnPositiveValue(value, nameof(Duration));
         }
     }
 }

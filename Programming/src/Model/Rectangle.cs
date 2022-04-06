@@ -29,13 +29,13 @@ namespace Programming.Model
         public double Width
         {
             get => _width;
-            set => _width = value < 0 ? throw new ArgumentException($"Width < 0: {value}") : value;
+            set => _width = Validator.AssertOnPositiveValue(value, nameof(Width));
         }
 
         public double Length
         {
             get => _length;
-            set => _length = value < 0 ? throw new ArgumentException($"Length < 0: {value}") : value;
+            set => _length = Validator.AssertOnPositiveValue(value, nameof(Width));
         }
 
         public override string ToString()

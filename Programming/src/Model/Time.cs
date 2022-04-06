@@ -22,58 +22,19 @@ namespace Programming.Model
         public int Hours
         {
             get => _hours;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException($"Hours < 0: {value}");
-                }
-
-                if (value > 24)
-                {
-                    throw new ArgumentException($"Hours > 24: {value}");
-                }
-
-                _hours = value;
-            }
+            set => _hours = Validator.AssertOnPositiveValue(value, 0, 23, nameof(Hours));
         }
 
         public int Minutes
         {
             get => _minutes;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException($"Minutes < 0: {value}");
-                }
-
-                if (value > 60)
-                {
-                    throw new ArgumentException($"Minutes > 60: {value}");
-                }
-
-                _minutes = value;
-            }
+            set => _minutes = Validator.AssertOnPositiveValue(value, 0, 59, nameof(Minutes));
         }
 
         public int Seconds
         {
             get => _seconds;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException($"Seconds < 0: ${value}");
-                }
-
-                if (value > 60)
-                {
-                    throw new ArgumentException($"Seconds > 60: ${value}");
-                }
-
-                _seconds = value;
-            }
+            set => _seconds = Validator.AssertOnPositiveValue(value, 0, 59, nameof(Seconds));
         }
     }
 }
