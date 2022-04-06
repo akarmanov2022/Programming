@@ -62,8 +62,9 @@
         <Compile Include="src\Model\Ring.cs" />
         <Compile Include="src\Model\Song.cs" />
         <Compile Include="src\Model\Time.cs" />
-        <Compile Include="src\Model\Validator.cs" />
         <Compile Include="src\Program.cs" />
+        <Compile Include="src\Service\CollisionManager.cs" />
+        <Compile Include="src\Service\Validator.cs" />
         <Compile Include="src\View\MainForm.cs" />
         <Compile Include="src\View\MainForm.Designer.cs">
           <DependentUpon>MainForm.cs</DependentUpon>

@@ -1,4 +1,5 @@
 using System;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -10,7 +11,7 @@ namespace Programming.Model
         {
         }
 
-        public Discipline(int audienceNumber, string titleName, string teacherName)
+        public Discipline(string titleName, int audienceNumber, string teacherName)
         {
             AudienceNumber = audienceNumber;
             TitleName = titleName;
@@ -26,7 +27,5 @@ namespace Programming.Model
             get => _audienceNumber;
             set => _audienceNumber = Validator.AssertOnPositiveValue(value, nameof(AudienceNumber));
         }
-        
-        
     }
 }

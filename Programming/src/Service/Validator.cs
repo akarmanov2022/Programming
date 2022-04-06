@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Programming.Model
+namespace Programming.Service
 {
     public static class Validator
     {

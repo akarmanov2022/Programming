@@ -1,10 +1,11 @@
 using System;
+using Programming.Service;
 
 namespace Programming.Model
 {
     public class Rectangle
     {
-        private static int _counter = 1;
+        private static int _allRectanglesCount = 1;
 
         private readonly int _id;
 
@@ -17,7 +18,7 @@ namespace Programming.Model
 
         public Rectangle()
         {
-            _id = _counter++;   
+            _id = _allRectanglesCount++;   
         }
 
         public Rectangle(double width, double length, string color, Point2D center)
@@ -26,8 +27,10 @@ namespace Programming.Model
             Length = length;
             Color = color;
             Center = center;
-            _id = _counter++;
+            _id = _allRectanglesCount++;
         }
+
+        public int Id => _id;
 
         public double Width
         {
@@ -40,6 +43,8 @@ namespace Programming.Model
             get => _length;
             set => _length = Validator.AssertOnPositiveValue(value, nameof(Width));
         }
+
+        public static int AllRectanglesCount => _allRectanglesCount;
 
         public override string ToString()
         {

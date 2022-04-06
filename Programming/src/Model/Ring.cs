@@ -1,4 +1,5 @@
 ﻿using System;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -14,20 +15,23 @@ namespace Programming.Model
             Center = center;
         }
 
-        private double OuterRadius
+        public double OuterRadius
         {
-            set => _outerRadius =
+            get => _outerRadius;
+            private set => _outerRadius =
                 Validator.AssertOnPositiveValue(value, _innerRadius, double.MaxValue, nameof(OuterRadius));
         }
 
-        private double InnerRadius
+        public double InnerRadius
         {
-            set => _innerRadius = Validator.AssertOnPositiveValue(value, 0, _outerRadius, nameof(InnerRadius));
+            get => _innerRadius;
+            private set => _innerRadius =
+                Validator.AssertOnPositiveValue(value, 0, _outerRadius, nameof(InnerRadius));
         }
 
-        private Point2D Center { set; get; }
+        public Point2D Center { set; get; }
 
-        public double Area => 
+        public double Area =>
             Math.PI * (Math.Pow(_outerRadius, 2) - Math.Pow(_innerRadius, 2));
     }
 }

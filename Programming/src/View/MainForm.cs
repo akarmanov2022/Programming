@@ -180,6 +180,7 @@ namespace Programming.View
             TextBoxClassesRectangleLength.Text = _currentRectangle.Length.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleWidth.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleCenter.Text = _currentRectangle.Center.ToString();
+            TextBoxClassesRectangleId.Text = _currentRectangle.Id.ToString();
         }
 
         private void TextBoxClassesRectangleLength_TextChanged(object sender, EventArgs e)
@@ -301,7 +302,7 @@ namespace Programming.View
             _currentFilm.Genre = TextBoxClassesFilmsGenre.Text;
         }
 
-        private void TextBoxClassesRectangleCenter_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBox_KeyPressCancel(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
