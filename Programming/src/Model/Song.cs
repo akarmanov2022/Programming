@@ -1,10 +1,11 @@
 using System;
-using Programming.Service;
+using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Song
     {
+
         private int _duration;
 
         public string Name { get; set; }
@@ -25,7 +26,12 @@ namespace Programming.Model
         public int Duration
         {
             get => _duration;
-            set => _duration = Validator.AssertOnPositiveValue(value, nameof(Duration));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(Duration));
+                _duration = value;
+            }
         }
+
     }
 }

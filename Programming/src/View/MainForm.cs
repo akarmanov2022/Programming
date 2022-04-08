@@ -13,16 +13,21 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
+
         private static readonly Random Random = new Random();
 
         private List<Type> _types;
 
         private Rectangle[] _rectangles;
+
         private Rectangle _currentRectangle;
 
         private Film[] _films;
+
         private Film _currentFilm;
+
         private static readonly System.Drawing.Color BackColorSuccess = System.Drawing.Color.White;
+
         private static readonly System.Drawing.Color BackColorError = System.Drawing.Color.LightPink;
 
         public MainForm()
@@ -306,5 +311,6 @@ namespace Programming.View
         {
             e.Handled = true;
         }
+
     }
 }

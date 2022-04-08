@@ -1,10 +1,11 @@
 using System;
-using Programming.Service;
+using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Discipline
     {
+
         private int _audienceNumber;
 
         public Discipline()
@@ -25,7 +26,12 @@ namespace Programming.Model
         public int AudienceNumber
         {
             get => _audienceNumber;
-            set => _audienceNumber = Validator.AssertOnPositiveValue(value, nameof(AudienceNumber));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(AudienceNumber));
+                _audienceNumber = value;
+            }
         }
+
     }
 }

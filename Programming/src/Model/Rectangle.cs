@@ -1,24 +1,26 @@
 using System;
-using Programming.Service;
+using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Rectangle
     {
+
         private static int _allRectanglesCount = 1;
 
-        private readonly int _id;
-
         private double _width;
+
         private double _length;
 
         public string Color { get; set; }
 
         public Point2D Center { get; set; }
 
+        public int Id { get; }
+
         public Rectangle()
         {
-            _id = _allRectanglesCount++;   
+            Id = _allRectanglesCount++;
         }
 
         public Rectangle(double width, double length, string color, Point2D center)
@@ -27,28 +29,35 @@ namespace Programming.Model
             Length = length;
             Color = color;
             Center = center;
-            _id = _allRectanglesCount++;
+            Id = _allRectanglesCount++;
         }
-
-        public int Id => _id;
 
         public double Width
         {
             get => _width;
-            set => _width = Validator.AssertOnPositiveValue(value, nameof(Width));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(Width));
+                _width = value;
+            }
         }
 
         public double Length
         {
             get => _length;
-            set => _length = Validator.AssertOnPositiveValue(value, nameof(Width));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(Width));
+                _length = value;
+            }
         }
 
         public static int AllRectanglesCount => _allRectanglesCount;
 
         public override string ToString()
         {
-            return GetType().Name + " " + _id;
+            return GetType().Name + " " + Id;
         }
+
     }
 }

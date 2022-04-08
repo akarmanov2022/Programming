@@ -5,8 +5,11 @@ namespace Programming.Model
 {
     public class Time
     {
+
         private int _hours;
+
         private int _minutes;
+
         private int _seconds;
 
         public Time()
@@ -23,19 +26,32 @@ namespace Programming.Model
         public int Hours
         {
             get => _hours;
-            set => _hours = Validator.AssertOnPositiveValue(value, 0, 23, nameof(Hours));
+            set
+            {
+                Validator.AssertOnPositiveValue(value, 0, 23, nameof(Hours));
+                _hours = value;
+            }
         }
 
         public int Minutes
         {
             get => _minutes;
-            set => _minutes = Validator.AssertOnPositiveValue(value, 0, 59, nameof(Minutes));
+            set
+            {
+                Validator.AssertOnPositiveValue(value, 0, 59, nameof(Minutes));
+                _minutes = value;
+            }
         }
 
         public int Seconds
         {
             get => _seconds;
-            set => _seconds = Validator.AssertOnPositiveValue(value, 0, 59, nameof(Seconds));
+            set
+            {
+                Validator.AssertOnPositiveValue(value, 0, 59, nameof(Seconds));
+                _seconds = value;
+            }
         }
+
     }
 }

@@ -1,17 +1,25 @@
 using System;
-using Programming.Service;
+using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Film
     {
+
         public const int MinYear = 1900;
+
+        private const int MinRating = 0;
+
+        private const int MaxRating = 10;
 
         private static int _counter = 1;
 
         private int _duration;
+
         private int _year;
+
         private int _rating;
+
         private readonly int _id;
 
         public string Name { get; set; }
@@ -36,24 +44,37 @@ namespace Programming.Model
         public int Duration
         {
             get => _duration;
-            set => _duration = Validator.AssertOnPositiveValue(value, nameof(Duration));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(Duration));
+                _duration = value;
+            }
         }
 
         public int Year
         {
             get => _year;
-            set => _year = Validator.AssertOnPositiveValue(value, MinYear, DateTime.Now.Year, nameof(Year));
+            set
+            {
+                AssertOnPositiveValue(value, MinYear, DateTime.Now.Year, nameof(Year));
+                _year = value;
+            }
         }
 
         public int Rating
         {
             get => _rating;
-            set => _rating = Validator.AssertOnPositiveValue(value, 0, 10, nameof(Rating));
+            set
+            {
+                AssertOnPositiveValue(value, MinRating, MaxRating, nameof(Rating));
+                _rating = value;
+            }
         }
 
         public override string ToString()
         {
             return GetType().Name + " " + _id;
         }
+
     }
 }

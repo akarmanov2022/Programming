@@ -1,11 +1,12 @@
 using System;
 using System.Reflection;
-using Programming.Service;
+using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Flight
     {
+
         private int _time;
 
         public string Departure { get; set; }
@@ -26,7 +27,12 @@ namespace Programming.Model
         public int Time
         {
             get => _time;
-            set => _time = Validator.AssertOnPositiveValue(value, nameof(Time));
+            set
+            {
+                AssertOnPositiveValue(value, nameof(Time));
+                _time = value;
+            }
         }
+
     }
 }

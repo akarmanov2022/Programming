@@ -5,6 +5,7 @@ namespace Programming.Service
 {
     public static class CollisionManager
     {
+
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             var dX = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
@@ -23,5 +24,6 @@ namespace Programming.Service
 
             return c < ring1.OuterRadius + ring2.OuterRadius;
         }
+
     }
 }
