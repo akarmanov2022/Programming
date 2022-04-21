@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Programming.Model;
 using Programming.Model.Enum;
+using Programming.Service;
 using Color = Programming.Model.Enum.EnumColor;
 using Rectangle = Programming.Model.Rectangle;
 
@@ -13,21 +14,19 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private static readonly Random Random = new Random();
-
-        private List<Type> _types;
-
-        private Rectangle[] _rectangles;
-
-        private Rectangle _currentRectangle;
-
-        private Film[] _films;
-
-        private Film _currentFilm;
-
         private static readonly System.Drawing.Color BackColorSuccess = System.Drawing.Color.White;
 
         private static readonly System.Drawing.Color BackColorError = System.Drawing.Color.LightPink;
+
+        private List<Type> _types;
+
+        private List<Rectangle> _rectangles;
+
+        private Rectangle _currentRectangle;
+
+        private Movie[] _movies;
+
+        private Movie _currentMovie;
 
         public MainForm()
         {
@@ -36,8 +35,8 @@ namespace Programming.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _rectangles = CreateRandomRectangles(5);
-            _films = CreateRandomFilms(5);
+            _rectangles = RectangleService.GenerateRandomRectangles(5);
+            _movies = MovieService.GenerateRandomMovies(5);
 
             _types = new List<Type>()
             {
@@ -49,69 +48,13 @@ namespace Programming.View
                 typeof(Weekday)
             };
 
-            ListBoxClassesFilms.Items.AddRange(_films);
-            ListBoxClassesRectangles.Items.AddRange(_rectangles);
+            ListBoxClassesFilms.Items.AddRange(_movies);
+            ListBoxClassesRectangles.Items.AddRange(_rectangles.ToArray());
             ListBoxEnums.Items.AddRange(_types.ToArray());
             ListBoxEnums.SetSelected(0, true);
 
             var values = Enum.GetValues(typeof(Season));
             foreach (var value in values) ComboBoxSeasons.Items.Add(value);
-        }
-
-        private static Film[] CreateRandomFilms(int count)
-        {
-            var films = new Film[count];
-            var genres = Enum.GetValues(typeof(Genre));
-            for (var i = 0; i < films.Length; i++)
-            {
-                var genreRandomIndex = Random.Next(0, genres.Length);
-                var genre = genres.GetValue(genreRandomIndex);
-                films[i] = new Film
-                {
-                    Genre = genre.ToString(),
-                    Duration = Random.Next(200),
-                    Year = Random.Next(Film.MinYear, DateTime.Now.Year),
-                    Rating = Random.Next(10),
-                    Name = $"{genre}Film{Random.Next(100)}"
-                };
-            }
-
-            return films;
-        }
-
-        private int FindRectangleWithMaxWidth()
-        {
-            var rectangles = _rectangles;
-            var maxWidth = rectangles[0].Width;
-            var rectangleId = 0;
-            for (var i = 1; i < rectangles.Length; i++)
-            {
-                if (!(maxWidth < rectangles[i].Width)) continue;
-
-                maxWidth = rectangles[i].Width;
-                rectangleId = i;
-            }
-
-            return rectangleId;
-        }
-
-        private static Rectangle[] CreateRandomRectangles(int count)
-        {
-            var colors = Enum.GetValues(typeof(Color));
-            var rectangles = new Rectangle[count];
-            for (var i = 0; i < rectangles.Length; i++)
-            {
-                var colorId = Random.Next(0, colors.Length);
-                rectangles[i] = new Rectangle
-                {
-                    Length = Math.Round(Random.NextDouble() * 100, 2),
-                    Width = Math.Round(Random.NextDouble() * 100, 2),
-                    Color = colors.GetValue(colorId).ToString(),
-                    Center = new Point2D(Random.Next(100), Random.Next(100))
-                };
-            }
-
-            return rectangles;
         }
 
         private void enumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,7 +112,8 @@ namespace Programming.View
 
         private void ButtonClassesRectangleFind_Click(object sender, EventArgs e)
         {
-            var index = FindRectangleWithMaxWidth();
+            var rectangles = _rectangles ?? throw new ArgumentNullException(nameof(_rectangles));
+            var index = RectangleService.FindRectangleWithMaxWidth(rectangles);
 
             ListBoxClassesRectangles.SelectedIndex = index;
         }
@@ -222,36 +166,22 @@ namespace Programming.View
 
         private void ListBoxClassesFilms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var films = _films;
+            var films = _movies;
             var index = ListBoxClassesFilms.SelectedIndex;
-            _currentFilm = films[index];
+            _currentMovie = films[index];
 
-            TextBoxClassesFilmsDuration.Text = _currentFilm.Duration.ToString();
-            TextBoxClassesFilmsYear.Text = _currentFilm.Year.ToString();
-            TextBoxClassesFilmsName.Text = _currentFilm.Name;
-            TextBoxClassesFilmsGenre.Text = _currentFilm.Genre;
-            TextBoxClassesFilmsRating.Text = _currentFilm.Rating.ToString(CultureInfo.InvariantCulture);
+            TextBoxClassesFilmsDuration.Text = _currentMovie.Duration.ToString();
+            TextBoxClassesFilmsYear.Text = _currentMovie.Year.ToString();
+            TextBoxClassesFilmsName.Text = _currentMovie.Name;
+            TextBoxClassesFilmsGenre.Text = _currentMovie.Genre;
+            TextBoxClassesFilmsRating.Text = _currentMovie.Rating.ToString(CultureInfo.InvariantCulture);
         }
 
         private void ButtonClassesFilmsFind_Click(object sender, EventArgs e)
         {
-            var index = FindFilmWithMaxRating();
+            var movies = _movies;
+            var index = MovieService.FindMovieWithMaxRating(movies);
             ListBoxClassesFilms.SelectedIndex = index;
-        }
-
-        private int FindFilmWithMaxRating()
-        {
-            var films = _films;
-            var maxRating = films[0].Rating;
-            var filmId = 0;
-            for (var i = 1; i < films.Length; i++)
-            {
-                if (!(maxRating < films[i].Rating)) continue;
-                maxRating = films[i].Rating;
-                filmId = i;
-            }
-
-            return filmId;
         }
 
         private void TextBoxClassesFilmsDuration_TextChanged(object sender, EventArgs e)
@@ -260,7 +190,7 @@ namespace Programming.View
             {
                 TextBoxClassesFilmsDuration.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsDuration.Text;
-                _currentFilm.Duration = int.Parse(text);
+                _currentMovie.Duration = int.Parse(text);
             }
             catch (Exception)
             {
@@ -274,7 +204,7 @@ namespace Programming.View
             {
                 TextBoxClassesFilmsYear.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsYear.Text;
-                _currentFilm.Year = int.Parse(text);
+                _currentMovie.Year = int.Parse(text);
             }
             catch (Exception)
             {
@@ -288,7 +218,7 @@ namespace Programming.View
             {
                 TextBoxClassesFilmsRating.BackColor = BackColorSuccess;
                 var text = TextBoxClassesFilmsRating.Text;
-                _currentFilm.Rating = int.Parse(text);
+                _currentMovie.Rating = int.Parse(text);
             }
             catch (Exception)
             {
@@ -298,12 +228,12 @@ namespace Programming.View
 
         private void TextBoxClassesFilmsName_TextChanged(object sender, EventArgs e)
         {
-            _currentFilm.Name = TextBoxClassesFilmsName.Text;
+            _currentMovie.Name = TextBoxClassesFilmsName.Text;
         }
 
         private void TextBoxClassesFilmsGenre_TextChanged(object sender, EventArgs e)
         {
-            _currentFilm.Genre = TextBoxClassesFilmsGenre.Text;
+            _currentMovie.Genre = TextBoxClassesFilmsGenre.Text;
         }
 
         private void TextBox_KeyPressCancel(object sender, KeyPressEventArgs e)

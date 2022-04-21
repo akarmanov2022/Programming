@@ -55,7 +55,7 @@
         <Compile Include="src\Model\Enum\SmartphoneCompany.cs" />
         <Compile Include="src\Model\Enum\TrainingType.cs" />
         <Compile Include="src\Model\Enum\Weekday.cs" />
-        <Compile Include="src\Model\Film.cs" />
+        <Compile Include="src\Model\Movie.cs" />
         <Compile Include="src\Model\Flight.cs" />
         <Compile Include="src\Model\Point2D.cs" />
         <Compile Include="src\Model\Rectangle.cs" />
@@ -64,6 +64,8 @@
         <Compile Include="src\Model\Time.cs" />
         <Compile Include="src\Program.cs" />
         <Compile Include="src\Service\CollisionManager.cs" />
+        <Compile Include="src\Service\MovieService.cs" />
+        <Compile Include="src\Service\RectangleService.cs" />
         <Compile Include="src\Service\Validator.cs" />
         <Compile Include="src\View\MainForm.cs" />
         <Compile Include="src\View\MainForm.Designer.cs">
