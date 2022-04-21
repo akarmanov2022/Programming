@@ -13,7 +13,6 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-
         private static readonly Random Random = new Random();
 
         private List<Type> _types;
@@ -311,6 +310,5 @@ namespace Programming.View
         {
             e.Handled = true;
         }
-
     }
 }

@@ -6,7 +6,6 @@ namespace Programming.Model
 {
     public class Flight
     {
-
         private int _time;
 
         public string Departure { get; set; }
@@ -33,6 +32,5 @@ namespace Programming.Model
                 _time = value;
             }
         }
-
     }
 }

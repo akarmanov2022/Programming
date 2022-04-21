@@ -4,7 +4,6 @@ namespace Programming.Service
 {
     public static class Validator
     {
-
         public static void AssertOnPositiveValue(int value, string propertyName)
         {
             if (value < 0)
@@ -36,6 +35,5 @@ namespace Programming.Service
                 throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
             }
         }
-
     }
 }

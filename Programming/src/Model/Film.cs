@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Film
     {
-
         public const int MinYear = 1900;
 
         private const int MinRating = 0;
@@ -75,6 +74,5 @@ namespace Programming.Model
         {
             return GetType().Name + " " + _id;
         }
-
     }
 }

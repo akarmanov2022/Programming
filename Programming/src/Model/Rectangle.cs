@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Rectangle
     {
-
         private static int _allRectanglesCount = 1;
 
         private double _width;
@@ -58,6 +57,5 @@ namespace Programming.Model
         {
             return GetType().Name + " " + Id;
         }
-
     }
 }
