@@ -64,8 +64,8 @@
         <Compile Include="src\Model\Time.cs" />
         <Compile Include="src\Program.cs" />
         <Compile Include="src\Service\CollisionManager.cs" />
-        <Compile Include="src\Service\MovieService.cs" />
-        <Compile Include="src\Service\RectangleService.cs" />
+        <Compile Include="src\Service\MovieUtils.cs" />
+        <Compile Include="src\Service\RectangleUtils.cs" />
         <Compile Include="src\Service\Validator.cs" />
         <Compile Include="src\View\MainForm.cs" />
         <Compile Include="src\View\MainForm.Designer.cs">

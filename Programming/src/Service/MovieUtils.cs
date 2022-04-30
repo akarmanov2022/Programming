@@ -4,7 +4,7 @@ using Programming.Model.Enum;
 
 namespace Programming.Service
 {
-    public class MovieService
+    public class MovieUtils
     {
         public static Movie[] GenerateRandomMovies(int count)
         {
