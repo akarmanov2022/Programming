@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPageEnums = new System.Windows.Forms.TabPage();
             this.gbWeekdayParsing = new System.Windows.Forms.GroupBox();
@@ -76,6 +75,7 @@
             this.LabelClassesRectangleLength = new System.Windows.Forms.Label();
             this.ListBoxClassesRectangles = new System.Windows.Forms.ListBox();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
+            this.EditRectangleButton = new System.Windows.Forms.Button();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.YTextBox = new System.Windows.Forms.TextBox();
@@ -551,6 +551,7 @@
             // 
             // RectanglesTabPage
             // 
+            this.RectanglesTabPage.Controls.Add(this.EditRectangleButton);
             this.RectanglesTabPage.Controls.Add(this.HeightTextBox);
             this.RectanglesTabPage.Controls.Add(this.HeightLabel);
             this.RectanglesTabPage.Controls.Add(this.YTextBox);
@@ -575,13 +576,27 @@
             this.RectanglesTabPage.Text = "Rectangles";
             this.RectanglesTabPage.UseVisualStyleBackColor = true;
             // 
+            // EditRectangleButton
+            // 
+            this.EditRectangleButton.FlatAppearance.BorderSize = 0;
+            this.EditRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditRectangleButton.Image = global::Programming.Resources.rectangle_edit_24x24_uncolor;
+            this.EditRectangleButton.Location = new System.Drawing.Point(159, 479);
+            this.EditRectangleButton.Name = "EditRectangleButton";
+            this.EditRectangleButton.Size = new System.Drawing.Size(60, 60);
+            this.EditRectangleButton.TabIndex = 14;
+            this.EditRectangleButton.UseVisualStyleBackColor = true;
+            this.EditRectangleButton.Click += new System.EventHandler(this.EditRectangleButton_Click);
+            this.EditRectangleButton.MouseEnter += new System.EventHandler(this.EditRectangleButton_MouseEnter);
+            this.EditRectangleButton.MouseLeave += new System.EventHandler(this.EditRectangleButton_MouseLeave);
+            // 
             // HeightTextBox
             // 
             this.HeightTextBox.Location = new System.Drawing.Point(95, 453);
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(124, 20);
             this.HeightTextBox.TabIndex = 13;
-            this.HeightTextBox.Leave += new System.EventHandler(this.HeightTextBox_Leave);
+            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // HeightLabel
             // 
@@ -598,7 +613,7 @@
             this.YTextBox.Name = "YTextBox";
             this.YTextBox.Size = new System.Drawing.Size(124, 20);
             this.YTextBox.TabIndex = 11;
-            this.YTextBox.Leave += new System.EventHandler(this.YTextBox_Leave);
+            this.YTextBox.TextChanged += new System.EventHandler(this.YTextBox_TextChanged);
             // 
             // WidthTextBox
             // 
@@ -606,7 +621,7 @@
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(124, 20);
             this.WidthTextBox.TabIndex = 11;
-            this.WidthTextBox.Leave += new System.EventHandler(this.WidthTextBox_Leave);
+            this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
             // 
             // YLabel
             // 
@@ -632,7 +647,7 @@
             this.XTextBox.Name = "XTextBox";
             this.XTextBox.Size = new System.Drawing.Size(124, 20);
             this.XTextBox.TabIndex = 9;
-            this.XTextBox.Leave += new System.EventHandler(this.XTextBox_Leave);
+            this.XTextBox.TextChanged += new System.EventHandler(this.XTextBox_TextChanged);
             // 
             // XLabel
             // 
@@ -673,25 +688,29 @@
             // 
             this.ClearButton.FlatAppearance.BorderSize = 0;
             this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearButton.Image = ((System.Drawing.Image) (resources.GetObject("ClearButton.Image")));
+            this.ClearButton.Image = global::Programming.Resources.rectangle_remove_24x24_uncolor;
             this.ClearButton.Location = new System.Drawing.Point(74, 263);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(60, 60);
             this.ClearButton.TabIndex = 4;
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.ClearButton.MouseEnter += new System.EventHandler(this.ClearButton_MouseEnter);
+            this.ClearButton.MouseLeave += new System.EventHandler(this.ClearButton_MouseLeave);
             // 
             // AddRectangleButton
             // 
             this.AddRectangleButton.FlatAppearance.BorderSize = 0;
             this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddRectangleButton.Image = ((System.Drawing.Image) (resources.GetObject("AddRectangleButton.Image")));
+            this.AddRectangleButton.Image = global::Programming.Resources.rectangle_add_24x24_uncolor;
             this.AddRectangleButton.Location = new System.Drawing.Point(8, 263);
             this.AddRectangleButton.Name = "AddRectangleButton";
             this.AddRectangleButton.Size = new System.Drawing.Size(60, 60);
             this.AddRectangleButton.TabIndex = 3;
             this.AddRectangleButton.UseVisualStyleBackColor = true;
             this.AddRectangleButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddRectangleButton_MouseEnter);
+            this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
             // 
             // RectanglesListBox
             // 
@@ -748,6 +767,8 @@
             this.RectanglesTabPage.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button EditRectangleButton;
 
         private System.Windows.Forms.TextBox HeightTextBox;
 

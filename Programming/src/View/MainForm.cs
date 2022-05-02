@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Policy;
 using System.Windows.Forms;
 using Programming.Model;
 using Programming.Model.Enum;
 using Programming.Service;
 using static System.String;
-using Color = Programming.Model.Enum.EnumColor;
+using static Programming.Model.Rectangle;
 using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private static readonly System.Drawing.Color BackColorSuccess = System.Drawing.Color.White;
+        private static readonly Color BackColorSuccess = Color.White;
 
-        private static readonly System.Drawing.Color BackColorError = System.Drawing.Color.LightPink;
-        
-        private static readonly System.Drawing.Color RectanglePanelBackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+        private static readonly Color BackColorException = Color.LightPink;
 
         private List<Type> _types;
 
@@ -40,13 +39,13 @@ namespace Programming.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _movies = MovieUtils.GenerateRandomMovies(5);
+            _movies = MovieFactory.GenerateRandomMovies(5);
             _rectanglePanels = new List<Panel>();
             _rectangles = new List<Rectangle>();
 
             _types = new List<Type>()
             {
-                typeof(Color),
+                typeof(EnumColor),
                 typeof(Genre),
                 typeof(SmartphoneCompany),
                 typeof(Season),
@@ -57,7 +56,7 @@ namespace Programming.View
             ListBoxClassesFilms.Items.AddRange(_movies);
             ListBoxEnums.Items.AddRange(_types.ToArray());
             ListBoxEnums.SetSelected(0, true);
-            
+
             RectanglesListBox.SelectionMode = SelectionMode.One;
 
             var values = Enum.GetValues(typeof(Season));
@@ -120,7 +119,7 @@ namespace Programming.View
         private void ButtonClassesRectangleFind_Click(object sender, EventArgs e)
         {
             var rectangles = _rectangles ?? throw new ArgumentNullException(nameof(_rectangles));
-            var index = RectangleUtils.FindRectangleWithMaxWidth(rectangles);
+            var index = RectangleFactory.FindRectangleWithMaxWidth(rectangles);
 
             ListBoxClassesRectangles.SelectedIndex = index;
         }
@@ -131,7 +130,7 @@ namespace Programming.View
             var index = ListBoxClassesRectangles.SelectedIndex;
             _currentRectangle = rectangles[index];
 
-            TextBoxClassesRectangleColor.Text = _currentRectangle.Color;
+            TextBoxClassesRectangleColor.Text = _currentRectangle.Color.Name;
             TextBoxClassesRectangleLength.Text = _currentRectangle.Height.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleWidth.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
             TextBoxClassesRectangleCenter.Text = _currentRectangle.Center.ToString();
@@ -148,7 +147,7 @@ namespace Programming.View
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleLength.BackColor = BackColorError;
+                TextBoxClassesRectangleLength.BackColor = BackColorException;
             }
         }
 
@@ -162,13 +161,13 @@ namespace Programming.View
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleWidth.BackColor = BackColorError;
+                TextBoxClassesRectangleWidth.BackColor = BackColorException;
             }
         }
 
         private void TextBoxClassesRectangleColor_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangle.Color = TextBoxClassesRectangleColor.Text;
+            _currentRectangle.Color = Color.FromName(TextBoxClassesRectangleColor.Text);
         }
 
         private void ListBoxClassesFilms_SelectedIndexChanged(object sender, EventArgs e)
@@ -187,7 +186,7 @@ namespace Programming.View
         private void ButtonClassesFilmsFind_Click(object sender, EventArgs e)
         {
             var movies = _movies;
-            var index = MovieUtils.FindMovieWithMaxRating(movies);
+            var index = MovieFactory.FindMovieWithMaxRating(movies);
             ListBoxClassesFilms.SelectedIndex = index;
         }
 
@@ -201,7 +200,7 @@ namespace Programming.View
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsDuration.BackColor = BackColorError;
+                TextBoxClassesFilmsDuration.BackColor = BackColorException;
             }
         }
 
@@ -215,7 +214,7 @@ namespace Programming.View
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsYear.BackColor = BackColorError;
+                TextBoxClassesFilmsYear.BackColor = BackColorException;
             }
         }
 
@@ -229,7 +228,7 @@ namespace Programming.View
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsRating.BackColor = BackColorError;
+                TextBoxClassesFilmsRating.BackColor = BackColorException;
             }
         }
 
@@ -250,30 +249,42 @@ namespace Programming.View
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            var rectangle = RectangleUtils.GenerateRandomRectangle(CanvaPanel.Width / 2, CanvaPanel.Height / 2);
+            var rectangle = RectangleFactory.GenerateRandomRectangle(CanvaPanel.Width, CanvaPanel.Height);
+
             _rectangles.Add(rectangle);
             RectanglesListBox.Items.Add(rectangle);
 
-            var panel = new Panel
-            {
-                Location = new Point(rectangle.Center.X, rectangle.Center.Y),
-                Width = rectangle.Width,
-                Height = rectangle.Height,
-                BackColor = RectanglePanelBackColor,
-                BorderStyle = BorderStyle.FixedSingle
-            };
+            var panel = CreatePanel(rectangle);
             _rectanglePanels.Add(panel);
             CanvaPanel.Controls.Add(panel);
         }
 
+        private Panel CreatePanel(Rectangle rectangle)
+        {
+            return new Panel
+            {
+                Location = new Point(rectangle.Center.X, rectangle.Center.Y),
+                Width = rectangle.Width,
+                Height = rectangle.Height,
+                BackColor = rectangle.Color,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+        }
+
+
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            var index = RectanglesListBox.SelectedIndex;
-            _rectangles.RemoveAt(index);
-            RectanglesListBox.Items.RemoveAt(index);
-            
-            CanvaPanel.Controls.RemoveAt(index);
-            ClearTextBoxes();
+            if (RectanglesListBox.SelectedIndex >= 0)
+            {
+                var rectangle = (Rectangle) RectanglesListBox.SelectedItem;
+                var index = RectanglesListBox.SelectedIndex;
+
+                _rectangles.Remove(rectangle);
+                RectanglesListBox.Items.Remove(rectangle);
+                _rectanglePanels.RemoveAt(index);
+                CanvaPanel.Controls.RemoveAt(index);
+                ClearTextBoxes();
+            }
         }
 
         private void ClearTextBoxes()
@@ -300,94 +311,142 @@ namespace Programming.View
             }
         }
 
-        private void UpdateRectangles()
+        private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
         {
-            var rectangles = _rectangles;
-            var rectangle = rectangles.Find(r => r.Id == _currentRectangle.Id);
-            var index = rectangles.IndexOf(rectangle);
-            rectangles[index] = _currentRectangle;
-
-            RectanglesListBox.Items.Clear();
-            RectanglesListBox.Items.AddRange(rectangles.ToArray());
-
-            _rectangles = rectangles;
+            AddRectangleButton.Image = Resources.rectangle_add_24x24;
         }
 
-        private void XTextBox_Leave(object sender, EventArgs e)
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
         {
-            XTextBox.BackColor = BackColorSuccess;
-            if (XTextBox.Text == "") return;
+            AddRectangleButton.Image = Resources.rectangle_add_24x24_uncolor;
+        }
+
+        private void ClearButton_MouseEnter(object sender, EventArgs e)
+        {
+            ClearButton.Image = Resources.rectangle_remove_24x24;
+        }
+
+        private void ClearButton_MouseLeave(object sender, EventArgs e)
+        {
+            ClearButton.Image = Resources.rectangle_remove_24x24_uncolor;
+        }
+
+        private void EditRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            EditRectangleButton.Image = Resources.rectangle_edit_24x24;
+        }
+
+        private void EditRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            EditRectangleButton.Image = Resources.rectangle_edit_24x24_uncolor;
+        }
+
+        private void XTextBox_TextChanged(object sender, EventArgs e)
+        {
             try
             {
-                var x = int.Parse(XTextBox.Text);
-                if (x == _currentRectangle.Center.X) return;
-
-                _currentRectangle.Center.X = x;
-                UpdateRectangles();
+                XTextBox.BackColor = BackColorSuccess;
+                if (XTextBox.Text != Empty)
+                {
+                    var xValue = int.Parse(XTextBox.Text);
+                    _currentRectangle.Center.X = xValue;
+                }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                XTextBox.BackColor = BackColorError;
+                Console.WriteLine(exception);
+                XTextBox.BackColor = BackColorException;
             }
         }
 
-        private void YTextBox_Leave(object sender, EventArgs e)
+        private void YTextBox_TextChanged(object sender, EventArgs e)
         {
-            YTextBox.BackColor = BackColorSuccess;
-            if (YTextBox.Text == "") return;
             try
             {
-                var y = int.Parse(YTextBox.Text);
-                if (y == _currentRectangle.Center.Y) return;
-
-                _currentRectangle.Center.Y = y;
-                UpdateRectangles();
+                YTextBox.BackColor = BackColorSuccess;
+                if (YTextBox.Text != Empty)
+                {
+                    var yValue = int.Parse(YTextBox.Text);
+                    _currentRectangle.Center.Y = yValue;
+                }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                YTextBox.BackColor = BackColorError;
+                Console.WriteLine(exception);
+                YTextBox.BackColor = BackColorException;
             }
         }
 
-        private void WidthTextBox_Leave(object sender, EventArgs e)
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            WidthTextBox.BackColor = BackColorSuccess;
-            if (WidthTextBox.Text == "") return;
             try
             {
-                var width = int.Parse(WidthTextBox.Text);
-                if (width == _currentRectangle.Width) return;
-
-                _currentRectangle.Width = width;
-                UpdateRectangles();
+                WidthTextBox.BackColor = BackColorSuccess;
+                if (WidthTextBox.Text != Empty)
+                {
+                    var widthValue = int.Parse(WidthTextBox.Text);
+                    _currentRectangle.Width = widthValue;
+                }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                WidthTextBox.BackColor = BackColorError;
+                Console.WriteLine(exception);
+                WidthTextBox.BackColor = BackColorException;
             }
         }
 
-        private void HeightTextBox_Leave(object sender, EventArgs e)
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
-            HeightTextBox.BackColor = BackColorSuccess;
-            if (HeightTextBox.Text == "") return;
             try
             {
-                var height = int.Parse(HeightTextBox.Text);
-                if (height == _currentRectangle.Height) return;
-
-                _currentRectangle.Height = height;
-                UpdateRectangles();
+                HeightTextBox.BackColor = BackColorSuccess;
+                if (HeightTextBox.Text != Empty)
+                {
+                    var heightValue = int.Parse(HeightTextBox.Text);
+                    _currentRectangle.Height = heightValue;
+                }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                HeightTextBox.BackColor = BackColorError;
+                Console.WriteLine(exception);
+                HeightTextBox.BackColor = BackColorException;
             }
         }
 
-        private void FindCollisions()
+        private void EditRectangleButton_Click(object sender, EventArgs e)
         {
-            
+            if (RectanglesListBox.SelectedIndex >= 0)
+            {
+                XTextBox.Text = Empty;
+                YTextBox.Text = Empty;
+                WidthTextBox.Text = Empty;
+                HeightTextBox.Text = Empty;
+
+                var rectangle = (Rectangle) RectanglesListBox.SelectedItem;
+                UpdateRectangle(rectangle);
+            }
+        }
+
+        private void UpdateRectangle(Rectangle rectangle)
+        {
+            if (rectangle != null)
+            {
+                rectangle.Center = _currentRectangle.Center;
+                rectangle.Color = _currentRectangle.Color;
+                rectangle.Height = _currentRectangle.Height;
+                rectangle.Width = _currentRectangle.Width;
+
+                var rectangleId = _rectangles.FindIndex(r => r.Id == rectangle.Id);
+
+                _rectangles[rectangleId] = rectangle;
+                RectanglesListBox.Items[rectangleId] = rectangle;
+
+
+                var panel = CreatePanel(rectangle);
+                _rectanglePanels[rectangleId] = panel;
+                CanvaPanel.Controls.RemoveAt(rectangleId);
+                CanvaPanel.Controls.Add(panel);
+            }
         }
     }
 }
