@@ -257,6 +257,8 @@ namespace Programming.View
             var panel = CreatePanel(rectangle);
             _rectanglePanels.Add(panel);
             CanvaPanel.Controls.Add(panel);
+
+            FindCollisions();
         }
 
         private Panel CreatePanel(Rectangle rectangle)
@@ -271,7 +273,6 @@ namespace Programming.View
             };
         }
 
-
         private void ClearButton_Click(object sender, EventArgs e)
         {
             if (RectanglesListBox.SelectedIndex >= 0)
@@ -283,11 +284,13 @@ namespace Programming.View
                 RectanglesListBox.Items.Remove(rectangle);
                 _rectanglePanels.RemoveAt(index);
                 CanvaPanel.Controls.RemoveAt(index);
-                ClearTextBoxes();
+
+                FindCollisions();
+                ClearRectangleInfo();
             }
         }
 
-        private void ClearTextBoxes()
+        private void ClearRectangleInfo()
         {
             IdTextBox.Text = Empty;
             XTextBox.Text = Empty;
@@ -423,11 +426,11 @@ namespace Programming.View
                 HeightTextBox.Text = Empty;
 
                 var rectangle = (Rectangle) RectanglesListBox.SelectedItem;
-                UpdateRectangle(rectangle);
+                UpdateRectangleInfo(rectangle);
             }
         }
 
-        private void UpdateRectangle(Rectangle rectangle)
+        private void UpdateRectangleInfo(Rectangle rectangle)
         {
             if (rectangle != null)
             {
@@ -446,6 +449,27 @@ namespace Programming.View
                 _rectanglePanels[rectangleId] = panel;
                 CanvaPanel.Controls.RemoveAt(rectangleId);
                 CanvaPanel.Controls.Add(panel);
+                
+                FindCollisions();
+            }
+        }
+
+        private void FindCollisions()
+        {
+            foreach (Control control in CanvaPanel.Controls)
+                control.BackColor = DefaultRectangleColor;
+
+            var rectangles = _rectangles;
+            for (var i = 0; i < rectangles.Count; i++)
+            for (var j = 0; j < rectangles.Count; j++)
+            {
+                if (rectangles[i] == rectangles[j]) continue;
+
+                if (CollisionManager.IsCollision(rectangles[i], rectangles[j]))
+                {
+                    _rectangles[i].Color = _rectanglePanels[i].BackColor = CanvaPanel.Controls[i].BackColor = CollisionRectangleColor;
+                    _rectangles[j].Color = _rectanglePanels[j].BackColor = CanvaPanel.Controls[j].BackColor = CollisionRectangleColor;
+                }
             }
         }
     }

@@ -50,11 +50,13 @@ namespace Programming.Service
 
         public static Rectangle GenerateRandomRectangle(int maxWidth, int maxHeight)
         {
+            var height = Random.Next(100, 500);
+            var width = Random.Next(100, 500);
             return new Rectangle
             {
-                Height = Random.Next(100, 500),
-                Width = Random.Next(100, 500),
-                Center = new Point2D(Random.Next(maxWidth), Random.Next(maxHeight))
+                Height = height,
+                Width = width,
+                Center = new Point2D(Random.Next(maxWidth) - width / 2, Random.Next(maxHeight) - height / 2)
             };
         }
     }
