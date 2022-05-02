@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Time
     {
-
         private int _hours;
 
         private int _minutes;
@@ -52,6 +51,5 @@ namespace Programming.Model
                 _seconds = value;
             }
         }
-
     }
 }

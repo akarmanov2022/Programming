@@ -7,7 +7,6 @@ namespace Programming.Model
 {
     public class Contact
     {
-
         private string _name;
 
         private string _surname;
@@ -46,6 +45,5 @@ namespace Programming.Model
                 : throw new ArgumentException($@"Некорректное значение в свойстве {nameof(propertyName)}!",
                     propertyName);
         }
-
     }
 }

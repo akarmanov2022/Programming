@@ -1,18 +1,22 @@
 using System;
+using System.Drawing;
 using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
     public class Rectangle
     {
+        public static readonly Color DefaultRectangleColor = Color.FromArgb(127, 127, 255, 127);
 
+        public static readonly Color CollisionRectangleColor = Color.FromArgb(127, 255, 127, 127);
+        
         private static int _allRectanglesCount = 1;
 
-        private double _width;
+        private int _width;
 
-        private double _length;
+        private int _height;
 
-        public string Color { get; set; }
+        public Color Color { get; set; }
 
         public Point2D Center { get; set; }
 
@@ -21,18 +25,19 @@ namespace Programming.Model
         public Rectangle()
         {
             Id = _allRectanglesCount++;
+            Color = DefaultRectangleColor;
         }
 
-        public Rectangle(double width, double length, string color, Point2D center)
+        public Rectangle(int width, int height, Point2D center)
         {
             Width = width;
-            Length = length;
-            Color = color;
+            Height = height;
+            Color = DefaultRectangleColor;
             Center = center;
             Id = _allRectanglesCount++;
         }
 
-        public double Width
+        public int Width
         {
             get => _width;
             set
@@ -42,13 +47,13 @@ namespace Programming.Model
             }
         }
 
-        public double Length
+        public int Height
         {
-            get => _length;
+            get => _height;
             set
             {
                 AssertOnPositiveValue(value, nameof(Width));
-                _length = value;
+                _height = value;
             }
         }
 
@@ -56,8 +61,11 @@ namespace Programming.Model
 
         public override string ToString()
         {
-            return GetType().Name + " " + Id;
+            return $"{Id}: " +
+                   $"({nameof(Center.X)}={Center.X}; " +
+                   $"{nameof(Center.Y)}={Center.Y}; " +
+                   $"{nameof(Width).Remove(1)}={Width}; " +
+                   $"{nameof(Height).Remove(1)}={Height})";
         }
-
     }
 }

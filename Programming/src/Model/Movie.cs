@@ -3,9 +3,8 @@ using static Programming.Service.Validator;
 
 namespace Programming.Model
 {
-    public class Film
+    public class Movie
     {
-
         public const int MinYear = 1900;
 
         private const int MinRating = 0;
@@ -26,12 +25,12 @@ namespace Programming.Model
 
         public string Genre { get; set; }
 
-        public Film()
+        public Movie()
         {
             _id = _counter++;
         }
 
-        public Film(int duration, int year, int rating, string name, string genre)
+        public Movie(int duration, int year, int rating, string name, string genre)
         {
             Duration = duration;
             Year = year;
@@ -75,6 +74,5 @@ namespace Programming.Model
         {
             return GetType().Name + " " + _id;
         }
-
     }
 }

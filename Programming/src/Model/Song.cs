@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Song
     {
-
         private int _duration;
 
         public string Name { get; set; }
@@ -32,6 +31,5 @@ namespace Programming.Model
                 _duration = value;
             }
         }
-
     }
 }

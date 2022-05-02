@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Discipline
     {
-
         private int _audienceNumber;
 
         public Discipline()
@@ -32,6 +31,5 @@ namespace Programming.Model
                 _audienceNumber = value;
             }
         }
-
     }
 }

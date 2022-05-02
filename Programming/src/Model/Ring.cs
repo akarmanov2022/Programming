@@ -5,7 +5,6 @@ namespace Programming.Model
 {
     public class Ring
     {
-
         private double _outerRadius;
 
         private double _innerRadius;
@@ -41,6 +40,5 @@ namespace Programming.Model
 
         public double Area =>
             Math.PI * (Math.Pow(_outerRadius, 2) - Math.Pow(_innerRadius, 2));
-
     }
 }
