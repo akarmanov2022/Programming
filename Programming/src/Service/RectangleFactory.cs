@@ -52,11 +52,13 @@ namespace Programming.Service
         {
             var height = Random.Next(100, 500);
             var width = Random.Next(100, 500);
+            var x = Math.Abs(Random.Next(maxWidth) - width / 2);
+            var y = Math.Abs(Random.Next(maxHeight) - height / 2);
             return new Rectangle
             {
                 Height = height,
                 Width = width,
-                Center = new Point2D(Random.Next(maxWidth) - width / 2, Random.Next(maxHeight) - height / 2)
+                Center = new Point2D(x, y)
             };
         }
     }
