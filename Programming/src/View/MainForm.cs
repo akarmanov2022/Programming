@@ -27,23 +27,21 @@ namespace Programming.View
             };
 
             var enumerationGroupBoxControl = new EnumerationControl(types);
-            enumerationGroupBoxControl.Dock = DockStyle.Top;
-            TabPageEnums.Controls.Add(enumerationGroupBoxControl);
-
             var weekdayParsingGroupBoxControl = new WeekdayParsingControl(types);
-            weekdayParsingGroupBoxControl.Dock = DockStyle.Bottom;
-            TabPageEnums.Controls.Add(weekdayParsingGroupBoxControl);
-
             var seasonHandleGroupBoxControl = new SeasonHandleGroupBoxControl();
-            seasonHandleGroupBoxControl.Dock = DockStyle.Bottom;
-            TabPageEnums.Controls.Add(seasonHandleGroupBoxControl);
-
             var rectanglesGroupBoxControl = new RectanglesControl();
-            rectanglesGroupBoxControl.Dock = DockStyle.Top;
-            TabPageClasses.Controls.Add(rectanglesGroupBoxControl);
-
             var movieGroupBoxControl = new MovieControl();
+            
+            enumerationGroupBoxControl.Dock = DockStyle.Top;
+            weekdayParsingGroupBoxControl.Dock = DockStyle.Bottom;
+            seasonHandleGroupBoxControl.Dock = DockStyle.Bottom;
+            rectanglesGroupBoxControl.Dock = DockStyle.Top;
             movieGroupBoxControl.Dock = DockStyle.Top;
+            
+            TabPageEnums.Controls.Add(enumerationGroupBoxControl);
+            TabPageEnums.Controls.Add(weekdayParsingGroupBoxControl);
+            TabPageEnums.Controls.Add(seasonHandleGroupBoxControl);
+            TabPageClasses.Controls.Add(rectanglesGroupBoxControl);
             TabPageClasses.Controls.Add(movieGroupBoxControl);
         }
     }
