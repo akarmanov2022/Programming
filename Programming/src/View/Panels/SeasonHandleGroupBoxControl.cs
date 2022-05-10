@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Programming.Model;
-using static Programming.Service.Validator;
+using Programming.Model.Enum;
+using Programming.Service;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
     public partial class SeasonHandleGroupBoxControl : UserControl
     {
@@ -28,11 +28,11 @@ namespace Programming.View.GroupBoxes
                     BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 case Season.Summer:
-                    BackColor = BackColorSuccess;
+                    BackColor = Validator.BackColorSuccess;
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
                 case Season.Winter:
-                    BackColor = BackColorSuccess;
+                    BackColor = Validator.BackColorSuccess;
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
                 default:

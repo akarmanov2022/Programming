@@ -4,18 +4,17 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Programming.Service;
-using static Programming.Service.Validator;
 using Rectangle = Programming.Model.Rectangle;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    public partial class RectanglesGroupBoxControl : UserControl
+    public partial class RectanglesControl : UserControl
     {
         private List<Rectangle> _rectangles;
 
         private Rectangle _currentRectangle;
 
-        public RectanglesGroupBoxControl()
+        public RectanglesControl()
         {
             InitializeComponent();
             
@@ -47,13 +46,13 @@ namespace Programming.View.GroupBoxes
         {
             try
             {
-                TextBoxClassesRectangleLength.BackColor = BackColorSuccess;
+                TextBoxClassesRectangleLength.BackColor = Validator.BackColorSuccess;
                 var text = TextBoxClassesRectangleLength.Text;
                 _currentRectangle.Height = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleLength.BackColor = BackColorException;
+                TextBoxClassesRectangleLength.BackColor = Validator.BackColorException;
             }
         }
 
@@ -61,19 +60,24 @@ namespace Programming.View.GroupBoxes
         {
             try
             {
-                TextBoxClassesRectangleWidth.BackColor = BackColorSuccess;
+                TextBoxClassesRectangleWidth.BackColor = Validator.BackColorSuccess;
                 var text = TextBoxClassesRectangleWidth.Text;
                 _currentRectangle.Width = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesRectangleWidth.BackColor = BackColorException;
+                TextBoxClassesRectangleWidth.BackColor = Validator.BackColorException;
             }
         }
 
         private void TextBoxClassesRectangleColor_TextChanged(object sender, EventArgs e)
         {
             _currentRectangle.Color = Color.FromName(TextBoxClassesRectangleColor.Text);
+        }
+        
+        private void TextBox_KeyPressCancel(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

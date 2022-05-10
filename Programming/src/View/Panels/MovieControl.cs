@@ -3,18 +3,17 @@ using System.Globalization;
 using System.Windows.Forms;
 using Programming.Model;
 using Programming.Service;
-using static Programming.Service.Validator;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    public partial class MovieGroupBoxControl : UserControl
+    public partial class MovieControl : UserControl
     {
         private Movie[] _movies;
 
         private Movie _currentMovie;
 
 
-        public MovieGroupBoxControl()
+        public MovieControl()
         {
             _movies = MovieFactory.GenerateRandomMovies(5);
             InitializeComponent();
@@ -45,13 +44,13 @@ namespace Programming.View.GroupBoxes
         {
             try
             {
-                TextBoxClassesFilmsDuration.BackColor = BackColorSuccess;
+                TextBoxClassesFilmsDuration.BackColor = Validator.BackColorSuccess;
                 var text = TextBoxClassesFilmsDuration.Text;
                 _currentMovie.Duration = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsDuration.BackColor = BackColorException;
+                TextBoxClassesFilmsDuration.BackColor = Validator.BackColorException;
             }
         }
 
@@ -59,13 +58,13 @@ namespace Programming.View.GroupBoxes
         {
             try
             {
-                TextBoxClassesFilmsYear.BackColor = BackColorSuccess;
+                TextBoxClassesFilmsYear.BackColor = Validator.BackColorSuccess;
                 var text = TextBoxClassesFilmsYear.Text;
                 _currentMovie.Year = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsYear.BackColor = BackColorException;
+                TextBoxClassesFilmsYear.BackColor = Validator.BackColorException;
             }
         }
 
@@ -73,13 +72,13 @@ namespace Programming.View.GroupBoxes
         {
             try
             {
-                TextBoxClassesFilmsRating.BackColor = BackColorSuccess;
+                TextBoxClassesFilmsRating.BackColor = Validator.BackColorSuccess;
                 var text = TextBoxClassesFilmsRating.Text;
                 _currentMovie.Rating = int.Parse(text);
             }
             catch (Exception)
             {
-                TextBoxClassesFilmsRating.BackColor = BackColorException;
+                TextBoxClassesFilmsRating.BackColor = Validator.BackColorException;
             }
         }
 
@@ -91,11 +90,6 @@ namespace Programming.View.GroupBoxes
         private void TextBoxClassesFilmsGenre_TextChanged(object sender, EventArgs e)
         {
             _currentMovie.Genre = TextBoxClassesFilmsGenre.Text;
-        }
-
-        private void TextBox_KeyPressCancel(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
         }
     }
 }

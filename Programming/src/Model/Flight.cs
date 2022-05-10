@@ -1,6 +1,4 @@
-using System;
-using System.Reflection;
-using static Programming.Service.Validator;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -28,7 +26,7 @@ namespace Programming.Model
             get => _time;
             set
             {
-                AssertOnPositiveValue(value, nameof(Time));
+                Validator.AssertOnPositiveValue(value, nameof(Time));
                 _time = value;
             }
         }

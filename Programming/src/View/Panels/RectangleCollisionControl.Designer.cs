@@ -31,7 +31,6 @@ namespace Programming.View.Panels
         /// </summary>
         private void InitializeComponent()
         {
-            this.EditRectangleButton = new System.Windows.Forms.Button();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.YTextBox = new System.Windows.Forms.TextBox();
@@ -49,20 +48,6 @@ namespace Programming.View.Panels
             this.RectanglesLabel = new System.Windows.Forms.Label();
             this.CanvaPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // EditRectangleButton
-            // 
-            this.EditRectangleButton.FlatAppearance.BorderSize = 0;
-            this.EditRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditRectangleButton.Image = global::Programming.Resources.rectangle_edit_24x24_uncolor;
-            this.EditRectangleButton.Location = new System.Drawing.Point(159, 480);
-            this.EditRectangleButton.Name = "EditRectangleButton";
-            this.EditRectangleButton.Size = new System.Drawing.Size(60, 60);
-            this.EditRectangleButton.TabIndex = 31;
-            this.EditRectangleButton.UseVisualStyleBackColor = true;
-            this.EditRectangleButton.Click += new System.EventHandler(this.EditRectangleButton_Click);
-            this.EditRectangleButton.MouseEnter += new System.EventHandler(this.EditRectangleButton_MouseEnter);
-            this.EditRectangleButton.MouseLeave += new System.EventHandler(this.EditRectangleButton_MouseLeave);
             // 
             // HeightTextBox
             // 
@@ -210,14 +195,13 @@ namespace Programming.View.Panels
             this.CanvaPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CanvaPanel.Location = new System.Drawing.Point(225, 7);
             this.CanvaPanel.Name = "CanvaPanel";
-            this.CanvaPanel.Size = new System.Drawing.Size(559, 579);
+            this.CanvaPanel.Size = new System.Drawing.Size(559, 582);
             this.CanvaPanel.TabIndex = 15;
             // 
             // RectangleCollisionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.EditRectangleButton);
             this.Controls.Add(this.HeightTextBox);
             this.Controls.Add(this.HeightLabel);
             this.Controls.Add(this.YTextBox);
@@ -235,13 +219,11 @@ namespace Programming.View.Panels
             this.Controls.Add(this.RectanglesLabel);
             this.Controls.Add(this.CanvaPanel);
             this.Name = "RectangleCollisionControl";
-            this.Size = new System.Drawing.Size(792, 593);
+            this.Size = new System.Drawing.Size(792, 596);
             this.Load += new System.EventHandler(this.RectangleCollisionControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.Windows.Forms.Button EditRectangleButton;
 
         private System.Windows.Forms.TextBox HeightTextBox;
 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    public partial class WeekdayParsingGroupBoxControl : UserControl
+    public partial class WeekdayParsingControl : UserControl
     {
         private List<Type> _types;
 
-        public WeekdayParsingGroupBoxControl(List<Type> types)
+        public WeekdayParsingControl(List<Type> types)
         {
             InitializeComponent();
             _types = types;

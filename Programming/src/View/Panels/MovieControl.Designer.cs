@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    partial class MovieGroupBoxControl
+    partial class MovieControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -76,7 +76,6 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesFilmsGenre.Size = new System.Drawing.Size(167, 20);
             this.TextBoxClassesFilmsGenre.TabIndex = 11;
             this.TextBoxClassesFilmsGenre.TextChanged += new System.EventHandler(this.TextBoxClassesFilmsGenre_TextChanged);
-            this.TextBoxClassesFilmsGenre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesFilmsGenre
             // 
@@ -93,7 +92,6 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesFilmsName.Size = new System.Drawing.Size(167, 20);
             this.TextBoxClassesFilmsName.TabIndex = 9;
             this.TextBoxClassesFilmsName.TextChanged += new System.EventHandler(this.TextBoxClassesFilmsName_TextChanged);
-            this.TextBoxClassesFilmsName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesFilmsName
             // 
@@ -121,7 +119,6 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesFilmsRating.Size = new System.Drawing.Size(167, 20);
             this.TextBoxClassesFilmsRating.TabIndex = 6;
             this.TextBoxClassesFilmsRating.TextChanged += new System.EventHandler(this.TextBoxClassesFilmsRating_TextChanged);
-            this.TextBoxClassesFilmsRating.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesFilmsRating
             // 
@@ -138,7 +135,6 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesFilmsYear.Size = new System.Drawing.Size(167, 20);
             this.TextBoxClassesFilmsYear.TabIndex = 4;
             this.TextBoxClassesFilmsYear.TextChanged += new System.EventHandler(this.TextBoxClassesFilmsYear_TextChanged);
-            this.TextBoxClassesFilmsYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesFilmsYear
             // 
@@ -155,7 +151,6 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesFilmsDuration.Size = new System.Drawing.Size(167, 20);
             this.TextBoxClassesFilmsDuration.TabIndex = 2;
             this.TextBoxClassesFilmsDuration.TextChanged += new System.EventHandler(this.TextBoxClassesFilmsDuration_TextChanged);
-            this.TextBoxClassesFilmsDuration.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesFilmsDuration
             // 
@@ -175,12 +170,12 @@ namespace Programming.View.GroupBoxes
             this.ListBoxClassesFilms.TabIndex = 0;
             this.ListBoxClassesFilms.SelectedIndexChanged += new System.EventHandler(this.ListBoxClassesFilms_SelectedIndexChanged);
             // 
-            // MovieGroupBoxControl
+            // MovieControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupBoxClassesFilms);
-            this.Name = "MovieGroupBoxControl";
+            this.Name = "MovieControl";
             this.Size = new System.Drawing.Size(786, 293);
             this.GroupBoxClassesFilms.ResumeLayout(false);
             this.GroupBoxClassesFilms.PerformLayout();

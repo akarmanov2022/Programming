@@ -75,39 +75,21 @@
         <Compile Include="src\Service\MovieFactory.cs" />
         <Compile Include="src\Service\RectangleFactory.cs" />
         <Compile Include="src\Service\Validator.cs" />
-        <Compile Include="src\View\GroupBoxes\EnumerationGroupBoxControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\EnumerationGroupBoxControl.Designer.cs">
-          <DependentUpon>EnumerationGroupBoxControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\MovieGroupBoxControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\MovieGroupBoxControl.Designer.cs">
-          <DependentUpon>MovieGroupBoxControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\RectanglesGroupBoxControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\RectanglesGroupBoxControl.Designer.cs">
-          <DependentUpon>RectanglesGroupBoxControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\SeasonHandleGroupBoxControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\SeasonHandleGroupBoxControl.Designer.cs">
-          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\WeekdayParsingGroupBoxControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="src\View\GroupBoxes\WeekdayParsingGroupBoxControl.Designer.cs">
-          <DependentUpon>WeekdayParsingGroupBoxControl.cs</DependentUpon>
-        </Compile>
         <Compile Include="src\View\MainForm.cs" />
         <Compile Include="src\View\MainForm.Designer.cs">
           <DependentUpon>MainForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\EnumerationControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\EnumerationControl.Designer.cs">
+          <DependentUpon>EnumerationControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\MovieControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\MovieControl.Designer.cs">
+          <DependentUpon>MovieControl.cs</DependentUpon>
         </Compile>
         <Compile Include="src\View\Panels\RectangleCollisionControl.cs">
           <SubType>UserControl</SubType>
@@ -115,30 +97,48 @@
         <Compile Include="src\View\Panels\RectangleCollisionControl.Designer.cs">
           <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="src\View\Panels\RectanglesControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\RectanglesControl.Designer.cs">
+          <DependentUpon>RectanglesControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\SeasonHandleGroupBoxControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\SeasonHandleGroupBoxControl.Designer.cs">
+          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\WeekdayParsingControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\WeekdayParsingControl.Designer.cs">
+          <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
+        </Compile>
         <EmbeddedResource Include="Resources.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Include="src\View\GroupBoxes\EnumerationGroupBoxControl.resx">
-          <DependentUpon>EnumerationGroupBoxControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="src\View\GroupBoxes\MovieGroupBoxControl.resx">
-          <DependentUpon>MovieGroupBoxControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="src\View\GroupBoxes\RectanglesGroupBoxControl.resx">
-          <DependentUpon>RectanglesGroupBoxControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="src\View\GroupBoxes\SeasonHandleGroupBoxControl.resx">
-          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="src\View\GroupBoxes\WeekdayParsingGroupBoxControl.resx">
-          <DependentUpon>WeekdayParsingGroupBoxControl.cs</DependentUpon>
-        </EmbeddedResource>
         <EmbeddedResource Include="src\View\MainForm.resx">
           <DependentUpon>MainForm.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\EnumerationControl.resx">
+          <DependentUpon>EnumerationControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\MovieControl.resx">
+          <DependentUpon>MovieControl.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="src\View\Panels\RectangleCollisionControl.resx">
           <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\RectanglesControl.resx">
+          <DependentUpon>RectanglesControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\SeasonHandleGroupBoxControl.resx">
+          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\WeekdayParsingControl.resx">
+          <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>

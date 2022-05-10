@@ -4,8 +4,6 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Programming.Service;
-using static Programming.Model.Rectangle;
-using static Programming.Service.Validator;
 using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View.Panels
@@ -41,20 +39,29 @@ namespace Programming.View.Panels
             var panel = CreatePanel(rectangle);
             _rectanglePanels.Add(panel);
             CanvaPanel.Controls.Add(panel);
-
+            
             FindCollisions();
         }
 
         private Panel CreatePanel(Rectangle rectangle)
         {
-            return new Panel
+            var panel = new Panel
             {
                 Location = new Point(rectangle.Center.X, rectangle.Center.Y),
                 Width = rectangle.Width,
                 Height = rectangle.Height,
                 BackColor = rectangle.Color,
-                BorderStyle = BorderStyle.FixedSingle
+                BorderStyle = BorderStyle.FixedSingle,
             };
+            panel.Click += Rectangle_Click;
+            return panel;
+        }
+
+        private void Rectangle_Click(object sender, EventArgs e)
+        {
+            var panel = (Panel) sender;
+            var index = CanvaPanel.Controls.IndexOf(panel);
+            RectanglesListBox.SetSelected(index, true);
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -65,6 +72,8 @@ namespace Programming.View.Panels
 
                 ClearRectangleInfo(index);
                 FindCollisions();
+                
+                RectanglesListBox.SetSelected(0, true);
             }
         }
 
@@ -84,17 +93,14 @@ namespace Programming.View.Panels
 
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var item = ((ListBox) sender).SelectedItem;
-            if (item != null)
-            {
-                _currentRectangle = (Rectangle) item;
+            var selectedRectangle = _rectangles[RectanglesListBox.SelectedIndex];
+            _currentRectangle = new Rectangle(selectedRectangle);
 
-                IdTextBox.Text = _currentRectangle.Id.ToString();
-                XTextBox.Text = _currentRectangle.Center.X.ToString();
-                YTextBox.Text = _currentRectangle.Center.Y.ToString();
-                WidthTextBox.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
-                HeightTextBox.Text = _currentRectangle.Height.ToString(CultureInfo.InvariantCulture);
-            }
+            IdTextBox.Text = _currentRectangle.Id.ToString();
+            XTextBox.Text = _currentRectangle.Center.X.ToString();
+            YTextBox.Text = _currentRectangle.Center.Y.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString(CultureInfo.InvariantCulture);
+            HeightTextBox.Text = _currentRectangle.Height.ToString(CultureInfo.InvariantCulture);
         }
 
         private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
@@ -117,31 +123,25 @@ namespace Programming.View.Panels
             ClearButton.Image = Resources.rectangle_remove_24x24_uncolor;
         }
 
-        private void EditRectangleButton_MouseEnter(object sender, EventArgs e)
-        {
-            EditRectangleButton.Image = Resources.rectangle_edit_24x24;
-        }
-
-        private void EditRectangleButton_MouseLeave(object sender, EventArgs e)
-        {
-            EditRectangleButton.Image = Resources.rectangle_edit_24x24_uncolor;
-        }
-
         private void XTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                XTextBox.BackColor = BackColorSuccess;
+                XTextBox.BackColor = Validator.BackColorSuccess;
                 if (XTextBox.Text != string.Empty)
                 {
                     var xValue = int.Parse(XTextBox.Text);
-                    _currentRectangle.Center.X = xValue;
+                    if (_currentRectangle.Center.X != xValue)
+                    {
+                        _currentRectangle.Center.X = xValue;
+                        UpdateRectangleInfo(_currentRectangle);
+                    }
                 }
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                XTextBox.BackColor = BackColorException;
+                XTextBox.BackColor = Validator.BackColorException;
             }
         }
 
@@ -149,17 +149,21 @@ namespace Programming.View.Panels
         {
             try
             {
-                YTextBox.BackColor = BackColorSuccess;
+                YTextBox.BackColor = Validator.BackColorSuccess;
                 if (YTextBox.Text != string.Empty)
                 {
                     var yValue = int.Parse(YTextBox.Text);
-                    _currentRectangle.Center.Y = yValue;
+                    if (_currentRectangle.Center.Y != yValue)
+                    {
+                        _currentRectangle.Center.Y = yValue;
+                        UpdateRectangleInfo(_currentRectangle);
+                    }
                 }
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                YTextBox.BackColor = BackColorException;
+                YTextBox.BackColor = Validator.BackColorException;
             }
         }
 
@@ -167,17 +171,21 @@ namespace Programming.View.Panels
         {
             try
             {
-                WidthTextBox.BackColor = BackColorSuccess;
+                WidthTextBox.BackColor = Validator.BackColorSuccess;
                 if (WidthTextBox.Text != string.Empty)
                 {
                     var widthValue = int.Parse(WidthTextBox.Text);
-                    _currentRectangle.Width = widthValue;
+                    if (_currentRectangle.Width != widthValue)
+                    {
+                        _currentRectangle.Width = widthValue;
+                        UpdateRectangleInfo(_currentRectangle);
+                    }
                 }
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                WidthTextBox.BackColor = BackColorException;
+                WidthTextBox.BackColor = Validator.BackColorException;
             }
         }
 
@@ -185,31 +193,21 @@ namespace Programming.View.Panels
         {
             try
             {
-                HeightTextBox.BackColor = BackColorSuccess;
+                HeightTextBox.BackColor = Validator.BackColorSuccess;
                 if (HeightTextBox.Text != string.Empty)
                 {
                     var heightValue = int.Parse(HeightTextBox.Text);
-                    _currentRectangle.Height = heightValue;
+                    if (_currentRectangle.Height != heightValue)
+                    {
+                        _currentRectangle.Height = heightValue;
+                        UpdateRectangleInfo(_currentRectangle);
+                    }
                 }
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                HeightTextBox.BackColor = BackColorException;
-            }
-        }
-
-        private void EditRectangleButton_Click(object sender, EventArgs e)
-        {
-            if (RectanglesListBox.SelectedIndex >= 0)
-            {
-                XTextBox.Text = string.Empty;
-                YTextBox.Text = string.Empty;
-                WidthTextBox.Text = string.Empty;
-                HeightTextBox.Text = string.Empty;
-
-                var rectangle = (Rectangle) RectanglesListBox.SelectedItem;
-                UpdateRectangleInfo(rectangle);
+                HeightTextBox.BackColor = Validator.BackColorException;
             }
         }
 
@@ -217,17 +215,27 @@ namespace Programming.View.Panels
         {
             if (rectangle != null)
             {
-                rectangle.Center = _currentRectangle.Center;
-                rectangle.Color = _currentRectangle.Color;
-                rectangle.Height = _currentRectangle.Height;
-                rectangle.Width = _currentRectangle.Width;
+                var copyRectangle = new Rectangle(rectangle);
+                var oldRectangle = _rectangles[RectanglesListBox.SelectedIndex];
 
-                var rectangleId = _rectangles.FindIndex(r => r.Id == rectangle.Id);
+                var differenceWidth = Math.Abs(oldRectangle.Width - copyRectangle.Width) / 2;
+                var differenceHeight = Math.Abs(oldRectangle.Height - copyRectangle.Height) / 2;
 
-                _rectangles[rectangleId] = rectangle;
-                RectanglesListBox.Items[rectangleId] = rectangle;
+                if (copyRectangle.Center.Equals(oldRectangle.Center))
+                {
+                    copyRectangle.Center.X = oldRectangle.Width >= copyRectangle.Width
+                        ? oldRectangle.Center.X + differenceWidth
+                        : oldRectangle.Center.X - differenceWidth;
+
+                    copyRectangle.Center.Y = oldRectangle.Height >= copyRectangle.Height
+                        ? oldRectangle.Center.Y + differenceHeight
+                        : oldRectangle.Center.Y - differenceHeight;
+                }
+
+                var index = _rectangles.FindIndex(r => r.Equals(copyRectangle));
+                _rectangles[index] = copyRectangle;
                 
-                UpdatePanel(rectangle, rectangleId);
+                UpdatePanel(copyRectangle, index);
                 FindCollisions();
             }
         }
@@ -243,18 +251,18 @@ namespace Programming.View.Panels
         private void FindCollisions()
         {
             foreach (Control control in CanvaPanel.Controls)
-                control.BackColor = DefaultRectangleColor;
+                control.BackColor = Rectangle.DefaultRectangleColor;
 
             var rectangles = _rectangles;
             for (var i = 0; i < rectangles.Count; i++)
             for (var j = 0; j < rectangles.Count; j++)
             {
-                if (rectangles[i] == rectangles[j]) continue;
+                if (Equals(rectangles[i], rectangles[j])) continue;
 
                 if (CollisionManager.IsCollision(rectangles[i], rectangles[j]))
                 {
-                    _rectangles[i].Color = _rectanglePanels[i].BackColor = CanvaPanel.Controls[i].BackColor = CollisionRectangleColor;
-                    _rectangles[j].Color = _rectanglePanels[j].BackColor = CanvaPanel.Controls[j].BackColor = CollisionRectangleColor;
+                    _rectangles[i].Color = _rectanglePanels[i].BackColor = CanvaPanel.Controls[i].BackColor = Rectangle.CollisionRectangleColor;
+                    _rectangles[j].Color = _rectanglePanels[j].BackColor = CanvaPanel.Controls[j].BackColor = Rectangle.CollisionRectangleColor;
                 }
             }
         }

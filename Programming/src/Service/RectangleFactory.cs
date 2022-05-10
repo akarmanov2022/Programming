@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using Programming.Model;
-using Programming.Model.Enum;
-using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.Service
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using static Programming.Service.Validator;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -21,7 +21,7 @@ namespace Programming.Model
             get => _outerRadius;
             private set
             {
-                AssertOnPositiveValue(value, _innerRadius, double.MaxValue, nameof(OuterRadius));
+                Validator.AssertOnPositiveValue(value, _innerRadius, double.MaxValue, nameof(OuterRadius));
                 _outerRadius = value;
             }
         }
@@ -31,7 +31,7 @@ namespace Programming.Model
             get => _innerRadius;
             private set
             {
-                AssertOnPositiveValue(value, 0, _outerRadius, nameof(InnerRadius));
+                Validator.AssertOnPositiveValue(value, 0, _outerRadius, nameof(InnerRadius));
                 _innerRadius = value;
             }
         }

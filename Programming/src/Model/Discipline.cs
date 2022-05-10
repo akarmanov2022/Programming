@@ -1,5 +1,5 @@
 using System;
-using static Programming.Service.Validator;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -27,7 +27,7 @@ namespace Programming.Model
             get => _audienceNumber;
             set
             {
-                AssertOnPositiveValue(value, nameof(AudienceNumber));
+                Validator.AssertOnPositiveValue(value, nameof(AudienceNumber));
                 _audienceNumber = value;
             }
         }

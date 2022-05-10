@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    partial class EnumerationGroupBoxControl
+    partial class EnumerationControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -112,12 +112,12 @@ namespace Programming.View.GroupBoxes
             this.lbChooseEnumerations.Text = "Choose enumeration:";
             this.lbChooseEnumerations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // EnumerationGroupBoxControl
+            // EnumerationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbEnumeration);
-            this.Name = "EnumerationGroupBoxControl";
+            this.Name = "EnumerationControl";
             this.Size = new System.Drawing.Size(778, 260);
             this.gbEnumeration.ResumeLayout(false);
             this.gbEnumeration.PerformLayout();

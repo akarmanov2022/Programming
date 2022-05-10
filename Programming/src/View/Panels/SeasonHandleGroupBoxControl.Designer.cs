@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
     partial class SeasonHandleGroupBoxControl
     {

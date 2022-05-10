@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    public partial class EnumerationGroupBoxControl : UserControl
+    public partial class EnumerationControl : UserControl
     {
-        public EnumerationGroupBoxControl(List<Type> types)
+        public EnumerationControl(List<Type> types)
         {
             InitializeComponent();
             

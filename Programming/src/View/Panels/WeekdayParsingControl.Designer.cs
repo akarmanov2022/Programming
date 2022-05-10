@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    partial class WeekdayParsingGroupBoxControl
+    partial class WeekdayParsingControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -89,12 +89,12 @@ namespace Programming.View.GroupBoxes
             this.lbTypeValueParsing.Text = "Type value of parsing:";
             this.lbTypeValueParsing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // WeekdayParsingGroupBoxControl
+            // WeekdayParsingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbWeekdayParsing);
-            this.Name = "WeekdayParsingGroupBoxControl";
+            this.Name = "WeekdayParsingControl";
             this.Size = new System.Drawing.Size(778, 104);
             this.gbWeekdayParsing.ResumeLayout(false);
             this.gbWeekdayParsing.PerformLayout();

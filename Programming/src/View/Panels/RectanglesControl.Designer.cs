@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Programming.View.GroupBoxes
+namespace Programming.View.Panels
 {
-    partial class RectanglesGroupBoxControl
+    partial class RectanglesControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -75,6 +75,7 @@ namespace Programming.View.GroupBoxes
             this.TextBoxClassesRectangleId.Name = "TextBoxClassesRectangleId";
             this.TextBoxClassesRectangleId.Size = new System.Drawing.Size(170, 20);
             this.TextBoxClassesRectangleId.TabIndex = 11;
+            this.TextBoxClassesRectangleId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPressCancel);
             // 
             // LabelClassesRectangleId
             // 
@@ -168,12 +169,12 @@ namespace Programming.View.GroupBoxes
             this.ListBoxClassesRectangles.TabIndex = 0;
             this.ListBoxClassesRectangles.SelectedIndexChanged += new System.EventHandler(this.ListBoxClassesRectangles_SelectedIndexChanged);
             // 
-            // RectanglesGroupBoxControl
+            // RectanglesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupBoxClassesRectangles);
-            this.Name = "RectanglesGroupBoxControl";
+            this.Name = "RectanglesControl";
             this.Size = new System.Drawing.Size(786, 223);
             this.GroupBoxClassesRectangles.ResumeLayout(false);
             this.GroupBoxClassesRectangles.PerformLayout();
