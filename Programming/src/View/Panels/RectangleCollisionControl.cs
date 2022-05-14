@@ -215,27 +215,27 @@ namespace Programming.View.Panels
         {
             if (rectangle != null)
             {
-                var copyRectangle = new Rectangle(rectangle);
+                var updateRectangle = new Rectangle(rectangle);
                 var oldRectangle = _rectangles[RectanglesListBox.SelectedIndex];
 
-                var differenceWidth = Math.Abs(oldRectangle.Width - copyRectangle.Width) / 2;
-                var differenceHeight = Math.Abs(oldRectangle.Height - copyRectangle.Height) / 2;
+                var differenceWidth = Math.Abs(oldRectangle.Width - updateRectangle.Width) / 2;
+                var differenceHeight = Math.Abs(oldRectangle.Height - updateRectangle.Height) / 2;
 
-                if (copyRectangle.Center.Equals(oldRectangle.Center))
+                if (updateRectangle.Center.Equals(oldRectangle.Center))
                 {
-                    copyRectangle.Center.X = oldRectangle.Width >= copyRectangle.Width
+                    updateRectangle.Center.X = oldRectangle.Width >= updateRectangle.Width
                         ? oldRectangle.Center.X + differenceWidth
                         : oldRectangle.Center.X - differenceWidth;
 
-                    copyRectangle.Center.Y = oldRectangle.Height >= copyRectangle.Height
+                    updateRectangle.Center.Y = oldRectangle.Height >= updateRectangle.Height
                         ? oldRectangle.Center.Y + differenceHeight
                         : oldRectangle.Center.Y - differenceHeight;
                 }
 
-                var index = _rectangles.FindIndex(r => r.Equals(copyRectangle));
-                _rectangles[index] = copyRectangle;
+                var index = _rectangles.FindIndex(r => r.Equals(updateRectangle));
+                _rectangles[index] = updateRectangle;
                 
-                UpdatePanel(copyRectangle, index);
+                UpdatePanel(updateRectangle, index);
                 FindCollisions();
             }
         }

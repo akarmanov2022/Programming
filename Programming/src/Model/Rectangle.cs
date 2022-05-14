@@ -9,7 +9,7 @@ namespace Programming.Model
 
         public static readonly Color CollisionRectangleColor = Color.FromArgb(127, 255, 127, 127);
         
-        private static int _allRectanglesCount = 1;
+        private static int _allRectanglesCount;
 
         private int _width;
 
@@ -69,7 +69,7 @@ namespace Programming.Model
 
         public override string ToString()
         {
-            return $"{Id}: " +
+            return $"{Id + 1}: " +
                    $"({nameof(Center.X)}={Center.X}; " +
                    $"{nameof(Center.Y)}={Center.Y}; " +
                    $"{nameof(Width).Remove(1)}={Width}; " +
