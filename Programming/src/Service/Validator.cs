@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Programming.Service
 {
     public static class Validator
     {
+        public static readonly Color BackColorSuccess = Color.White;
+
+        public static readonly Color BackColorException = Color.LightPink;
+        
         public static void AssertOnPositiveValue(int value, string propertyName)
         {
             if (value < 0)

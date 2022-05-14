@@ -1,5 +1,5 @@
 using System;
-using static Programming.Service.Validator;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -45,7 +45,7 @@ namespace Programming.Model
             get => _duration;
             set
             {
-                AssertOnPositiveValue(value, nameof(Duration));
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }
@@ -55,7 +55,7 @@ namespace Programming.Model
             get => _year;
             set
             {
-                AssertOnPositiveValue(value, MinYear, DateTime.Now.Year, nameof(Year));
+                Validator.AssertOnPositiveValue(value, MinYear, DateTime.Now.Year, nameof(Year));
                 _year = value;
             }
         }
@@ -65,7 +65,7 @@ namespace Programming.Model
             get => _rating;
             set
             {
-                AssertOnPositiveValue(value, MinRating, MaxRating, nameof(Rating));
+                Validator.AssertOnPositiveValue(value, MinRating, MaxRating, nameof(Rating));
                 _rating = value;
             }
         }

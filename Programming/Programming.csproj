@@ -33,6 +33,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Programming">
+          <HintPath>bin\Debug\Programming.exe</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Xml.Linq" />
@@ -76,12 +79,66 @@
         <Compile Include="src\View\MainForm.Designer.cs">
           <DependentUpon>MainForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="src\View\Panels\EnumerationControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\EnumerationControl.Designer.cs">
+          <DependentUpon>EnumerationControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\MovieControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\MovieControl.Designer.cs">
+          <DependentUpon>MovieControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\RectangleCollisionControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\RectangleCollisionControl.Designer.cs">
+          <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\RectanglesControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\RectanglesControl.Designer.cs">
+          <DependentUpon>RectanglesControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\SeasonHandleGroupBoxControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\SeasonHandleGroupBoxControl.Designer.cs">
+          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="src\View\Panels\WeekdayParsingControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="src\View\Panels\WeekdayParsingControl.Designer.cs">
+          <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
+        </Compile>
         <EmbeddedResource Include="Resources.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Include="src\View\MainForm.resx">
           <DependentUpon>MainForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\EnumerationControl.resx">
+          <DependentUpon>EnumerationControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\MovieControl.resx">
+          <DependentUpon>MovieControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\RectangleCollisionControl.resx">
+          <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\RectanglesControl.resx">
+          <DependentUpon>RectanglesControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\SeasonHandleGroupBoxControl.resx">
+          <DependentUpon>SeasonHandleGroupBoxControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="src\View\Panels\WeekdayParsingControl.resx">
+          <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>

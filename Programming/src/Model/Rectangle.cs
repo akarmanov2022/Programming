@@ -1,6 +1,5 @@
-using System;
 using System.Drawing;
-using static Programming.Service.Validator;
+using Programming.Service;
 
 namespace Programming.Model
 {
@@ -10,7 +9,7 @@ namespace Programming.Model
 
         public static readonly Color CollisionRectangleColor = Color.FromArgb(127, 255, 127, 127);
         
-        private static int _allRectanglesCount = 1;
+        private static int _allRectanglesCount;
 
         private int _width;
 
@@ -37,12 +36,21 @@ namespace Programming.Model
             Id = _allRectanglesCount++;
         }
 
+        public Rectangle(Rectangle rectangle)
+        {
+            Width = rectangle.Width;                 
+            Height = rectangle.Height;                  
+            Color = rectangle.Color;                 
+            Center = new Point2D(rectangle.Center.X, rectangle.Center.Y);                  
+            Id = rectangle.Id;              
+        }
+
         public int Width
         {
             get => _width;
             set
             {
-                AssertOnPositiveValue(value, nameof(Width));
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
         }
@@ -52,7 +60,7 @@ namespace Programming.Model
             get => _height;
             set
             {
-                AssertOnPositiveValue(value, nameof(Width));
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _height = value;
             }
         }
@@ -61,11 +69,29 @@ namespace Programming.Model
 
         public override string ToString()
         {
-            return $"{Id}: " +
+            return $"{Id + 1}: " +
                    $"({nameof(Center.X)}={Center.X}; " +
                    $"{nameof(Center.Y)}={Center.Y}; " +
                    $"{nameof(Width).Remove(1)}={Width}; " +
                    $"{nameof(Height).Remove(1)}={Height})";
+        }
+
+        protected bool Equals(Rectangle other)
+        {
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Rectangle) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
         }
     }
 }
