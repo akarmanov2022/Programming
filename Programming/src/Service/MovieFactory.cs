@@ -4,8 +4,16 @@ using Programming.Model.Enum;
 
 namespace Programming.Service
 {
+    /// <summary>
+    /// Статический класс - фабрика объектов типа <see cref="Movie"/>.
+    /// </summary>
     public class MovieFactory
     {
+        /// <summary>
+        /// Создает экземпляры класса <see cref="Movie"/> в обределенном кол-ве со случайными значениями полей.
+        /// </summary>
+        /// <param name="count">Кол-во объектов.</param>
+        /// <returns>Массив объектов типа <see cref="Movie"/>.</returns>
         public static Movie[] GenerateRandomMovies(int count)
         {
             var random = new Random();
@@ -28,6 +36,12 @@ namespace Programming.Service
             return movies;
         }
         
+        /// <summary>
+        /// Найдет идентификатор объекта типа <see cref="Movie"/>
+        /// с минимальным значением рейтинга из входного массива объектов типа <see cref="Movie"/>.
+        /// </summary>
+        /// <param name="movies">Входной массив объектов типа <see cref="Movie"/>.</param>
+        /// <returns>Идентификатор объекта типа <see cref="Movie"/>.</returns>
         public static int FindMovieWithMaxRating(Movie[] movies)
         {
             var maxRating = movies[0].Rating;

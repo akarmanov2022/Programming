@@ -1,5 +1,8 @@
 namespace Programming.Model.Enum
 {
+    /// <summary>  
+    /// Перечисление Цветов.
+    /// </summary>
     public enum EnumColor
     {
         White,
