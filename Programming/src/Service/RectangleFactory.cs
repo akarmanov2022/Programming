@@ -4,11 +4,18 @@ using Programming.Model;
 
 namespace Programming.Service
 {
+    /// <summary>
+    /// Статический класс - фабрика объектов типа <see cref="Rectangle"/>.
+    /// </summary>
     public class RectangleFactory
     {
         private static readonly Random Random = new Random();
 
-
+        /// <summary>
+        /// Создает список экземпляров класса <see cref="Rectangle"/> в обределенном кол-ве со случайными значениями полей.
+        /// </summary>
+        /// <param name="count">Кол-во эелементов списка.</param>
+        /// <returns>Список объектов <see cref="Rectangle"/>.</returns>
         public static List<Rectangle> GenerateRandomRectangles(int count)
         {
             var rectangles = new List<Rectangle>();
@@ -26,6 +33,12 @@ namespace Programming.Service
             return rectangles;
         }
 
+        /// <summary>
+        /// Найдет идентификатор объекта типа <see cref="Rectangle"/>
+        /// с минимальным значением рейтинга из входного списка объектов типа <see cref="Rectangle"/>.
+        /// </summary>
+        /// <param name="rectangles">Входной список объектов типа <see cref="Rectangle"/>.</param>
+        /// <returns>Идентификатор объекта типа <see cref="Rectangle"/>.</returns>
         public static int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
         {
             var maxWidth = 0d;
@@ -45,6 +58,12 @@ namespace Programming.Service
             return rectangleId;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Rectangle"/> со случайными значениями полей.
+        /// </summary>
+        /// <param name="maxWidth">Максимальное значение для длины.</param>
+        /// <param name="maxHeight">Максимальное значение для высоты.</param>
+        /// <returns>Новый объект типа <see cref="Rectangle"/>.</returns>
         public static Rectangle GenerateRandomRectangle(int maxWidth, int maxHeight)
         {
             var height = Random.Next(100, 500);

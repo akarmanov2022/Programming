@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace Programming.Service
 {
@@ -39,6 +40,14 @@ namespace Programming.Service
             {
                 throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
             }
+        }
+        
+        public static string AssertStringContainsOnlyLetters(string value, string propertyName)
+        {
+            return Regex.IsMatch(value, "[a-zA-Z0-9]")
+                ? value
+                : throw new ArgumentException($@"Некорректное значение в свойстве {nameof(propertyName)}!",
+                    propertyName);
         }
     }
 }

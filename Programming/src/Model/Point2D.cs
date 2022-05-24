@@ -1,22 +1,36 @@
 ﻿namespace Programming.Model
 {
+    /// <summary>
+    /// Определяет точу в двумерном пространстве.
+    /// </summary>
     public class Point2D
     {
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Point2D"/>.
+        /// </summary>
+        /// <param name="x">Значение координаты по X.</param>
+        /// <param name="y">Значение координаты по Y.</param>
         public Point2D(int x, int y)
         {
             Y = y;
             X = x;
         }
 
+        /// <summary>
+        /// Возвращает или задает значение координаты X.
+        /// </summary>
         public int X { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает значение координаты Y.
+        /// </summary>
         public int Y { get; set; }
 
         public override string ToString()
         {
             return $"({X}:{Y})";
         }
-
+        
         protected bool Equals(Point2D other)
         {
             return X == other.X && Y == other.Y;
