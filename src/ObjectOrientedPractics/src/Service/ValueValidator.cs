@@ -1,10 +1,19 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace ObjectOrientedPractics.Service
 {
+    /// <summary>
+    /// Статический класс для валидации значений.
+    /// </summary>
     public static class ValueValidator
     {
+        /// <summary>
+        /// Утверждает, что длина строки находится в пределах максимального значения. 
+        /// </summary>
+        /// <param name="str">Исходная строка.</param>
+        /// <param name="maxLength">Значение максимальной длины.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <exception cref="ArgumentException">Возникает, если длина строки больше максимального значения.</exception>
         public static void AssertStringOnLength(string str, int maxLength, string propertyName)
         {
             if (str.Length > maxLength)
@@ -12,37 +21,19 @@ namespace ObjectOrientedPractics.Service
                 throw new ArgumentException($"{propertyName} length > {maxLength}");
             }
         }
-        
-        public static void AssertOnPositiveValue(int value, string propertyName)
-        {
-            if (value < 0)
-                throw new ArgumentException($"{propertyName} < 0: {value}");
-        }
 
-        public static void AssertOnPositiveValue(double value, string propertyName)
-        {
-            if (value < 0d)
-                throw new ArgumentException($"{propertyName} < 0: {value}");
-        }
-
-        public static void AssertOnPositiveValue(int value, int min, int max, string propertyName)
-        {
-            if (value < min || value > max)
-                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
-        }
-
+        /// <summary>
+        /// Утверждает, что число с плавающей запятой находится в пределах минимального и максимального значений. 
+        /// </summary>
+        /// <param name="value">Исходное значение.</param>
+        /// <param name="min">Минимальное значение.</param>
+        /// <param name="max">Максимальное значение.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <exception cref="ArgumentException">Возникает, если значение находится вне пределов минимального и максимального значений.</exception>
         public static void AssertOnPositiveValue(double value, double min, double max, string propertyName)
         {
             if (value < min || value > max)
                 throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
-        }
-        
-        public static string AssertStringContainsOnlyLetters(string value, string propertyName)
-        {
-            return Regex.IsMatch(value, "[a-zA-Z0-9]")
-                ? value
-                : throw new ArgumentException($@"Некорректное значение в свойстве {nameof(propertyName)}!",
-                    propertyName);
         }
     }
 }
