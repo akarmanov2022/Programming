@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Programming.Service;
+using static Programming.Service.Validator;
 using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View.Panels
@@ -127,7 +128,7 @@ namespace Programming.View.Panels
         {
             try
             {
-                XTextBox.BackColor = Validator.BackColorSuccess;
+                XTextBox.BackColor = BackColorSuccess;
                 if (XTextBox.Text != string.Empty)
                 {
                     var xValue = int.Parse(XTextBox.Text);
@@ -141,7 +142,7 @@ namespace Programming.View.Panels
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                XTextBox.BackColor = Validator.BackColorException;
+                XTextBox.BackColor = BackColorException;
             }
         }
 
@@ -149,7 +150,7 @@ namespace Programming.View.Panels
         {
             try
             {
-                YTextBox.BackColor = Validator.BackColorSuccess;
+                YTextBox.BackColor = BackColorSuccess;
                 if (YTextBox.Text != string.Empty)
                 {
                     var yValue = int.Parse(YTextBox.Text);
@@ -163,7 +164,7 @@ namespace Programming.View.Panels
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                YTextBox.BackColor = Validator.BackColorException;
+                YTextBox.BackColor = BackColorException;
             }
         }
 
@@ -171,7 +172,7 @@ namespace Programming.View.Panels
         {
             try
             {
-                WidthTextBox.BackColor = Validator.BackColorSuccess;
+                WidthTextBox.BackColor = BackColorSuccess;
                 if (WidthTextBox.Text != string.Empty)
                 {
                     var widthValue = int.Parse(WidthTextBox.Text);
@@ -185,7 +186,7 @@ namespace Programming.View.Panels
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                WidthTextBox.BackColor = Validator.BackColorException;
+                WidthTextBox.BackColor = BackColorException;
             }
         }
 
@@ -193,7 +194,7 @@ namespace Programming.View.Panels
         {
             try
             {
-                HeightTextBox.BackColor = Validator.BackColorSuccess;
+                HeightTextBox.BackColor = BackColorSuccess;
                 if (HeightTextBox.Text != string.Empty)
                 {
                     var heightValue = int.Parse(HeightTextBox.Text);
@@ -207,7 +208,7 @@ namespace Programming.View.Panels
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                HeightTextBox.BackColor = Validator.BackColorException;
+                HeightTextBox.BackColor = BackColorException;
             }
         }
 
