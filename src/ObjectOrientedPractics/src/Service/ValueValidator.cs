@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace ObjectOrientedPractics.Service
 {
-    public static class Validator
+    public static class ValueValidator
     {
-        public static void AssertOnStringLength(string str, int maxLength, string propertyName)
+        public static void AssertStringOnLength(string str, int maxLength, string propertyName)
         {
             if (str.Length > maxLength)
             {

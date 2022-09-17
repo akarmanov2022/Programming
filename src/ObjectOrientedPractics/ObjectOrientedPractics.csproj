@@ -48,9 +48,10 @@
     <ItemGroup>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="src\Model\Customer.cs" />
         <Compile Include="src\Model\Item.cs" />
         <Compile Include="src\Service\IdGenerator.cs" />
-        <Compile Include="src\Service\Validator.cs" />
+        <Compile Include="src\Service\ValueValidator.cs" />
         <Compile Include="src\View\MainForm.cs">
           <SubType>Form</SubType>
         </Compile>
