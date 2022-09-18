@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Service;
+using static System.Double;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -20,7 +21,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Хранит цену товара.
         /// </summary>
-        private double _cost;
+        private double _cost = NaN;
 
         /// <summary>
         /// Возвращает идентификатор.
@@ -65,7 +66,7 @@ namespace ObjectOrientedPractics.Model
                 _cost = value;
             }
         }
- 
+
         /// <summary>
         /// Создает экземпляр объекта <see cref="Item"/>.
         /// </summary>
@@ -78,6 +79,16 @@ namespace ObjectOrientedPractics.Model
             Name = name;
             Info = info;
             Cost = cost;
+        }
+
+        public Item()
+        {
+            Id = IdGenerator.GetNextId();
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Item)}-{Id + 1}";
         }
     }
 }

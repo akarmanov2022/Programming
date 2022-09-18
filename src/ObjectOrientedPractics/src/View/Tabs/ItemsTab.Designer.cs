@@ -79,6 +79,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsAddButton.TabIndex = 0;
             this.ItemsAddButton.Text = "Add";
             this.ItemsAddButton.UseVisualStyleBackColor = true;
+            this.ItemsAddButton.Click += new System.EventHandler(this.ItemsAddButton_Click);
             // 
             // ItemsRemoveButton
             // 
@@ -89,6 +90,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsRemoveButton.TabIndex = 1;
             this.ItemsRemoveButton.Text = "Remove";
             this.ItemsRemoveButton.UseVisualStyleBackColor = true;
+            this.ItemsRemoveButton.Click += new System.EventHandler(this.ItemsRemoveButton_Click);
             // 
             // ItemsLabel
             // 
@@ -108,6 +110,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsListBox.Name = "ItemsListBox";
             this.ItemsListBox.Size = new System.Drawing.Size(429, 784);
             this.ItemsListBox.TabIndex = 3;
+            this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
             // SelectedItemLabel
             // 
@@ -132,7 +135,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(623, 193);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(644, 99);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // SelectedItemIdLable
@@ -140,7 +143,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemIdLable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SelectedItemIdLable.Location = new System.Drawing.Point(3, 0);
             this.SelectedItemIdLable.Name = "SelectedItemIdLable";
-            this.SelectedItemIdLable.Size = new System.Drawing.Size(59, 96);
+            this.SelectedItemIdLable.Size = new System.Drawing.Size(59, 49);
             this.SelectedItemIdLable.TabIndex = 0;
             this.SelectedItemIdLable.Text = "Id:";
             this.SelectedItemIdLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,9 +151,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemCostLabel
             // 
             this.SelectedItemCostLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SelectedItemCostLabel.Location = new System.Drawing.Point(3, 96);
+            this.SelectedItemCostLabel.Location = new System.Drawing.Point(3, 49);
             this.SelectedItemCostLabel.Name = "SelectedItemCostLabel";
-            this.SelectedItemCostLabel.Size = new System.Drawing.Size(59, 97);
+            this.SelectedItemCostLabel.Size = new System.Drawing.Size(59, 50);
             this.SelectedItemCostLabel.TabIndex = 1;
             this.SelectedItemCostLabel.Text = "Cost:";
             this.SelectedItemCostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,33 +161,34 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemIdTextBox
             // 
             this.SelectedItemIdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemIdTextBox.Location = new System.Drawing.Point(68, 35);
+            this.SelectedItemIdTextBox.Location = new System.Drawing.Point(68, 11);
             this.SelectedItemIdTextBox.Name = "SelectedItemIdTextBox";
-            this.SelectedItemIdTextBox.Size = new System.Drawing.Size(552, 26);
+            this.SelectedItemIdTextBox.ReadOnly = true;
+            this.SelectedItemIdTextBox.Size = new System.Drawing.Size(573, 26);
             this.SelectedItemIdTextBox.TabIndex = 2;
             // 
             // SelectedItemCostTextBox
             // 
             this.SelectedItemCostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(68, 131);
+            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(68, 61);
             this.SelectedItemCostTextBox.Name = "SelectedItemCostTextBox";
-            this.SelectedItemCostTextBox.Size = new System.Drawing.Size(552, 26);
+            this.SelectedItemCostTextBox.Size = new System.Drawing.Size(573, 26);
             this.SelectedItemCostTextBox.TabIndex = 3;
+            this.SelectedItemCostTextBox.TextChanged += new System.EventHandler(this.SelectedItemCostTextBox_TextChanged);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.SelectedItemNameLabel);
             this.flowLayoutPanel1.Controls.Add(this.SelectedItemNameTextBox);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(435, 245);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(441, 151);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(626, 272);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(644, 272);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // SelectedItemNameLabel
             // 
-            this.SelectedItemNameLabel.Location = new System.Drawing.Point(6, 3);
+            this.SelectedItemNameLabel.Location = new System.Drawing.Point(3, 0);
             this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
             this.SelectedItemNameLabel.Size = new System.Drawing.Size(623, 23);
             this.SelectedItemNameLabel.TabIndex = 0;
@@ -192,39 +196,41 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemNameTextBox
             // 
-            this.SelectedItemNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(6, 29);
+            this.SelectedItemNameTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(3, 26);
             this.SelectedItemNameTextBox.Multiline = true;
             this.SelectedItemNameTextBox.Name = "SelectedItemNameTextBox";
-            this.SelectedItemNameTextBox.Size = new System.Drawing.Size(623, 230);
+            this.SelectedItemNameTextBox.Size = new System.Drawing.Size(635, 230);
             this.SelectedItemNameTextBox.TabIndex = 1;
+            this.SelectedItemNameTextBox.TextChanged += new System.EventHandler(this.SelectedItemNameTextBox_TextChanged);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.SelectedItemDescriptionLabel);
             this.flowLayoutPanel2.Controls.Add(this.SelectedItemDescriptionTextBox);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(435, 523);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(441, 429);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(626, 359);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(644, 359);
             this.flowLayoutPanel2.TabIndex = 7;
             // 
             // SelectedItemDescriptionLabel
             // 
             this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(3, 0);
             this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
-            this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(623, 23);
+            this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(638, 23);
             this.SelectedItemDescriptionLabel.TabIndex = 0;
             this.SelectedItemDescriptionLabel.Text = "Description:";
             // 
             // SelectedItemDescriptionTextBox
             // 
-            this.SelectedItemDescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedItemDescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(3, 26);
             this.SelectedItemDescriptionTextBox.Multiline = true;
             this.SelectedItemDescriptionTextBox.Name = "SelectedItemDescriptionTextBox";
-            this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(623, 230);
+            this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(635, 230);
             this.SelectedItemDescriptionTextBox.TabIndex = 1;
+            this.SelectedItemDescriptionTextBox.TextChanged += new System.EventHandler(this.SelectedItemDescriptionTextBox_TextChanged);
             // 
             // ItemsTab
             // 
@@ -238,7 +244,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.ItemsLabel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ItemsTab";
-            this.Size = new System.Drawing.Size(1061, 882);
+            this.Size = new System.Drawing.Size(1085, 882);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
