@@ -87,6 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersAddButton.TabIndex = 0;
             this.CustomersAddButton.Text = "Add";
             this.CustomersAddButton.UseVisualStyleBackColor = true;
+            this.CustomersAddButton.Click += new System.EventHandler(this.CustomersAddButton_Click);
             // 
             // CustomersRemoveButton
             // 
@@ -97,6 +98,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersRemoveButton.TabIndex = 1;
             this.CustomersRemoveButton.Text = "Remove";
             this.CustomersRemoveButton.UseVisualStyleBackColor = true;
+            this.CustomersRemoveButton.Click += new System.EventHandler(this.CustomersRemoveButton_Click);
             // 
             // CustomersListBox
             // 
@@ -107,6 +109,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(464, 827);
             this.CustomersListBox.TabIndex = 1;
+            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
             // CustomersLabel
             // 
@@ -121,7 +124,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel2.Controls.Add(this.SelectedCustomerAddressTextBox);
             this.panel2.Controls.Add(this.SelectedCustomerFullnameTextBox);
@@ -144,6 +147,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
             this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(434, 276);
             this.SelectedCustomerAddressTextBox.TabIndex = 6;
+            this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
             // 
             // SelectedCustomerFullnameTextBox
             // 
@@ -152,11 +156,13 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerFullnameTextBox.Name = "SelectedCustomerFullnameTextBox";
             this.SelectedCustomerFullnameTextBox.Size = new System.Drawing.Size(434, 26);
             this.SelectedCustomerFullnameTextBox.TabIndex = 5;
+            this.SelectedCustomerFullnameTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerFullnameTextBox_TextChanged);
             // 
             // SelectedCustomerIdTextBox
             // 
             this.SelectedCustomerIdTextBox.Location = new System.Drawing.Point(157, 59);
             this.SelectedCustomerIdTextBox.Name = "SelectedCustomerIdTextBox";
+            this.SelectedCustomerIdTextBox.ReadOnly = true;
             this.SelectedCustomerIdTextBox.Size = new System.Drawing.Size(132, 26);
             this.SelectedCustomerIdTextBox.TabIndex = 4;
             // 

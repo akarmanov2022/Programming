@@ -63,5 +63,15 @@ namespace ObjectOrientedPractics.Model
             Fullname = fullname;
             Address = address;
         }
+
+        public Customer()
+        {
+            Id = IdGenerator.GetNextId();
+        }
+        
+        public override string ToString()
+        {
+            return $"{nameof(Customer)}-{Id + 1}";
+        }
     }
 }

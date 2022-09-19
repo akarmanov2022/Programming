@@ -244,7 +244,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.ItemsLabel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ItemsTab";
-            this.Size = new System.Drawing.Size(1085, 882);
+            this.Size = new System.Drawing.Size(1092, 882);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
