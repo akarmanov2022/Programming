@@ -12,5 +12,6 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=src_002FObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FCustomersTab/@EntryIndexedValue">True</s:Boolean>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=src_002FObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FItemsTab/@EntryIndexedValue">False</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Practics/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
