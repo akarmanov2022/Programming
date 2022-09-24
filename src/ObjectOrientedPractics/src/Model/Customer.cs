@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Service;
+﻿using System;
+using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -30,15 +31,24 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Fullname
         {
-            get => _fullname;
+            get => $"{LastName} {FirstName} {FatherName}";
             set
             {
                 ValueValidator.AssertStringOnLength(value, MaxLengthFullname, nameof(Fullname));
-                _fullname = value;
+                var strings = value.Split(' ');
+                LastName = strings[0] ?? "";
+                FirstName = strings[1] ?? "";
+                FatherName = strings[2] ?? "";
             }
         }
 
-        
+        public string LastName { get; set; }
+
+        public  string FirstName { get; set; }
+
+        public  string FatherName { get; set; }
+
+
         /// <summary>
         /// Возвращает или задает знаяение адреса. Длина строки не должна превышать <see cref="MaxLengthAddress"/>/>
         /// </summary>
@@ -71,7 +81,7 @@ namespace ObjectOrientedPractics.Model
         
         public override string ToString()
         {
-            return $"{nameof(Customer)}-{Id + 1}";
+            return Fullname;
         }
     }
 }

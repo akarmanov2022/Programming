@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Service;
 using static System.String;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -13,7 +15,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private static readonly Color BackColorException = Color.LightPink;
 
-        private readonly List<Customer> _customers = new List<Customer>();
+        private List<Customer> _customers = new List<Customer>();
 
         private Customer _currentCustomer = new Customer();
         
@@ -114,6 +116,13 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CustomersListBox.Items.Add(customer);
             }
+        }
+
+        private void CustomersRandomButton_Click_1(object sender, EventArgs e)
+        {
+            var random = new Random();
+            _customers = CustomerFactory.RandomGenerate(random.Next(10, 100));
+            UpdateCustomersListBox();
         }
     }
 }

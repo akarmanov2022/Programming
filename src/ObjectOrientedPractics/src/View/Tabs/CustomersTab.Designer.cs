@@ -35,6 +35,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CustomersAddButton = new System.Windows.Forms.Button();
             this.CustomersRemoveButton = new System.Windows.Forms.Button();
+            this.CustomersRandomButton = new System.Windows.Forms.Button();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -70,6 +71,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.CustomersAddButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.CustomersRemoveButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.CustomersRandomButton, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 812);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -99,6 +101,17 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersRemoveButton.Text = "Remove";
             this.CustomersRemoveButton.UseVisualStyleBackColor = true;
             this.CustomersRemoveButton.Click += new System.EventHandler(this.CustomersRemoveButton_Click);
+            // 
+            // CustomersRandomButton
+            // 
+            this.CustomersRandomButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersRandomButton.Location = new System.Drawing.Point(311, 3);
+            this.CustomersRandomButton.Name = "CustomersRandomButton";
+            this.CustomersRandomButton.Size = new System.Drawing.Size(150, 58);
+            this.CustomersRandomButton.TabIndex = 2;
+            this.CustomersRandomButton.Text = "Random";
+            this.CustomersRandomButton.UseVisualStyleBackColor = true;
+            this.CustomersRandomButton.Click += new System.EventHandler(this.CustomersRandomButton_Click_1);
             // 
             // CustomersListBox
             // 
@@ -217,6 +230,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button CustomersRandomButton;
 
         private System.Windows.Forms.TextBox SelectedCustomerAddressTextBox;
 
