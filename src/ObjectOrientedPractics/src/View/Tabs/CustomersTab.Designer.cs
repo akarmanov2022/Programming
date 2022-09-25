@@ -60,7 +60,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(6);
-            this.panel1.Size = new System.Drawing.Size(476, 882);
+            this.panel1.Size = new System.Drawing.Size(363, 882);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -77,7 +77,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 64);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(351, 64);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // CustomersAddButton
@@ -85,7 +85,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersAddButton.Location = new System.Drawing.Point(3, 3);
             this.CustomersAddButton.Name = "CustomersAddButton";
-            this.CustomersAddButton.Size = new System.Drawing.Size(148, 58);
+            this.CustomersAddButton.Size = new System.Drawing.Size(111, 58);
             this.CustomersAddButton.TabIndex = 0;
             this.CustomersAddButton.Text = "Add";
             this.CustomersAddButton.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // CustomersRemoveButton
             // 
             this.CustomersRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersRemoveButton.Location = new System.Drawing.Point(157, 3);
+            this.CustomersRemoveButton.Location = new System.Drawing.Point(120, 3);
             this.CustomersRemoveButton.Name = "CustomersRemoveButton";
-            this.CustomersRemoveButton.Size = new System.Drawing.Size(148, 58);
+            this.CustomersRemoveButton.Size = new System.Drawing.Size(111, 58);
             this.CustomersRemoveButton.TabIndex = 1;
             this.CustomersRemoveButton.Text = "Remove";
             this.CustomersRemoveButton.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // CustomersRandomButton
             // 
             this.CustomersRandomButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersRandomButton.Location = new System.Drawing.Point(311, 3);
+            this.CustomersRandomButton.Location = new System.Drawing.Point(237, 3);
             this.CustomersRandomButton.Name = "CustomersRandomButton";
-            this.CustomersRandomButton.Size = new System.Drawing.Size(150, 58);
+            this.CustomersRandomButton.Size = new System.Drawing.Size(111, 58);
             this.CustomersRandomButton.TabIndex = 2;
             this.CustomersRandomButton.Text = "Random";
             this.CustomersRandomButton.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox.ItemHeight = 20;
             this.CustomersListBox.Location = new System.Drawing.Point(6, 49);
             this.CustomersListBox.Name = "CustomersListBox";
-            this.CustomersListBox.Size = new System.Drawing.Size(464, 827);
+            this.CustomersListBox.Size = new System.Drawing.Size(351, 827);
             this.CustomersListBox.TabIndex = 1;
             this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
@@ -130,7 +130,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CustomersLabel.Location = new System.Drawing.Point(6, 6);
             this.CustomersLabel.Name = "CustomersLabel";
-            this.CustomersLabel.Size = new System.Drawing.Size(464, 43);
+            this.CustomersLabel.Size = new System.Drawing.Size(351, 43);
             this.CustomersLabel.TabIndex = 0;
             this.CustomersLabel.Text = "Customers";
             this.CustomersLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,62 +146,62 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.SelectedCustomerIdLabel);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(482, 0);
+            this.panel2.Location = new System.Drawing.Point(363, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(6);
-            this.panel2.Size = new System.Drawing.Size(603, 453);
+            this.panel2.Size = new System.Drawing.Size(722, 444);
             this.panel2.TabIndex = 1;
             // 
             // SelectedCustomerAddressTextBox
             // 
-            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(160, 168);
+            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(107, 143);
             this.SelectedCustomerAddressTextBox.Multiline = true;
             this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
-            this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(434, 276);
+            this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(606, 292);
             this.SelectedCustomerAddressTextBox.TabIndex = 6;
             this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
             // 
             // SelectedCustomerFullnameTextBox
             // 
             this.SelectedCustomerFullnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerFullnameTextBox.Location = new System.Drawing.Point(160, 115);
+            this.SelectedCustomerFullnameTextBox.Location = new System.Drawing.Point(107, 97);
             this.SelectedCustomerFullnameTextBox.Name = "SelectedCustomerFullnameTextBox";
-            this.SelectedCustomerFullnameTextBox.Size = new System.Drawing.Size(434, 26);
+            this.SelectedCustomerFullnameTextBox.Size = new System.Drawing.Size(606, 26);
             this.SelectedCustomerFullnameTextBox.TabIndex = 5;
             this.SelectedCustomerFullnameTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerFullnameTextBox_TextChanged);
             // 
             // SelectedCustomerIdTextBox
             // 
-            this.SelectedCustomerIdTextBox.Location = new System.Drawing.Point(157, 59);
+            this.SelectedCustomerIdTextBox.Location = new System.Drawing.Point(107, 56);
             this.SelectedCustomerIdTextBox.Name = "SelectedCustomerIdTextBox";
             this.SelectedCustomerIdTextBox.ReadOnly = true;
-            this.SelectedCustomerIdTextBox.Size = new System.Drawing.Size(132, 26);
+            this.SelectedCustomerIdTextBox.Size = new System.Drawing.Size(182, 26);
             this.SelectedCustomerIdTextBox.TabIndex = 4;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 152);
+            this.label5.Location = new System.Drawing.Point(6, 131);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 53);
+            this.label5.Size = new System.Drawing.Size(95, 50);
             this.label5.TabIndex = 3;
             this.label5.Text = "Address:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(6, 99);
+            this.label4.Location = new System.Drawing.Point(6, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 53);
+            this.label4.Size = new System.Drawing.Size(95, 42);
             this.label4.TabIndex = 2;
             this.label4.Text = "Full Name:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SelectedCustomerIdLabel
             // 
-            this.SelectedCustomerIdLabel.Location = new System.Drawing.Point(6, 46);
+            this.SelectedCustomerIdLabel.Location = new System.Drawing.Point(6, 49);
             this.SelectedCustomerIdLabel.Name = "SelectedCustomerIdLabel";
-            this.SelectedCustomerIdLabel.Size = new System.Drawing.Size(145, 53);
+            this.SelectedCustomerIdLabel.Size = new System.Drawing.Size(95, 40);
             this.SelectedCustomerIdLabel.TabIndex = 1;
             this.SelectedCustomerIdLabel.Text = "ID:";
             this.SelectedCustomerIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,7 +212,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(6, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(591, 43);
+            this.label2.Size = new System.Drawing.Size(710, 43);
             this.label2.TabIndex = 0;
             this.label2.Text = "Selected Customer";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
