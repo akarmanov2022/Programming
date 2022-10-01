@@ -22,12 +22,12 @@ namespace ObjectOrientedPractics.Model
         private string _address;
         
         /// <summary>
-        /// Возвращает значение иденитфикатора.
+        /// Возвращает значение идентификатора.
         /// </summary>
         public int Id { get; }
 
         /// <summary>
-        /// Возвращает или задает знаяение полного имени. Длина строки не должна превышать <see cref="MaxLengthFullname"/>/>
+        /// Возвращает или задает значение полного имени. Длина строки не должна превышать <see cref="MaxLengthFullname"/>/>
         /// </summary>
         public string Fullname
         {
@@ -43,15 +43,24 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает значение фамилии.
+        /// </summary>
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает значение имени.
+        /// </summary>
         public  string FirstName { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает значение отчества.
+        /// </summary>
         public  string FatherName { get; set; }
 
 
         /// <summary>
-        /// Возвращает или задает знаяение адреса. Длина строки не должна превышать <see cref="MaxLengthAddress"/>/>
+        /// Возвращает или задает значение адреса. Длина строки не должна превышать <see cref="MaxLengthAddress"/>/>
         /// </summary>
         public string Address
         {
@@ -63,12 +72,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        public Customer(string fullname)
-        {
-            _fullname = fullname;
-            Id = IdGenerator.GetNextId();
-        }
-
+        /// <summary>
+        /// Конструктор по умолчанию. 
+        /// </summary>
         public Customer()
         {
             Id = IdGenerator.GetNextId();

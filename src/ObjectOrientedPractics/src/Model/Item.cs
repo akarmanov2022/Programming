@@ -89,6 +89,9 @@ namespace ObjectOrientedPractics.Model
             Cost = cost;
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Item()
         {
             Id = IdGenerator.GetNextId();
