@@ -34,6 +34,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ItemsAddButton = new System.Windows.Forms.Button();
             this.ItemsRemoveButton = new System.Windows.Forms.Button();
+            this.ItemsRandomButton = new System.Windows.Forms.Button();
             this.ItemsLabel = new System.Windows.Forms.Label();
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.SelectedItemLabel = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.ItemsAddButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ItemsRemoveButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ItemsRandomButton, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 1064);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -87,6 +89,17 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsRemoveButton.Text = "Remove";
             this.ItemsRemoveButton.UseVisualStyleBackColor = true;
             this.ItemsRemoveButton.Click += new System.EventHandler(this.ItemsRemoveButton_Click);
+            // 
+            // ItemsRandomButton
+            // 
+            this.ItemsRandomButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsRandomButton.Location = new System.Drawing.Point(289, 3);
+            this.ItemsRandomButton.Name = "ItemsRandomButton";
+            this.ItemsRandomButton.Size = new System.Drawing.Size(137, 81);
+            this.ItemsRandomButton.TabIndex = 2;
+            this.ItemsRandomButton.Text = "Random";
+            this.ItemsRandomButton.UseVisualStyleBackColor = true;
+            this.ItemsRandomButton.Click += new System.EventHandler(this.ItemsRandomButton_Click);
             // 
             // ItemsLabel
             // 
@@ -220,6 +233,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button ItemsRandomButton;
 
         private System.Windows.Forms.Panel panel1;
 

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Service;
 using static System.Double;
 using static System.String;
 
@@ -15,7 +16,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private static readonly Color BackColorException = Color.LightPink;
 
-        private readonly List<Item> _items = new List<Item>();
+        private List<Item> _items = new List<Item>();
 
         private Item _currentItem = new Item();
 
@@ -24,7 +25,6 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
 
             ItemsRemoveButton.Enabled = false;
-            ItemsAddButton.Enabled = false;
         }
 
 
@@ -44,7 +44,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Cost = NaN;
                 SelectedItemCostTextBox.BackColor = BackColorException;
             }
-            EnableAddButton();
         }
 
         private void SelectedItemNameTextBox_TextChanged(object sender, EventArgs e)
@@ -63,7 +62,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedItemNameTextBox.BackColor = BackColorException;
             }
 
-            EnableAddButton();
         }
 
         private void SelectedItemDescriptionTextBox_TextChanged(object sender, EventArgs e)
@@ -81,16 +79,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Info = Empty;
                 SelectedItemDescriptionTextBox.BackColor = BackColorException;
             }
-            EnableAddButton();
         }
 
         private void ItemsAddButton_Click(object sender, EventArgs e)
         {
-            _items.Add(_currentItem);
             _currentItem = new Item();
+            _items.Add(_currentItem);
             UpdateItemsListBox();
             ClearTextBoxes();
-            EnableAddButton();
         }
 
         private void ClearTextBoxes()
@@ -108,14 +104,6 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 ItemsListBox.Items.Add(item);
             }
-        }
-
-        private void EnableAddButton()
-        {
-            ItemsAddButton.Enabled = IsNullOrEmpty(SelectedItemIdTextBox.Text) 
-                                     && !IsNaN(_currentItem.Cost) 
-                                     && !IsNullOrWhiteSpace(_currentItem.Name) 
-                                     && !IsNullOrWhiteSpace(_currentItem.Info);
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,6 +129,14 @@ namespace ObjectOrientedPractics.View.Tabs
             ClearTextBoxes();
             ItemsRemoveButton.Enabled = false;
             _currentItem = new Item();
+        }
+
+        private void ItemsRandomButton_Click(object sender, EventArgs e)
+        {
+            var random = new Random();
+            _items = ItemFactory.RandomGenerate(random.Next(10, 100));
+            UpdateItemsListBox();
+            ClearTextBoxes();
         }
     }
 }

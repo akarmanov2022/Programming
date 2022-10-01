@@ -31,14 +31,15 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Fullname
         {
-            get => $"{LastName} {FirstName} {FatherName}";
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_fullname)) _fullname = $"{LastName} {FirstName} {FatherName}";
+                return _fullname;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(value, MaxLengthFullname, nameof(Fullname));
-                var strings = value.Split(' ');
-                LastName = strings[0] ?? "";
-                FirstName = strings[1] ?? "";
-                FatherName = strings[2] ?? "";
+                _fullname = value;
             }
         }
 
@@ -62,16 +63,10 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        /// <summary>
-        /// Создает эземпляр объекта <see cref="Customer"/> .
-        /// </summary>
-        /// <param name="fullname">Значение полного имени.</param>
-        /// <param name="address">Значение адреса.</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname)
         {
+            _fullname = fullname;
             Id = IdGenerator.GetNextId();
-            Fullname = fullname;
-            Address = address;
         }
 
         public Customer()
@@ -81,7 +76,7 @@ namespace ObjectOrientedPractics.Model
         
         public override string ToString()
         {
-            return Fullname;
+            return $"{Id}. {Fullname}";
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Хранит цену товара.
         /// </summary>
-        private double _cost = NaN;
+        private double _cost;
 
         /// <summary>
         /// Возвращает идентификатор.
@@ -33,7 +33,11 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Name
         {
-            get => _name;
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_name)) _name = $"{CarBrand} {CarModel}";
+                return _name;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Name));
@@ -67,6 +71,10 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public string CarBrand { set; get; }
+
+        public string CarModel { set; get; }
+
         /// <summary>
         /// Создает экземпляр объекта <see cref="Item"/>.
         /// </summary>
@@ -88,7 +96,8 @@ namespace ObjectOrientedPractics.Model
 
         public override string ToString()
         {
-            return $"{nameof(Item)}-{Id + 1}";
+            return Name ?? $"{nameof(Item)}-{Id + 1}";
         }
+        
     }
 }

@@ -17,13 +17,12 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private List<Customer> _customers = new List<Customer>();
 
-        private Customer _currentCustomer = new Customer();
+        private Customer _currentCustomer;
         
         public CustomersTab()
         {
             InitializeComponent();
 
-            CustomersAddButton.Enabled = false;
             CustomersRemoveButton.Enabled = false;
         }
 
@@ -42,7 +41,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 Console.WriteLine(exception);
                 SelectedCustomerFullnameTextBox.BackColor = BackColorException;
             }
-            EnableAddButton();
         }
 
         private void SelectedCustomerAddressTextBox_TextChanged(object sender, EventArgs e)
@@ -59,16 +57,15 @@ namespace ObjectOrientedPractics.View.Tabs
                 Console.WriteLine(exception);
                 SelectedCustomerAddressTextBox.BackColor = BackColorException;
             }
-            EnableAddButton();
         }
 
         private void CustomersAddButton_Click(object sender, EventArgs e)
         {
-            _customers.Add(_currentCustomer);
             _currentCustomer = new Customer();
+            _currentCustomer.Fullname = $"{nameof(Customer)} {_currentCustomer.Id}";
+            _customers.Add(_currentCustomer);
             UpdateCustomersListBox();
             ClearTextBoxes();
-            EnableAddButton();
         }
 
         private void CustomersRemoveButton_Click(object sender, EventArgs e)
@@ -102,13 +99,6 @@ namespace ObjectOrientedPractics.View.Tabs
             SelectedCustomerAddressTextBox.Clear();
         }
 
-        private void EnableAddButton()
-        {
-            CustomersAddButton.Enabled = IsNullOrEmpty(SelectedCustomerIdTextBox.Text) 
-                                     && !IsNullOrWhiteSpace(_currentCustomer.Fullname) 
-                                     && !IsNullOrWhiteSpace(_currentCustomer.Address);
-        }
-
         private void UpdateCustomersListBox()
         {
             CustomersListBox.Items.Clear();
@@ -118,8 +108,8 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void CustomersRandomButton_Click_1(object sender, EventArgs e)
-        {
+        private void CustomersRandomButton_Click(object sender, EventArgs e)
+        {  
             var random = new Random();
             _customers = CustomerFactory.RandomGenerate(random.Next(10, 100));
             UpdateCustomersListBox();

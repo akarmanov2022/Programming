@@ -1,7 +1,36 @@
-﻿namespace ObjectOrientedPractics.Service
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using ObjectOrientedPractics.Model;
+
+namespace ObjectOrientedPractics.Service
 {
     public class ItemFactory
     {
-        
+        private static readonly HttpClient Http = new HttpClient();
+
+        public static List<Item> RandomGenerate(int count)
+        {
+            try
+            {
+                var uri = $"https://api.randomdatatools.ru/?count={count}&unescaped=true&params=CarBrand,CarModel";
+                var request = new HttpRequestMessage(HttpMethod.Get, uri);
+                
+                var response = Http.SendAsync(request).Result;
+
+                var json = response.Content.ReadAsStringAsync().Result;
+                var items = JsonSerializer.Deserialize<List<Item>>(json);
+
+                var random = new Random();
+                items?.ForEach(item => item.Cost = Math.Round(random.NextDouble() * 100000));
+                return items;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

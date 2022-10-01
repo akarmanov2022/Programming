@@ -111,7 +111,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersRandomButton.TabIndex = 2;
             this.CustomersRandomButton.Text = "Random";
             this.CustomersRandomButton.UseVisualStyleBackColor = true;
-            this.CustomersRandomButton.Click += new System.EventHandler(this.CustomersRandomButton_Click_1);
+            this.CustomersRandomButton.Click += new System.EventHandler(this.CustomersRandomButton_Click);
             // 
             // CustomersListBox
             // 
