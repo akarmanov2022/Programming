@@ -130,7 +130,6 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsRemoveButton.Enabled = false;
             _currentItem = new Item();
         }
-
         private void ItemsRandomButton_Click(object sender, EventArgs e)
         {
             var random = new Random();

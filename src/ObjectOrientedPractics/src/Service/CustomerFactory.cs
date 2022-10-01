@@ -6,10 +6,18 @@ using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Service
 {
+    /// <summary>
+    /// Статическая фабрика для создания экземпляров <see cref="Customer"/>.
+    /// </summary>
     public static class CustomerFactory
     {
         private static readonly HttpClient Http = new HttpClient();
 
+        /// <summary>
+        /// Генерирует случайные <see cref="Customer"/> через ресурс <c>api.randomdatatools.ru</c>.
+        /// </summary>
+        /// <param name="count">Количество элементов.</param>
+        /// <returns>Список <see cref="Customer"/>.</returns>
         public static List<Customer> RandomGenerate(int count)
         {
             try

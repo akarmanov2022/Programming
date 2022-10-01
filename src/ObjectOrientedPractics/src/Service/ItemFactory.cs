@@ -6,6 +6,9 @@ using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Service
 {
+    /// <summary>
+    /// Статическая фабрика для создания экземпляров <see cref="Item"/>.
+    /// </summary>
     public class ItemFactory
     {
         private static readonly HttpClient Http = new HttpClient();
