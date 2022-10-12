@@ -6,7 +6,7 @@
     public static class IdGenerator
     {
         /// <summary>
-        /// Cтатического поле-счетчик.
+        /// Статическое поле-счетчик.
         /// </summary>
         private static int _count;
         
