@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using static System.String;
 
-namespace ObjectOrientedPractics.View.Tabs
+namespace ObjectOrientedPractics.View.Controls
 {
     public partial class AddressControl : UserControl
     {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -40,7 +41,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DeliveryAddressControl = new ObjectOrientedPractics.View.Tabs.AddressControl();
+            this.DeliveryAddressControl = new AddressControl();
             this.SelectedCustomerFullnameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIdTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -225,7 +226,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ResumeLayout(false);
         }
 
-        private ObjectOrientedPractics.View.Tabs.AddressControl DeliveryAddressControl;
+        private AddressControl DeliveryAddressControl;
 
         private System.Windows.Forms.Button CustomersRandomButton;
 

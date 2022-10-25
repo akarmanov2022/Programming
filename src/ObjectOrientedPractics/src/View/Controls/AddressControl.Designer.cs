@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ObjectOrientedPractics.View.Tabs
+namespace ObjectOrientedPractics.View.Controls
 {
     partial class AddressControl
     {
