@@ -47,8 +47,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemDescriptionLabel = new System.Windows.Forms.Label();
             this.SelectedItemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SelectedItemCategoryLabel = new System.Windows.Forms.Label();
             this.SelectedItemCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.SelectedItemCategoryLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -224,6 +224,14 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.Size = new System.Drawing.Size(837, 1151);
             this.panel1.TabIndex = 0;
             // 
+            // SelectedItemCategoryComboBox
+            // 
+            this.SelectedItemCategoryComboBox.FormattingEnabled = true;
+            this.SelectedItemCategoryComboBox.Location = new System.Drawing.Point(105, 131);
+            this.SelectedItemCategoryComboBox.Name = "SelectedItemCategoryComboBox";
+            this.SelectedItemCategoryComboBox.Size = new System.Drawing.Size(230, 28);
+            this.SelectedItemCategoryComboBox.TabIndex = 6;
+            // 
             // SelectedItemCategoryLabel
             // 
             this.SelectedItemCategoryLabel.Location = new System.Drawing.Point(3, 131);
@@ -232,14 +240,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemCategoryLabel.TabIndex = 5;
             this.SelectedItemCategoryLabel.Text = "Category:";
             this.SelectedItemCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // SelectedItemCategoryComboBox
-            // 
-            this.SelectedItemCategoryComboBox.FormattingEnabled = true;
-            this.SelectedItemCategoryComboBox.Location = new System.Drawing.Point(105, 131);
-            this.SelectedItemCategoryComboBox.Name = "SelectedItemCategoryComboBox";
-            this.SelectedItemCategoryComboBox.Size = new System.Drawing.Size(230, 28);
-            this.SelectedItemCategoryComboBox.TabIndex = 6;
             // 
             // ItemsTab
             // 
