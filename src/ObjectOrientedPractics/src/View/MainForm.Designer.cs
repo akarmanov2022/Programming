@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.itemsTab1 = new ObjectOrientedPractics.View.Tabs.ItemsTab();
+            this.ItemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.customersTab1 = new ObjectOrientedPractics.View.Tabs.CustomersTab();
+            this.CustomersTab = new ObjectOrientedPractics.View.Tabs.CustomersTab();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.itemsTab1);
+            this.tabPage1.Controls.Add(this.ItemsTab);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -64,16 +64,16 @@
             // 
             // itemsTab1
             // 
-            this.itemsTab1.AutoScroll = true;
-            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab1.Location = new System.Drawing.Point(3, 3);
-            this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(1099, 805);
-            this.itemsTab1.TabIndex = 0;
+            this.ItemsTab.AutoScroll = true;
+            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsTab.Location = new System.Drawing.Point(3, 3);
+            this.ItemsTab.Name = "ItemsTab";
+            this.ItemsTab.Size = new System.Drawing.Size(1099, 805);
+            this.ItemsTab.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.customersTab1);
+            this.tabPage2.Controls.Add(this.CustomersTab);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -84,11 +84,11 @@
             // 
             // customersTab1
             // 
-            this.customersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customersTab1.Location = new System.Drawing.Point(3, 3);
-            this.customersTab1.Name = "customersTab1";
-            this.customersTab1.Size = new System.Drawing.Size(1099, 805);
-            this.customersTab1.TabIndex = 0;
+            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersTab.Location = new System.Drawing.Point(3, 3);
+            this.CustomersTab.Name = "CustomersTab";
+            this.CustomersTab.Size = new System.Drawing.Size(1099, 805);
+            this.CustomersTab.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -106,9 +106,9 @@
             this.ResumeLayout(false);
         }
 
-        private ObjectOrientedPractics.View.Tabs.CustomersTab customersTab1;
+        private ObjectOrientedPractics.View.Tabs.CustomersTab CustomersTab;
 
-        private ObjectOrientedPractics.View.Tabs.ItemsTab itemsTab1;
+        private ObjectOrientedPractics.View.Tabs.ItemsTab ItemsTab;
 
         private System.Windows.Forms.TabControl tabControl1;
 

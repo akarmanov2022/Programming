@@ -16,9 +16,9 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private static readonly Color BackColorException = Color.LightPink;
 
-        private List<Item> _items = new List<Item>();
-
         private Item _currentItem = new Item();
+
+        public List<Item> Items { get; set; } = new List<Item>();
 
         public ItemsTab()
         {
@@ -67,7 +67,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Name = Empty;
                 SelectedItemNameTextBox.BackColor = BackColorException;
             }
-
         }
 
         private void SelectedItemCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,7 +74,7 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 if (SelectedItemCategoryComboBox.SelectedIndex == -1) return;
-                var category = (Category) SelectedItemCategoryComboBox.SelectedItem;
+                var category = (Category)SelectedItemCategoryComboBox.SelectedItem;
                 _currentItem.Category = category;
                 SelectedItemCategoryComboBox.BackColor = BackColorSuccess;
             }
@@ -85,7 +84,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Category = null;
                 SelectedItemCategoryComboBox.BackColor = BackColorException;
             }
-            
         }
 
         private void SelectedItemDescriptionTextBox_TextChanged(object sender, EventArgs e)
@@ -108,7 +106,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ItemsAddButton_Click(object sender, EventArgs e)
         {
             _currentItem = new Item();
-            _items.Add(_currentItem);
+            Items.Add(_currentItem);
             UpdateItemsListBox();
             ClearFields();
         }
@@ -125,7 +123,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void UpdateItemsListBox()
         {
             ItemsListBox.Items.Clear();
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 ItemsListBox.Items.Add(item);
             }
@@ -133,7 +131,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedItem = (Item) ItemsListBox.SelectedItem;
+            var selectedItem = (Item)ItemsListBox.SelectedItem;
             _currentItem = selectedItem;
             UpdateValueInTextBoxes();
             ItemsRemoveButton.Enabled = true;
@@ -150,7 +148,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ItemsRemoveButton_Click(object sender, EventArgs e)
         {
-            _items.Remove(_currentItem);
+            Items.Remove(_currentItem);
             UpdateItemsListBox();
             ClearFields();
             ItemsRemoveButton.Enabled = false;
@@ -160,7 +158,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ItemsRandomButton_Click(object sender, EventArgs e)
         {
             var random = new Random();
-            _items = ItemFactory.RandomGenerate(random.Next(10, 100));
+            Items = ItemFactory.RandomGenerate(random.Next(10, 100));
             UpdateItemsListBox();
             ClearFields();
         }

@@ -124,6 +124,7 @@
     <Compile Include="src\Model\Category.cs" />
     <Compile Include="src\Model\Customer.cs" />
     <Compile Include="src\Model\Item.cs" />
+    <Compile Include="src\Model\Store.cs" />
     <Compile Include="src\Service\CustomerFactory.cs" />
     <Compile Include="src\Service\IdGenerator.cs" />
     <Compile Include="src\Service\ItemFactory.cs" />
