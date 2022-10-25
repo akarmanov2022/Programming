@@ -47,6 +47,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemDescriptionLabel = new System.Windows.Forms.Label();
             this.SelectedItemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SelectedItemCategoryLabel = new System.Windows.Forms.Label();
+            this.SelectedItemCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +105,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ItemsLabel
             // 
+            this.ItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemsLabel.Location = new System.Drawing.Point(0, 0);
             this.ItemsLabel.Name = "ItemsLabel";
             this.ItemsLabel.Size = new System.Drawing.Size(429, 43);
@@ -123,6 +126,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemLabel
             // 
+            this.SelectedItemLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SelectedItemLabel.Location = new System.Drawing.Point(3, 0);
             this.SelectedItemLabel.Name = "SelectedItemLabel";
             this.SelectedItemLabel.Size = new System.Drawing.Size(326, 43);
@@ -132,41 +136,41 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemIdLable
             // 
-            this.SelectedItemIdLable.Location = new System.Drawing.Point(3, 46);
+            this.SelectedItemIdLable.Location = new System.Drawing.Point(3, 67);
             this.SelectedItemIdLable.Name = "SelectedItemIdLable";
-            this.SelectedItemIdLable.Size = new System.Drawing.Size(59, 32);
+            this.SelectedItemIdLable.Size = new System.Drawing.Size(96, 26);
             this.SelectedItemIdLable.TabIndex = 0;
             this.SelectedItemIdLable.Text = "Id:";
             this.SelectedItemIdLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SelectedItemCostLabel
             // 
-            this.SelectedItemCostLabel.Location = new System.Drawing.Point(3, 78);
+            this.SelectedItemCostLabel.Location = new System.Drawing.Point(3, 99);
             this.SelectedItemCostLabel.Name = "SelectedItemCostLabel";
-            this.SelectedItemCostLabel.Size = new System.Drawing.Size(59, 50);
+            this.SelectedItemCostLabel.Size = new System.Drawing.Size(96, 26);
             this.SelectedItemCostLabel.TabIndex = 1;
             this.SelectedItemCostLabel.Text = "Cost:";
             this.SelectedItemCostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SelectedItemIdTextBox
             // 
-            this.SelectedItemIdTextBox.Location = new System.Drawing.Point(60, 49);
+            this.SelectedItemIdTextBox.Location = new System.Drawing.Point(105, 67);
             this.SelectedItemIdTextBox.Name = "SelectedItemIdTextBox";
             this.SelectedItemIdTextBox.ReadOnly = true;
-            this.SelectedItemIdTextBox.Size = new System.Drawing.Size(275, 26);
+            this.SelectedItemIdTextBox.Size = new System.Drawing.Size(230, 26);
             this.SelectedItemIdTextBox.TabIndex = 2;
             // 
             // SelectedItemCostTextBox
             // 
-            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(60, 90);
+            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(105, 99);
             this.SelectedItemCostTextBox.Name = "SelectedItemCostTextBox";
-            this.SelectedItemCostTextBox.Size = new System.Drawing.Size(275, 26);
+            this.SelectedItemCostTextBox.Size = new System.Drawing.Size(230, 26);
             this.SelectedItemCostTextBox.TabIndex = 3;
             this.SelectedItemCostTextBox.TextChanged += new System.EventHandler(this.SelectedItemCostTextBox_TextChanged);
             // 
             // SelectedItemNameLabel
             // 
-            this.SelectedItemNameLabel.Location = new System.Drawing.Point(3, 128);
+            this.SelectedItemNameLabel.Location = new System.Drawing.Point(3, 266);
             this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
             this.SelectedItemNameLabel.Size = new System.Drawing.Size(831, 23);
             this.SelectedItemNameLabel.TabIndex = 0;
@@ -175,7 +179,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemNameTextBox
             // 
             this.SelectedItemNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(3, 154);
+            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(3, 292);
             this.SelectedItemNameTextBox.Multiline = true;
             this.SelectedItemNameTextBox.Name = "SelectedItemNameTextBox";
             this.SelectedItemNameTextBox.Size = new System.Drawing.Size(831, 230);
@@ -184,7 +188,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemDescriptionLabel
             // 
-            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(3, 387);
+            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(3, 528);
             this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
             this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(831, 27);
             this.SelectedItemDescriptionLabel.TabIndex = 0;
@@ -193,7 +197,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemDescriptionTextBox
             // 
             this.SelectedItemDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(3, 417);
+            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(3, 558);
             this.SelectedItemDescriptionTextBox.Multiline = true;
             this.SelectedItemDescriptionTextBox.Name = "SelectedItemDescriptionTextBox";
             this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(831, 230);
@@ -204,6 +208,8 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.SelectedItemCategoryComboBox);
+            this.panel1.Controls.Add(this.SelectedItemCategoryLabel);
             this.panel1.Controls.Add(this.SelectedItemIdTextBox);
             this.panel1.Controls.Add(this.SelectedItemDescriptionLabel);
             this.panel1.Controls.Add(this.SelectedItemDescriptionTextBox);
@@ -217,6 +223,23 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(837, 1151);
             this.panel1.TabIndex = 0;
+            // 
+            // SelectedItemCategoryLabel
+            // 
+            this.SelectedItemCategoryLabel.Location = new System.Drawing.Point(3, 131);
+            this.SelectedItemCategoryLabel.Name = "SelectedItemCategoryLabel";
+            this.SelectedItemCategoryLabel.Size = new System.Drawing.Size(96, 28);
+            this.SelectedItemCategoryLabel.TabIndex = 5;
+            this.SelectedItemCategoryLabel.Text = "Category:";
+            this.SelectedItemCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelectedItemCategoryComboBox
+            // 
+            this.SelectedItemCategoryComboBox.FormattingEnabled = true;
+            this.SelectedItemCategoryComboBox.Location = new System.Drawing.Point(105, 131);
+            this.SelectedItemCategoryComboBox.Name = "SelectedItemCategoryComboBox";
+            this.SelectedItemCategoryComboBox.Size = new System.Drawing.Size(230, 28);
+            this.SelectedItemCategoryComboBox.TabIndex = 6;
             // 
             // ItemsTab
             // 
@@ -233,6 +256,10 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label SelectedItemCategoryLabel;
+
+        private System.Windows.Forms.ComboBox SelectedItemCategoryComboBox;
 
         private System.Windows.Forms.Button ItemsRandomButton;
 
