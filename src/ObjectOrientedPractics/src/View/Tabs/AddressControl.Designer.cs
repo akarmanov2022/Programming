@@ -102,6 +102,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressPostIndexTextBox.Name = "DeliveryAddressPostIndexTextBox";
             this.DeliveryAddressPostIndexTextBox.Size = new System.Drawing.Size(215, 26);
             this.DeliveryAddressPostIndexTextBox.TabIndex = 5;
+            this.DeliveryAddressPostIndexTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressPostIndexTextBox_TextChanged);
             // 
             // DeliveryAddressCountryTextBox
             // 
@@ -109,6 +110,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressCountryTextBox.Name = "DeliveryAddressCountryTextBox";
             this.DeliveryAddressCountryTextBox.Size = new System.Drawing.Size(315, 26);
             this.DeliveryAddressCountryTextBox.TabIndex = 6;
+            this.DeliveryAddressCountryTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressCountryTextBox_TextChanged);
             // 
             // DeliveryAddressStreetTextBox
             // 
@@ -116,6 +118,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressStreetTextBox.Name = "DeliveryAddressStreetTextBox";
             this.DeliveryAddressStreetTextBox.Size = new System.Drawing.Size(569, 26);
             this.DeliveryAddressStreetTextBox.TabIndex = 7;
+            this.DeliveryAddressStreetTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressStreetTextBox_TextChanged);
             // 
             // DeliveryAddressBuildingTextBox
             // 
@@ -123,6 +126,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressBuildingTextBox.Name = "DeliveryAddressBuildingTextBox";
             this.DeliveryAddressBuildingTextBox.Size = new System.Drawing.Size(215, 26);
             this.DeliveryAddressBuildingTextBox.TabIndex = 8;
+            this.DeliveryAddressBuildingTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressBuildingTextBox_TextChanged);
             // 
             // DeliveryAddressApartmentLabel
             // 
@@ -140,6 +144,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressApartmentTextBox.Name = "DeliveryAddressApartmentTextBox";
             this.DeliveryAddressApartmentTextBox.Size = new System.Drawing.Size(248, 26);
             this.DeliveryAddressApartmentTextBox.TabIndex = 10;
+            this.DeliveryAddressApartmentTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressApartmentTextBox_TextChanged);
             // 
             // DeliveryAddressCityLabel
             // 
@@ -157,6 +162,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressCityTextBox.Name = "DeliveryAddressCityTextBox";
             this.DeliveryAddressCityTextBox.Size = new System.Drawing.Size(194, 26);
             this.DeliveryAddressCityTextBox.TabIndex = 12;
+            this.DeliveryAddressCityTextBox.TextChanged += new System.EventHandler(this.DeliveryAddressCityTextBox_TextChanged);
             // 
             // AddressControl
             // 

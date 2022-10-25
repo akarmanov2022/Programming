@@ -49,7 +49,7 @@ namespace ObjectOrientedPractics.Model
 
         public string Country
         {
-            get => _country;
+            get => _country ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
@@ -59,7 +59,7 @@ namespace ObjectOrientedPractics.Model
 
         public string City
         {
-            get => _city;
+            get => _city ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 50, nameof(City));
@@ -69,7 +69,7 @@ namespace ObjectOrientedPractics.Model
 
         public string Street
         {
-            get => _street;
+            get => _street ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
@@ -79,7 +79,7 @@ namespace ObjectOrientedPractics.Model
 
         public string Building
         {
-            get => _building;
+            get => _building ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
@@ -89,7 +89,7 @@ namespace ObjectOrientedPractics.Model
 
         public string Apartment
         {
-            get => _apartment;
+            get => _apartment ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));

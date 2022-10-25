@@ -170,7 +170,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemNameLabel
             // 
-            this.SelectedItemNameLabel.Location = new System.Drawing.Point(3, 266);
+            this.SelectedItemNameLabel.Location = new System.Drawing.Point(0, 174);
             this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
             this.SelectedItemNameLabel.Size = new System.Drawing.Size(831, 23);
             this.SelectedItemNameLabel.TabIndex = 0;
@@ -179,7 +179,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemNameTextBox
             // 
             this.SelectedItemNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(3, 292);
+            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(0, 200);
             this.SelectedItemNameTextBox.Multiline = true;
             this.SelectedItemNameTextBox.Name = "SelectedItemNameTextBox";
             this.SelectedItemNameTextBox.Size = new System.Drawing.Size(831, 230);
@@ -188,7 +188,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemDescriptionLabel
             // 
-            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(3, 528);
+            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(0, 436);
             this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
             this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(831, 27);
             this.SelectedItemDescriptionLabel.TabIndex = 0;
@@ -197,7 +197,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // SelectedItemDescriptionTextBox
             // 
             this.SelectedItemDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(3, 558);
+            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(0, 466);
             this.SelectedItemDescriptionTextBox.Multiline = true;
             this.SelectedItemDescriptionTextBox.Name = "SelectedItemDescriptionTextBox";
             this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(831, 230);

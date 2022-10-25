@@ -43,22 +43,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void SelectedCustomerAddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var text = SelectedCustomerAddressTextBox.Text;
-                if (IsNullOrWhiteSpace(text)) return;
-                _currentCustomer.Address = text;
-                SelectedCustomerAddressTextBox.BackColor = BackColorSuccess;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-                SelectedCustomerAddressTextBox.BackColor = BackColorException;
-            }
-        }
-
         private void CustomersAddButton_Click(object sender, EventArgs e)
         {
             _currentCustomer = new Customer();
@@ -81,22 +65,22 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             var selectedCustomer = (Customer) CustomersListBox.SelectedItem;
             _currentCustomer = selectedCustomer;
-            UpdateValueInTextBoxes();
+            UpdateFields();
             CustomersRemoveButton.Enabled = true;
         }
 
-        private void UpdateValueInTextBoxes()
+        private void UpdateFields()
         {
             SelectedCustomerIdTextBox.Text = _currentCustomer.Id.ToString();
-            SelectedCustomerAddressTextBox.Text = _currentCustomer.Address;
             SelectedCustomerFullnameTextBox.Text = _currentCustomer.Fullname;
+            DeliveryAddressControl.Address = _currentCustomer.Address;
         }
 
         private void ClearTextBoxes()
         {
             SelectedCustomerIdTextBox.Clear();
             SelectedCustomerFullnameTextBox.Clear();
-            SelectedCustomerAddressTextBox.Clear();
+            DeliveryAddressControl.Clear();
         }
 
         private void UpdateCustomersListBox()
