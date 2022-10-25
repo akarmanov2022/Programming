@@ -78,7 +78,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает или задает <see cref="Category"/>.
         /// </summary>
-        public Category Category { set; get; }
+        public Category? Category { set; get; }
 
         /// <summary>
         /// Создает экземпляр объекта <see cref="Item"/>.
