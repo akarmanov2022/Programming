@@ -22,7 +22,7 @@ namespace ObjectOrientedPractics.Service
         {
             try
             {
-                var uri = $"https://api.randomdatatools.ru/?count={count}&unescaped=true&params=LastName,FirstName,FatherName,Address";
+                var uri = $"https://api.randomdatatools.ru/?count={count}&unescaped=true&params=LastName,FirstName,FatherName";
                 var request = new HttpRequestMessage(HttpMethod.Get, uri);
                 
                 var response = Http.SendAsync(request).Result;

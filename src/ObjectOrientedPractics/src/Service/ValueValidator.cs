@@ -35,5 +35,19 @@ namespace ObjectOrientedPractics.Service
             if (value < min || value > max)
                 throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
         }
+        
+        /// <summary>
+        /// Утверждает, что целое число находится в пределах минимального и максимального значений. 
+        /// </summary>
+        /// <param name="value">Исходное значение.</param>
+        /// <param name="min">Минимальное значение.</param>
+        /// <param name="max">Максимальное значение.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <exception cref="ArgumentException">Возникает, если значение находится вне пределов минимального и максимального значений.</exception>
+        public static void AssertOnPositiveValue(int value, double min, double max, string propertyName)
+        {
+            if (value < min || value > max)
+                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+        }
     }
 }

@@ -17,11 +17,6 @@ namespace ObjectOrientedPractics.Model
         private string _fullname;
 
         /// <summary>
-        ///  Хранит адрес <see cref="Customer"/>.
-        /// </summary>
-        private string _address;
-        
-        /// <summary>
         /// Возвращает значение идентификатора.
         /// </summary>
         public int Id { get; }
@@ -58,19 +53,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public  string FatherName { get; set; }
 
-
         /// <summary>
-        /// Возвращает или задает значение адреса. Длина строки не должна превышать <see cref="MaxLengthAddress"/>/>
+        ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
-        public string Address
-        {
-            get => _address;
-            set
-            {
-                ValueValidator.AssertStringOnLength(value, MaxLengthAddress, nameof(Address));
-                _address = value;
-            }
-        }
+        public Address Address { get; set; }
 
         /// <summary>
         /// Конструктор по умолчанию. 
@@ -78,6 +64,7 @@ namespace ObjectOrientedPractics.Model
         public Customer()
         {
             Id = IdGenerator.GetNextId();
+            Address = new Address();
         }
         
         public override string ToString()

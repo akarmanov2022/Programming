@@ -35,7 +35,7 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(_name)) _name = $"{CarBrand} {CarModel}";
+                if (string.IsNullOrWhiteSpace(_name)) _name = $"{CarBrand} {CarModel}".Trim();
                 return _name;
             }
             set
@@ -76,6 +76,11 @@ namespace ObjectOrientedPractics.Model
         public string CarModel { set; get; }
 
         /// <summary>
+        /// Возвращает или задает <see cref="Category"/>.
+        /// </summary>
+        public Category? Category { set; get; }
+
+        /// <summary>
         /// Создает экземпляр объекта <see cref="Item"/>.
         /// </summary>
         /// <param name="name">Название товара.</param>
@@ -99,8 +104,9 @@ namespace ObjectOrientedPractics.Model
 
         public override string ToString()
         {
-            return Name ?? $"{nameof(Item)}-{Id + 1}";
+            return string.IsNullOrWhiteSpace(Name)
+                ? $"{nameof(Item)}-{Id + 1}"
+                : Name;
         }
-        
     }
 }

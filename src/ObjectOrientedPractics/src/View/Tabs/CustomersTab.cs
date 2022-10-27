@@ -15,10 +15,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private static readonly Color BackColorException = Color.LightPink;
 
-        private List<Customer> _customers = new List<Customer>();
-
         private Customer _currentCustomer;
-        
+
+        public List<Customer> Customers { get; set; } = new List<Customer>();
+
         public CustomersTab()
         {
             InitializeComponent();
@@ -43,34 +43,18 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void SelectedCustomerAddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var text = SelectedCustomerAddressTextBox.Text;
-                if (IsNullOrWhiteSpace(text)) return;
-                _currentCustomer.Address = text;
-                SelectedCustomerAddressTextBox.BackColor = BackColorSuccess;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-                SelectedCustomerAddressTextBox.BackColor = BackColorException;
-            }
-        }
-
         private void CustomersAddButton_Click(object sender, EventArgs e)
         {
             _currentCustomer = new Customer();
             _currentCustomer.Fullname = $"{nameof(Customer)} {_currentCustomer.Id}";
-            _customers.Add(_currentCustomer);
+            Customers.Add(_currentCustomer);
             UpdateCustomersListBox();
             ClearTextBoxes();
         }
 
         private void CustomersRemoveButton_Click(object sender, EventArgs e)
         {
-            _customers.Remove(_currentCustomer);
+            Customers.Remove(_currentCustomer);
             UpdateCustomersListBox();
             ClearTextBoxes();
             CustomersRemoveButton.Enabled = false;
@@ -81,28 +65,28 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             var selectedCustomer = (Customer) CustomersListBox.SelectedItem;
             _currentCustomer = selectedCustomer;
-            UpdateValueInTextBoxes();
+            UpdateFields();
             CustomersRemoveButton.Enabled = true;
         }
 
-        private void UpdateValueInTextBoxes()
+        private void UpdateFields()
         {
             SelectedCustomerIdTextBox.Text = _currentCustomer.Id.ToString();
-            SelectedCustomerAddressTextBox.Text = _currentCustomer.Address;
             SelectedCustomerFullnameTextBox.Text = _currentCustomer.Fullname;
+            DeliveryAddressControl.Address = _currentCustomer.Address;
         }
 
         private void ClearTextBoxes()
         {
             SelectedCustomerIdTextBox.Clear();
             SelectedCustomerFullnameTextBox.Clear();
-            SelectedCustomerAddressTextBox.Clear();
+            DeliveryAddressControl.Clear();
         }
 
         private void UpdateCustomersListBox()
         {
             CustomersListBox.Items.Clear();
-            foreach (var customer in _customers)
+            foreach (var customer in Customers)
             {
                 CustomersListBox.Items.Add(customer);
             }
@@ -111,7 +95,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void CustomersRandomButton_Click(object sender, EventArgs e)
         {  
             var random = new Random();
-            _customers = CustomerFactory.RandomGenerate(random.Next(10, 100));
+            Customers = CustomerFactory.RandomGenerate(random.Next(10, 100));
             UpdateCustomersListBox();
         }
     }

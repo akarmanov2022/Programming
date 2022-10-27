@@ -16,15 +16,21 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private static readonly Color BackColorException = Color.LightPink;
 
-        private List<Item> _items = new List<Item>();
-
         private Item _currentItem = new Item();
+
+        public List<Item> Items { get; set; } = new List<Item>();
 
         public ItemsTab()
         {
             InitializeComponent();
 
             ItemsRemoveButton.Enabled = false;
+            SelectedItemCategoryComboBox.Sorted = true;
+
+            foreach (var category in Enum.GetValues(typeof(Category)))
+            {
+                SelectedItemCategoryComboBox.Items.Add(category);
+            }
         }
 
 
@@ -61,7 +67,23 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Name = Empty;
                 SelectedItemNameTextBox.BackColor = BackColorException;
             }
+        }
 
+        private void SelectedItemCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SelectedItemCategoryComboBox.SelectedIndex == -1) return;
+                var category = (Category)SelectedItemCategoryComboBox.SelectedItem;
+                _currentItem.Category = category;
+                SelectedItemCategoryComboBox.BackColor = BackColorSuccess;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                _currentItem.Category = null;
+                SelectedItemCategoryComboBox.BackColor = BackColorException;
+            }
         }
 
         private void SelectedItemDescriptionTextBox_TextChanged(object sender, EventArgs e)
@@ -84,23 +106,24 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ItemsAddButton_Click(object sender, EventArgs e)
         {
             _currentItem = new Item();
-            _items.Add(_currentItem);
+            Items.Add(_currentItem);
             UpdateItemsListBox();
-            ClearTextBoxes();
+            ClearFields();
         }
 
-        private void ClearTextBoxes()
+        private void ClearFields()
         {
             SelectedItemIdTextBox.Clear();
             SelectedItemCostTextBox.Clear();
             SelectedItemNameTextBox.Clear();
             SelectedItemDescriptionTextBox.Clear();
+            SelectedItemCategoryComboBox.SelectedIndex = -1;
         }
 
         private void UpdateItemsListBox()
         {
             ItemsListBox.Items.Clear();
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 ItemsListBox.Items.Add(item);
             }
@@ -108,7 +131,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedItem = (Item) ItemsListBox.SelectedItem;
+            var selectedItem = (Item)ItemsListBox.SelectedItem;
             _currentItem = selectedItem;
             UpdateValueInTextBoxes();
             ItemsRemoveButton.Enabled = true;
@@ -120,22 +143,24 @@ namespace ObjectOrientedPractics.View.Tabs
             SelectedItemCostTextBox.Text = _currentItem.Cost.ToString(CultureInfo.InvariantCulture);
             SelectedItemNameTextBox.Text = _currentItem.Name;
             SelectedItemDescriptionTextBox.Text = _currentItem.Info;
+            SelectedItemCategoryComboBox.SelectedItem = _currentItem.Category;
         }
 
         private void ItemsRemoveButton_Click(object sender, EventArgs e)
         {
-            _items.Remove(_currentItem);
+            Items.Remove(_currentItem);
             UpdateItemsListBox();
-            ClearTextBoxes();
+            ClearFields();
             ItemsRemoveButton.Enabled = false;
             _currentItem = new Item();
         }
+
         private void ItemsRandomButton_Click(object sender, EventArgs e)
         {
             var random = new Random();
-            _items = ItemFactory.RandomGenerate(random.Next(10, 100));
+            Items = ItemFactory.RandomGenerate(random.Next(10, 100));
             UpdateItemsListBox();
-            ClearTextBoxes();
+            ClearFields();
         }
     }
 }

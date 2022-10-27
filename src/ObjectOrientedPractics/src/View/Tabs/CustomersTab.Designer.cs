@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -31,6 +32,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CustomersAddButton = new System.Windows.Forms.Button();
@@ -39,10 +41,9 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.SelectedCustomerAddressTextBox = new System.Windows.Forms.TextBox();
+            this.DeliveryAddressControl = new AddressControl();
             this.SelectedCustomerFullnameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIdTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SelectedCustomerIdLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -139,28 +140,31 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel2.Controls.Add(this.SelectedCustomerAddressTextBox);
+            this.panel2.Controls.Add(this.DeliveryAddressControl);
             this.panel2.Controls.Add(this.SelectedCustomerFullnameTextBox);
             this.panel2.Controls.Add(this.SelectedCustomerIdTextBox);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.SelectedCustomerIdLabel);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(363, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(6);
-            this.panel2.Size = new System.Drawing.Size(722, 444);
+            this.panel2.Size = new System.Drawing.Size(722, 882);
             this.panel2.TabIndex = 1;
             // 
-            // SelectedCustomerAddressTextBox
+            // DeliveryAddressControl
             // 
-            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(107, 143);
-            this.SelectedCustomerAddressTextBox.Multiline = true;
-            this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
-            this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(606, 292);
-            this.SelectedCustomerAddressTextBox.TabIndex = 6;
-            this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            this.DeliveryAddressControl.Address = address1;
+            this.DeliveryAddressControl.Location = new System.Drawing.Point(6, 134);
+            this.DeliveryAddressControl.Name = "DeliveryAddressControl";
+            this.DeliveryAddressControl.Size = new System.Drawing.Size(680, 191);
+            this.DeliveryAddressControl.TabIndex = 7;
             // 
             // SelectedCustomerFullnameTextBox
             // 
@@ -178,15 +182,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerIdTextBox.ReadOnly = true;
             this.SelectedCustomerIdTextBox.Size = new System.Drawing.Size(182, 26);
             this.SelectedCustomerIdTextBox.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(6, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 50);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Address:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -231,15 +226,13 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button CustomersRandomButton;
+        private AddressControl DeliveryAddressControl;
 
-        private System.Windows.Forms.TextBox SelectedCustomerAddressTextBox;
+        private System.Windows.Forms.Button CustomersRandomButton;
 
         private System.Windows.Forms.TextBox SelectedCustomerFullnameTextBox;
 
         private System.Windows.Forms.Label label4;
-
-        private System.Windows.Forms.Label label5;
 
         private System.Windows.Forms.TextBox SelectedCustomerIdTextBox;
 
