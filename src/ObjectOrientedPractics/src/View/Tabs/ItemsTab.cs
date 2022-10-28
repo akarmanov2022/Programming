@@ -18,12 +18,22 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Item _currentItem = new Item();
 
-        internal List<Item> Items { get; set; } = new List<Item>();
+        private List<Item> _items;
+
+        internal List<Item> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value;
+                UpdateItemsListBox();
+            }
+        }
 
         public ItemsTab()
         {
             InitializeComponent();
-
+            
             ItemsRemoveButton.Enabled = false;
             SelectedItemCategoryComboBox.Sorted = true;
 
@@ -32,7 +42,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedItemCategoryComboBox.Items.Add(category);
             }
         }
-
 
         private void SelectedItemCostTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -158,7 +167,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ItemsRandomButton_Click(object sender, EventArgs e)
         {
             var random = new Random();
-            Items = ItemFactory.RandomGenerate(random.Next(10, 100));
+            Items.Clear();
+            Items.AddRange(ItemFactory.RandomGenerate(random.Next(10, 100)));
             UpdateItemsListBox();
             ClearFields();
         }

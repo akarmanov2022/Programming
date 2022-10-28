@@ -34,11 +34,11 @@ namespace ObjectOrientedPractics.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
-            this.ItemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.CustomersTabPage = new System.Windows.Forms.TabPage();
-            this.CustomersTab = new ObjectOrientedPractics.View.Tabs.CustomersTab();
             this.CartsTabPage = new System.Windows.Forms.TabPage();
-            this.cartsTab1 = new ObjectOrientedPractics.View.Tabs.CartsTab();
+            this.ItemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
+            this.CustomersTab = new ObjectOrientedPractics.View.Tabs.CustomersTab();
+            this.CartsTab = new ObjectOrientedPractics.View.Tabs.CartsTab();
             this.tabControl1.SuspendLayout();
             this.ItemsTabPage.SuspendLayout();
             this.CustomersTabPage.SuspendLayout();
@@ -68,14 +68,6 @@ namespace ObjectOrientedPractics.View
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // ItemsTab
-            // 
-            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsTab.Location = new System.Drawing.Point(3, 3);
-            this.ItemsTab.Name = "ItemsTab";
-            this.ItemsTab.Size = new System.Drawing.Size(1099, 805);
-            this.ItemsTab.TabIndex = 0;
-            // 
             // CustomersTabPage
             // 
             this.CustomersTabPage.Controls.Add(this.CustomersTab);
@@ -87,17 +79,9 @@ namespace ObjectOrientedPractics.View
             this.CustomersTabPage.Text = "Customers";
             this.CustomersTabPage.UseVisualStyleBackColor = true;
             // 
-            // CustomersTab
-            // 
-            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersTab.Location = new System.Drawing.Point(3, 3);
-            this.CustomersTab.Name = "CustomersTab";
-            this.CustomersTab.Size = new System.Drawing.Size(1099, 805);
-            this.CustomersTab.TabIndex = 0;
-            // 
             // CartsTabPage
             // 
-            this.CartsTabPage.Controls.Add(this.cartsTab1);
+            this.CartsTabPage.Controls.Add(this.CartsTab);
             this.CartsTabPage.Location = new System.Drawing.Point(4, 29);
             this.CartsTabPage.Name = "CartsTabPage";
             this.CartsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -106,15 +90,29 @@ namespace ObjectOrientedPractics.View
             this.CartsTabPage.Text = "Carts";
             this.CartsTabPage.UseVisualStyleBackColor = true;
             // 
+            // itemsTab1
+            // 
+            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsTab.Location = new System.Drawing.Point(3, 3);
+            this.ItemsTab.Name = "ItemsTab";
+            this.ItemsTab.Size = new System.Drawing.Size(1099, 805);
+            this.ItemsTab.TabIndex = 0;
+            // 
+            // customersTab1
+            // 
+            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersTab.Location = new System.Drawing.Point(3, 3);
+            this.CustomersTab.Name = "CustomersTab";
+            this.CustomersTab.Size = new System.Drawing.Size(1099, 805);
+            this.CustomersTab.TabIndex = 0;
+            // 
             // cartsTab1
             // 
-            this.cartsTab1.Customers = null;
-            this.cartsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartsTab1.Items = null;
-            this.cartsTab1.Location = new System.Drawing.Point(3, 3);
-            this.cartsTab1.Name = "cartsTab1";
-            this.cartsTab1.Size = new System.Drawing.Size(1099, 805);
-            this.cartsTab1.TabIndex = 0;
+            this.CartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CartsTab.Location = new System.Drawing.Point(3, 3);
+            this.CartsTab.Name = "CartsTab";
+            this.CartsTab.Size = new System.Drawing.Size(1099, 805);
+            this.CartsTab.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -126,6 +124,7 @@ namespace ObjectOrientedPractics.View
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Object Oriented Practics";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.ItemsTabPage.ResumeLayout(false);
             this.CustomersTabPage.ResumeLayout(false);
@@ -133,13 +132,16 @@ namespace ObjectOrientedPractics.View
             this.ResumeLayout(false);
         }
 
-        private ObjectOrientedPractics.View.Tabs.CartsTab cartsTab1;
-
-        private System.Windows.Forms.TabPage CartsTabPage;
+        private ObjectOrientedPractics.View.Tabs.CartsTab CartsTab;
 
         private ObjectOrientedPractics.View.Tabs.CustomersTab CustomersTab;
 
         private ObjectOrientedPractics.View.Tabs.ItemsTab ItemsTab;
+
+
+        private System.Windows.Forms.TabPage CartsTabPage;
+
+
 
         private System.Windows.Forms.TabControl tabControl1;
 
