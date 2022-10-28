@@ -9,8 +9,7 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Customer
     {
-        public const int MaxLengthFullname = 200;
-        public const int MaxLengthAddress = 500;
+        private const int MaxLengthFullname = 200;
 
         /// <summary>
         /// Хранит полное имя <see cref="Customer"/>.
@@ -64,6 +63,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public Cart Cart { get; }
 
+        /// <summary>
+        /// Возвращает список всех заказов покупателя.
+        /// </summary>
         public List<Order> Orders { set; get; } = new List<Order>();
 
         /// <summary>

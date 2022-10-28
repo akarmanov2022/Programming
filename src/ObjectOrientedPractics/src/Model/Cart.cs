@@ -13,6 +13,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public List<Item> Items { get; set; } = new List<Item>();
 
+        /// <summary>
+        /// Возвращает общую стоимость всех <see cref="Item"/> в корзине.
+        /// </summary>
         public double Amount
         {
             get

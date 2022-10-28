@@ -71,7 +71,7 @@ namespace ObjectOrientedPractics.Model
                 _cost = value;
             }
         }
-
+        
         public string CarBrand { set; get; }
 
         public string CarModel { set; get; }
