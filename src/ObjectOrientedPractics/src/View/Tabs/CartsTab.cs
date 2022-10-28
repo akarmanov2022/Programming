@@ -39,8 +39,17 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        public void RefreshData()
+        {
+            _currentCustomer = null;
+            UpdateCartListBox();
+            UpdateCustomersComboBox();
+            UpdateItemsListBox();
+        }
+
         private void UpdateCustomersComboBox()
         {
+            if (_customers == null) return;
             ItemsListBox.Items.Clear();
             foreach (var customer in Customers)
             {
@@ -50,6 +59,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void UpdateItemsListBox()
         {
+            if (_items == null) return;
             ItemsListBox.Items.Clear();
             foreach (var item in Items)
             {
