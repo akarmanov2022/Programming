@@ -18,7 +18,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Item _currentItem = new Item();
 
-        public List<Item> Items { get; set; } = new List<Item>();
+        internal List<Item> Items { get; set; } = new List<Item>();
 
         public ItemsTab()
         {

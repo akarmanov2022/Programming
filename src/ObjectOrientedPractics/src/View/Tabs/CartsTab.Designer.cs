@@ -57,16 +57,18 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.ItemHeight = 20;
             this.ItemsListBox.Location = new System.Drawing.Point(3, 40);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(457, 704);
+            this.ItemsListBox.Size = new System.Drawing.Size(457, 684);
             this.ItemsListBox.TabIndex = 1;
             // 
             // AddToCartButton
             // 
-            this.AddToCartButton.Location = new System.Drawing.Point(3, 750);
+            this.AddToCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddToCartButton.Location = new System.Drawing.Point(3, 730);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(177, 73);
             this.AddToCartButton.TabIndex = 2;
@@ -85,6 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CustomersComboBox
             // 
+            this.CustomersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersComboBox.FormattingEnabled = true;
             this.CustomersComboBox.Location = new System.Drawing.Point(577, 45);
             this.CustomersComboBox.Name = "CustomersComboBox";
@@ -93,6 +96,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CartLabel
             // 
+            this.CartLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.CartLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CartLabel.Location = new System.Drawing.Point(466, 77);
             this.CartLabel.Name = "CartLabel";
@@ -103,6 +107,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AmountLabel
             // 
+            this.AmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AmountLabel.Location = new System.Drawing.Point(466, 452);
             this.AmountLabel.Name = "AmountLabel";
@@ -113,6 +118,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AmountValueLabel
             // 
+            this.AmountValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AmountValueLabel.Location = new System.Drawing.Point(466, 489);
             this.AmountValueLabel.Name = "AmountValueLabel";
@@ -123,7 +129,8 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CreateOrderButton
             // 
-            this.CreateOrderButton.Location = new System.Drawing.Point(466, 561);
+            this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateOrderButton.Location = new System.Drawing.Point(516, 561);
             this.CreateOrderButton.Name = "CreateOrderButton";
             this.CreateOrderButton.Size = new System.Drawing.Size(177, 73);
             this.CreateOrderButton.TabIndex = 9;
@@ -132,6 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ClearCartButton
             // 
+            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearCartButton.Location = new System.Drawing.Point(882, 561);
             this.ClearCartButton.Name = "ClearCartButton";
             this.ClearCartButton.Size = new System.Drawing.Size(177, 73);
@@ -141,6 +149,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // RemoveItemButton
             // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveItemButton.Location = new System.Drawing.Point(699, 561);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(177, 73);
@@ -150,6 +159,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CartListBox
             // 
+            this.CartListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.CartListBox.FormattingEnabled = true;
             this.CartListBox.ItemHeight = 20;
             this.CartListBox.Location = new System.Drawing.Point(466, 117);
@@ -174,7 +184,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.ItemsListBox);
             this.Controls.Add(this.ItemsLabel);
             this.Name = "CartsTab";
-            this.Size = new System.Drawing.Size(1122, 915);
+            this.Size = new System.Drawing.Size(1074, 814);
             this.ResumeLayout(false);
         }
 

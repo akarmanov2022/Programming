@@ -41,7 +41,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DeliveryAddressControl = new AddressControl();
+            this.DeliveryAddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SelectedCustomerFullnameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIdTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -161,9 +161,10 @@ namespace ObjectOrientedPractics.View.Tabs
             address1.Index = 0;
             address1.Street = "";
             this.DeliveryAddressControl.Address = address1;
+            this.DeliveryAddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.DeliveryAddressControl.Location = new System.Drawing.Point(6, 134);
             this.DeliveryAddressControl.Name = "DeliveryAddressControl";
-            this.DeliveryAddressControl.Size = new System.Drawing.Size(680, 191);
+            this.DeliveryAddressControl.Size = new System.Drawing.Size(707, 191);
             this.DeliveryAddressControl.TabIndex = 7;
             // 
             // SelectedCustomerFullnameTextBox
@@ -226,7 +227,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ResumeLayout(false);
         }
 
-        private AddressControl DeliveryAddressControl;
+        private ObjectOrientedPractics.View.Controls.AddressControl DeliveryAddressControl;
 
         private System.Windows.Forms.Button CustomersRandomButton;
 

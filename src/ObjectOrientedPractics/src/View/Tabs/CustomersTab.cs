@@ -17,7 +17,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Customer _currentCustomer;
 
-        public List<Customer> Customers { get; set; } = new List<Customer>();
+        internal List<Customer> Customers { get; set; } = new List<Customer>();
 
         public CustomersTab()
         {

@@ -9,7 +9,7 @@ namespace ObjectOrientedPractics.Model
     {
         private Address _deliveryAddress;
 
-        private List<Item> _items;
+        private readonly List<Item> _items;
 
         public int Id { get; }
 
@@ -23,8 +23,10 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        public Order()
+        public Order(Address deliveryAddress, List<Item> items)
         {
+            _deliveryAddress = deliveryAddress;
+            _items = items;
             Id = IdGenerator.GetNextId();
             CreateDate = DateTime.Now;
         }
