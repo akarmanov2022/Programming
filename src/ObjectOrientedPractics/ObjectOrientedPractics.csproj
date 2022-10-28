@@ -125,6 +125,7 @@
     <Compile Include="src\Model\Category.cs" />
     <Compile Include="src\Model\Customer.cs" />
     <Compile Include="src\Model\Item.cs" />
+    <Compile Include="src\Model\Order.cs" />
     <Compile Include="src\Model\OrderStatus.cs" />
     <Compile Include="src\Model\Store.cs" />
     <Compile Include="src\Service\CustomerFactory.cs" />
