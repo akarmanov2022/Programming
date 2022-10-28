@@ -74,6 +74,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddToCartButton.TabIndex = 2;
             this.AddToCartButton.Text = "Add to Cart";
             this.AddToCartButton.UseVisualStyleBackColor = true;
+            this.AddToCartButton.Click += new System.EventHandler(this.AddToCartButton_Click);
             // 
             // CustomersLabel
             // 
@@ -93,6 +94,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersComboBox.Name = "CustomersComboBox";
             this.CustomersComboBox.Size = new System.Drawing.Size(482, 28);
             this.CustomersComboBox.TabIndex = 4;
+            this.CustomersComboBox.SelectedIndexChanged += new System.EventHandler(this.CustomersComboBox_SelectedIndexChanged);
             // 
             // CartLabel
             // 
@@ -156,6 +158,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveItemButton.TabIndex = 11;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // CartListBox
             // 

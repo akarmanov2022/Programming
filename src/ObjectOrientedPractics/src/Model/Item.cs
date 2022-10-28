@@ -72,9 +72,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        [JsonIgnore] public string CarBrand { set; get; }
+        public string CarBrand { set; get; }
 
-        [JsonIgnore] public string CarModel { set; get; }
+        public string CarModel { set; get; }
 
         /// <summary>
         /// Возвращает или задает <see cref="Category"/>.

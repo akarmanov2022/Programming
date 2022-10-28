@@ -3,6 +3,10 @@ using Newtonsoft.Json;
 
 namespace ObjectOrientedPractics.Service
 {
+    /// <summary>
+    /// Статический класс с набором методов для конвертирования объектов в строку json, и наоборот.
+    /// </summary>
+    /// <typeparam name="T">Тип данных для сериализации/десериализации.</typeparam>
     public static class Serializer<T>
     {
         public static void ToJson(T o, string filePath)
