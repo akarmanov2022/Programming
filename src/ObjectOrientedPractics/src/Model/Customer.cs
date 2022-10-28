@@ -57,6 +57,11 @@ namespace ObjectOrientedPractics.Model
         ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
         public Address Address { get; set; }
+        
+        /// <summary>
+        /// Возвращает корзину покупателя.
+        /// </summary>
+        public Cart Cart { get; }
 
         /// <summary>
         /// Конструктор по умолчанию. 
@@ -65,6 +70,7 @@ namespace ObjectOrientedPractics.Model
         {
             Id = IdGenerator.GetNextId();
             Address = new Address();
+            Cart = new Cart();
         }
         
         public override string ToString()
