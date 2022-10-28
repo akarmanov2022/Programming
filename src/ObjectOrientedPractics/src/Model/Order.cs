@@ -7,28 +7,29 @@ namespace ObjectOrientedPractics.Model
 {
     public class Order
     {
-        private Address _deliveryAddress;
-
-        private readonly List<Item> _items;
-
         public int Id { get; }
 
         public DateTime CreateDate { get; }
 
-        private double Amount
+        public List<Item> Items { get; } = new List<Item>();
+
+        public OrderStatus Status { set; get; }
+
+        public Address DeliveryAddress { get; set; }
+
+        public double Amount
         {
             get
             {
-                return _items?.Sum(item => item.Cost) ?? 0D;
+                return Items.Sum(item => item.Cost);
             }
         }
 
-        public Order(Address deliveryAddress, List<Item> items)
+        public Order()
         {
-            _deliveryAddress = deliveryAddress;
-            _items = items;
             Id = IdGenerator.GetNextId();
             CreateDate = DateTime.Now;
+            Status = OrderStatus.New;
         }
     }
 }

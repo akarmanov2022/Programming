@@ -57,18 +57,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void CustomersComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var customer = (Customer) CustomersComboBox.SelectedItem;
-            if (customer == null)
-            {
-                _currentCustomer = null;
-                return;
-            }
-            _currentCustomer = customer;
-            UpdateCartListBox();
-        }
-
         private void UpdateCartListBox()
         {
             if (_currentCustomer == null) return;
@@ -81,9 +69,22 @@ namespace ObjectOrientedPractics.View.Tabs
             AmountValueLabel.Text = _currentCustomer.Cart.Amount.ToString(CultureInfo.CurrentCulture);
         }
 
+        private void CustomersComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var customer = (Customer)CustomersComboBox.SelectedItem;
+            if (customer == null)
+            {
+                _currentCustomer = null;
+                return;
+            }
+
+            _currentCustomer = customer;
+            UpdateCartListBox();
+        }
+
         private void AddToCartButton_Click(object sender, EventArgs e)
         {
-            var item = (Item) ItemsListBox.SelectedItem;
+            var item = (Item)ItemsListBox.SelectedItem;
             if (_currentCustomer == null || item == null) return;
             _currentCustomer.Cart.Items.Add(item);
             UpdateCartListBox();
@@ -91,10 +92,32 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
         {
-            var item = (Item) CartListBox.SelectedItem;
+            var item = (Item)CartListBox.SelectedItem;
             if (_currentCustomer == null || item == null) return;
             _currentCustomer.Cart.Items.Remove(item);
             UpdateCartListBox();
+        }
+
+        private void CreateOrderButton_Click(object sender, EventArgs e)
+        {
+            if (_currentCustomer == null) return;
+            var items = _currentCustomer.Cart.Items;
+            if (items.Count == 0)
+            {
+                MessageBox.Show(@"The cart cannot be empty!", @"Info!", MessageBoxButtons.OK);
+                return;
+            }
+
+            var order = new Order();
+            foreach (var item in items)
+            {
+                order.Items.Add(item);
+            }
+
+            order.DeliveryAddress = _currentCustomer.Address;
+            _currentCustomer.Orders.Add(order);
+            items.Clear();
+            CartListBox.Items.Clear();
         }
     }
 }

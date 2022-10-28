@@ -138,6 +138,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CreateOrderButton.TabIndex = 9;
             this.CreateOrderButton.Text = "Create Order";
             this.CreateOrderButton.UseVisualStyleBackColor = true;
+            this.CreateOrderButton.Click += new System.EventHandler(this.CreateOrderButton_Click);
             // 
             // ClearCartButton
             // 
