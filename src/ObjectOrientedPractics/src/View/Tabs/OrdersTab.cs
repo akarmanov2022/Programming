@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using static System.String;
@@ -70,6 +71,7 @@ namespace ObjectOrientedPractics.View.Tabs
                             {
                                 new DataGridViewTextBoxCell() { Value = order.Id },
                                 new DataGridViewTextBoxCell() { Value = order.CreateDate },
+                                new DataGridViewTextBoxCell() { Value = order.History.Keys.Last() },
                                 new DataGridViewTextBoxCell() { Value = order.Status },
                                 new DataGridViewTextBoxCell() { Value = customer.Fullname },
                                 new DataGridViewTextBoxCell() { Value = order.DeliveryAddress.ToString() },
@@ -118,6 +120,7 @@ namespace ObjectOrientedPractics.View.Tabs
             if (StatusComboBox.SelectedIndex == -1 || _currentOrder == null) return;
             var status = (OrderStatus) StatusComboBox.SelectedItem;
             _currentOrder.Status = status;
+            _currentOrder.History.Add(DateTime.Now, status);
             UpdateOrders();
         }
     }

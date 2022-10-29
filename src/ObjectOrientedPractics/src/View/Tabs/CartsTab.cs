@@ -125,6 +125,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             order.DeliveryAddress = _currentCustomer.DeliveryAddress;
+            order.History.Add(DateTime.Now, order.Status);
             _currentCustomer.Orders.Add(order);
             items.Clear();
             CartListBox.Items.Clear();

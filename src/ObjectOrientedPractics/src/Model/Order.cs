@@ -35,6 +35,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public Address DeliveryAddress { get; set; }
 
+        public Dictionary<DateTime, OrderStatus> History { get; } = new Dictionary<DateTime, OrderStatus>();
+
         /// <summary>
         /// Возвращает общую стоимость всех товаров в заказе.
         /// </summary>
