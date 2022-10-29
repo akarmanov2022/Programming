@@ -50,8 +50,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private void UpdateCustomersComboBox()
         {
             if (_customers == null) return;
-            ItemsListBox.Items.Clear();
-            foreach (var customer in Customers)
+            CustomersComboBox.Items.Clear();
+            foreach (var customer in _customers)
             {
                 CustomersComboBox.Items.Add(customer);
             }
@@ -124,7 +124,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 order.Items.Add(item);
             }
 
-            order.DeliveryAddress = _currentCustomer.Address;
+            order.DeliveryAddress = _currentCustomer.DeliveryAddress;
             _currentCustomer.Orders.Add(order);
             items.Clear();
             CartListBox.Items.Clear();

@@ -101,16 +101,6 @@ namespace ObjectOrientedPractics.Model
         {
         }
 
-        public Address(int index, string country, string city, string street, string building, string apartment)
-        {
-            Index = index;
-            Country = country;
-            City = city;
-            Street = street;
-            Building = building;
-            Apartment = apartment;
-        }
-
         public override string ToString()
         {
             return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);

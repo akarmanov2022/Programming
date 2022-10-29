@@ -46,18 +46,20 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает или задает значение имени.
         /// </summary>
-        public  string FirstName { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Возвращает или задает значение отчества.
         /// </summary>
-        public  string FatherName { get; set; }
+        public string FatherName { get; set; }
+
+        public string Address { set; get; }
 
         /// <summary>
         ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
-        public Address Address { get; set; }
-        
+        public Address DeliveryAddress { get; set; }
+
         /// <summary>
         /// Возвращает корзину покупателя.
         /// </summary>
@@ -74,10 +76,10 @@ namespace ObjectOrientedPractics.Model
         public Customer()
         {
             Id = IdGenerator.GetNextId();
-            Address = new Address();
+            DeliveryAddress = new Address();
             Cart = new Cart();
         }
-        
+
         public override string ToString()
         {
             return Fullname;

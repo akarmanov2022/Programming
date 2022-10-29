@@ -55,8 +55,6 @@ namespace ObjectOrientedPractics.View.Tabs
         public void UpdateOrders()
         {
             if (_customers == null) return;
-            var currentRowIndex = 0;
-            if (OrdersDataGridView.CurrentRow != null) currentRowIndex = OrdersDataGridView.CurrentRow.Index;
             OrdersDataGridView.Rows.Clear();
             Orders.Clear();
 
@@ -81,6 +79,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
             }
 
+            if (OrdersDataGridView.Rows.Count <= 1 || OrdersDataGridView.CurrentRow == null) return;
+            var currentRowIndex = OrdersDataGridView.CurrentRow.Index;
             OrdersDataGridView.Rows[currentRowIndex].Selected = true;
         }
 
