@@ -26,12 +26,16 @@ namespace ObjectOrientedPractics.View.Controls
 
         public AddressControl()
         {
-            _address = new Address();
             InitializeComponent();
         }
 
         private void UpdateFields()
         {
+            if (_address == null)
+            {
+                Clear();
+                return;
+            }
             DeliveryAddressApartmentTextBox.Text = _address.Apartment;
             DeliveryAddressBuildingTextBox.Text = _address.Building;
             DeliveryAddressCityTextBox.Text = _address.City;

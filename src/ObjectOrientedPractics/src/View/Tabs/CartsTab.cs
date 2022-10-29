@@ -128,6 +128,16 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentCustomer.Orders.Add(order);
             items.Clear();
             CartListBox.Items.Clear();
+            AmountValueLabel.Text = @"0";
+        }
+
+        private void ClearCartButton_Click(object sender, EventArgs e)
+        {
+            if (_currentCustomer == null) return;
+            var items = _currentCustomer.Cart.Items;
+            items.Clear();
+            CartListBox.Items.Clear();
+            AmountValueLabel.Text = @"0";
         }
     }
 }

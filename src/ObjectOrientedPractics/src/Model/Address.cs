@@ -110,5 +110,10 @@ namespace ObjectOrientedPractics.Model
             Building = building;
             Apartment = apartment;
         }
+
+        public override string ToString()
+        {
+            return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);
+        }
     }
 }

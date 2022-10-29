@@ -149,6 +149,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ClearCartButton.TabIndex = 10;
             this.ClearCartButton.Text = "Clear Cart";
             this.ClearCartButton.UseVisualStyleBackColor = true;
+            this.ClearCartButton.Click += new System.EventHandler(this.ClearCartButton_Click);
             // 
             // RemoveItemButton
             // 

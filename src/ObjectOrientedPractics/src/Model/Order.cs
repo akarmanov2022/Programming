@@ -13,12 +13,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает идентификатор заказа.
         /// </summary>
-        public int Id { get; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Возвращает дату создания заказа.
         /// </summary>
-        public DateTime CreateDate { get; }
+        public DateTime CreateDate { get; set; }
 
         /// <summary>
         /// Возвращает или задает список всех <see cref="Item"/> в заказе.

@@ -22,6 +22,8 @@ namespace ObjectOrientedPractics.View
             ItemsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
+
+            OrdersTab.Customers = _store.Customers;
         }
 
         private void LoadFromAppData()
@@ -85,9 +87,14 @@ namespace ObjectOrientedPractics.View
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 2)
+            switch (tabControl1.SelectedIndex)
             {
-                CartsTab.RefreshData();
+                case 2:
+                    CartsTab.RefreshData();
+                    break;
+                case 3:
+                    OrdersTab.RefreshData();
+                    break;
             }
         }
     }
