@@ -30,15 +30,12 @@ namespace ObjectOrientedPractics.View.Controls
                 StatusComboBox.Items.Add(value);
             }
         }
-        
+        /// <summary>
+        /// Очищает поля в <see cref="OrderControl"/>.
+        /// </summary>
         public void Clear()
         {
             Order = null;
-            ClearFields();
-        }
-
-        private void ClearFields()
-        {
             IdTextBox.Text = Empty;
             CreatedDateTimePicker.Value = DateTime.Now;
             StatusComboBox.SelectedIndex = -1;
@@ -46,7 +43,10 @@ namespace ObjectOrientedPractics.View.Controls
             OrderItemsListBox.Items.Clear();
             AmountValueLabel.Text = @"0";
         }
-        
+
+        /// <summary>
+        /// Обновляет поля в <see cref="OrderControl"/>.
+        /// </summary>
         private void UpdateFields()
         {
             if (_order == null) return;

@@ -35,6 +35,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public Address DeliveryAddress { get; set; }
 
+        /// <summary>
+        /// Возвращает историю статусов заказа.
+        /// </summary>
         public Dictionary<DateTime, OrderStatus> History { get; } = new Dictionary<DateTime, OrderStatus>();
 
         /// <summary>

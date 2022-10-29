@@ -39,6 +39,9 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Полностью обновляет данные на форме.
+        /// </summary>
         public void RefreshData()
         {
             _currentCustomer = null;
@@ -47,6 +50,9 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateItemsListBox();
         }
 
+        /// <summary>
+        /// Обновляет данные в <see cref="CustomersComboBox"/>.
+        /// </summary>
         private void UpdateCustomersComboBox()
         {
             if (_customers == null) return;
@@ -57,6 +63,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обновляет данные в <see cref="ItemsListBox"/>.
+        /// </summary>
         private void UpdateItemsListBox()
         {
             if (_items == null) return;
@@ -66,7 +75,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.Items.Add(item);
             }
         }
-
+        
+        /// <summary>
+        /// Обновляет данные в <see cref="CartListBox"/>.
+        /// </summary>
         private void UpdateCartListBox()
         {
             if (_currentCustomer == null) return;
