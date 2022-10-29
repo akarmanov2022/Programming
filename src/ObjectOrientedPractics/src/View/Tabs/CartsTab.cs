@@ -124,7 +124,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 order.Items.Add(item);
             }
 
-            order.DeliveryAddress = _currentCustomer.DeliveryAddress;
+            order.DeliveryAddress = _currentCustomer.Address;
             order.History.Add(DateTime.Now, order.Status);
             _currentCustomer.Orders.Add(order);
             items.Clear();

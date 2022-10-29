@@ -83,7 +83,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             SelectedCustomerIdTextBox.Text = _currentCustomer.Id.ToString();
             SelectedCustomerFullnameTextBox.Text = _currentCustomer.Fullname;
-            DeliveryAddressControl.Address = _currentCustomer.DeliveryAddress;
+            DeliveryAddressControl.Address = _currentCustomer.Address;
         }
 
         private void ClearTextBoxes()

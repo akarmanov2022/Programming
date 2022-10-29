@@ -52,13 +52,11 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает или задает значение отчества.
         /// </summary>
         public string FatherName { get; set; }
-
-        public string Address { set; get; }
-
+        
         /// <summary>
         ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
-        public Address DeliveryAddress { get; set; }
+        public Address Address { get; set; }
 
         /// <summary>
         /// Возвращает корзину покупателя.
@@ -76,7 +74,7 @@ namespace ObjectOrientedPractics.Model
         public Customer()
         {
             Id = IdGenerator.GetNextId();
-            DeliveryAddress = new Address();
+            Address = new Address();
             Cart = new Cart();
         }
 

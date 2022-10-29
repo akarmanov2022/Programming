@@ -111,6 +111,7 @@ namespace ObjectOrientedPractics.View.Controls
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.Size = new System.Drawing.Size(251, 28);
             this.StatusComboBox.TabIndex = 23;
+            this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // CreatedDateTimePicker
             // 
