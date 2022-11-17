@@ -37,6 +37,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private string _apartment;
 
+        /// <summary>
+        /// Возвращает почтовый индекс <see cref="Address"/>. Максимум 6 символов. 
+        /// </summary>
         public int Index
         {
             get => _index;
@@ -47,6 +50,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает название страны. Максимум 50 символов.
+        /// </summary>
         public string Country
         {
             get => _country ?? "";
@@ -57,6 +63,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает название города. Максимум 50 символов.
+        /// </summary>
         public string City
         {
             get => _city ?? "";
@@ -67,6 +76,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает название улицы. Максимум 100 символов.
+        /// </summary>
         public string Street
         {
             get => _street ?? "";
@@ -77,6 +89,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает номер дома. Максимум 10 символов.
+        /// </summary>
         public string Building
         {
             get => _building ?? "";
@@ -87,6 +102,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает номер квартиры. Максимум 10 символов.
+        /// </summary>
         public string Apartment
         {
             get => _apartment ?? "";
@@ -97,18 +115,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        public Address()
+        public override string ToString()
         {
-        }
-
-        public Address(int index, string country, string city, string street, string building, string apartment)
-        {
-            Index = index;
-            Country = country;
-            City = city;
-            Street = street;
-            Building = building;
-            Apartment = apartment;
+            return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);
         }
     }
 }

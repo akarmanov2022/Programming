@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model
@@ -8,8 +9,7 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Customer
     {
-        public const int MaxLengthFullname = 200;
-        public const int MaxLengthAddress = 500;
+        private const int MaxLengthFullname = 200;
 
         /// <summary>
         /// Хранит полное имя <see cref="Customer"/>.
@@ -46,17 +46,27 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает или задает значение имени.
         /// </summary>
-        public  string FirstName { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Возвращает или задает значение отчества.
         /// </summary>
-        public  string FatherName { get; set; }
-
+        public string FatherName { get; set; }
+        
         /// <summary>
         ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
         public Address Address { get; set; }
+
+        /// <summary>
+        /// Возвращает корзину покупателя.
+        /// </summary>
+        public Cart Cart { get; }
+
+        /// <summary>
+        /// Возвращает список всех заказов покупателя.
+        /// </summary>
+        public List<Order> Orders { set; get; } = new List<Order>();
 
         /// <summary>
         /// Конструктор по умолчанию. 
@@ -65,8 +75,9 @@ namespace ObjectOrientedPractics.Model
         {
             Id = IdGenerator.GetNextId();
             Address = new Address();
+            Cart = new Cart();
         }
-        
+
         public override string ToString()
         {
             return Fullname;

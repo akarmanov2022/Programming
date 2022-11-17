@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Service;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Service;
 using static System.Double;
 
 namespace ObjectOrientedPractics.Model
@@ -50,7 +51,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Info
         {
-            get => _info;
+            get => _info ?? "";
             set
             {
                 ValueValidator.AssertStringOnLength(value, 1000, nameof(Info));
@@ -70,7 +71,7 @@ namespace ObjectOrientedPractics.Model
                 _cost = value;
             }
         }
-
+        
         public string CarBrand { set; get; }
 
         public string CarModel { set; get; }

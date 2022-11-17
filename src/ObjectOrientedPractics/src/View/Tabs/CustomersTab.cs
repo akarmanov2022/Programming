@@ -17,7 +17,17 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Customer _currentCustomer;
 
-        public List<Customer> Customers { get; set; } = new List<Customer>();
+        private List<Customer> _customers;
+
+        internal List<Customer> Customers
+        {
+            get => _customers;
+            set
+            {
+                _customers = value;
+                UpdateCustomersListBox();
+            }
+        }
 
         public CustomersTab()
         {
@@ -95,7 +105,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private void CustomersRandomButton_Click(object sender, EventArgs e)
         {  
             var random = new Random();
-            Customers = CustomerFactory.RandomGenerate(random.Next(10, 100));
+            Customers.Clear();
+            Customers.AddRange(CustomerFactory.RandomGenerate(random.Next(10, 100)));
             UpdateCustomersListBox();
         }
     }

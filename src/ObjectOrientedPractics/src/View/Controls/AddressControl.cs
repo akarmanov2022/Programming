@@ -11,7 +11,7 @@ namespace ObjectOrientedPractics.View.Controls
         private static readonly Color BackColorSuccess = Color.White;
 
         private static readonly Color BackColorException = Color.LightPink;
-        
+
         private Address _address;
 
         public Address Address
@@ -26,12 +26,20 @@ namespace ObjectOrientedPractics.View.Controls
 
         public AddressControl()
         {
-            _address = new Address();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обновляет поля в <see cref="AddressControl"/>.
+        /// </summary>
         private void UpdateFields()
         {
+            if (_address == null)
+            {
+                Clear();
+                return;
+            }
+
             DeliveryAddressApartmentTextBox.Text = _address.Apartment;
             DeliveryAddressBuildingTextBox.Text = _address.Building;
             DeliveryAddressCityTextBox.Text = _address.City;
@@ -40,7 +48,9 @@ namespace ObjectOrientedPractics.View.Controls
             DeliveryAddressPostIndexTextBox.Text = _address.Index.ToString();
         }
 
-
+        /// <summary>
+        /// Очищает поля в <see cref="AddressControl"/>.
+        /// </summary>
         public void Clear()
         {
             DeliveryAddressApartmentTextBox.Text = "";
