@@ -2,6 +2,8 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ListOfNotesApplication_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FMainForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FOrdersTab/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FPriorityOrderTab/@EntryIndexedValue">True</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Programming_002FResources/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Programming_002Fsrc_002FView_002FMainForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Programming_002Fsrc_002FView_002FPanels_002FEnumerationControl/@EntryIndexedValue">True</s:Boolean>

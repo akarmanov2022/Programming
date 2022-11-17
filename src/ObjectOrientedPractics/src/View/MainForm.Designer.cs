@@ -1,6 +1,4 @@
-﻿using ObjectOrientedPractics.View.Tabs;
-
-namespace ObjectOrientedPractics.View
+﻿namespace ObjectOrientedPractics.View
 {
     partial class MainForm
     {
@@ -41,11 +39,14 @@ namespace ObjectOrientedPractics.View
             this.CartsTab = new ObjectOrientedPractics.View.Tabs.CartsTab();
             this.OrdersTabPage = new System.Windows.Forms.TabPage();
             this.OrdersTab = new ObjectOrientedPractics.View.Tabs.OrdersTab();
+            this.PriorityOrdersTabPage = new System.Windows.Forms.TabPage();
+            this.priorityOrderTab1 = new ObjectOrientedPractics.View.Tabs.PriorityOrderTab();
             this.tabControl1.SuspendLayout();
             this.ItemsTabPage.SuspendLayout();
             this.CustomersTabPage.SuspendLayout();
             this.CartsTabPage.SuspendLayout();
             this.OrdersTabPage.SuspendLayout();
+            this.PriorityOrdersTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -54,11 +55,12 @@ namespace ObjectOrientedPractics.View
             this.tabControl1.Controls.Add(this.CustomersTabPage);
             this.tabControl1.Controls.Add(this.CartsTabPage);
             this.tabControl1.Controls.Add(this.OrdersTabPage);
+            this.tabControl1.Controls.Add(this.PriorityOrdersTabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1113, 844);
+            this.tabControl1.Size = new System.Drawing.Size(1123, 944);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -132,20 +134,39 @@ namespace ObjectOrientedPractics.View
             this.OrdersTabPage.Text = "Orders";
             this.OrdersTabPage.UseVisualStyleBackColor = true;
             // 
-            // ordersTab1
+            // OrdersTab
             // 
             this.OrdersTab.BackColor = System.Drawing.SystemColors.Control;
             this.OrdersTab.Customers = null;
             this.OrdersTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrdersTab.Location = new System.Drawing.Point(3, 3);
-            this.OrdersTab.Name = "ordersTab1";
+            this.OrdersTab.Name = "OrdersTab";
             this.OrdersTab.Size = new System.Drawing.Size(1099, 805);
             this.OrdersTab.TabIndex = 0;
+            // 
+            // PriorityOrdersTabPage
+            // 
+            this.PriorityOrdersTabPage.Controls.Add(this.priorityOrderTab1);
+            this.PriorityOrdersTabPage.Location = new System.Drawing.Point(4, 29);
+            this.PriorityOrdersTabPage.Name = "PriorityOrdersTabPage";
+            this.PriorityOrdersTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.PriorityOrdersTabPage.Size = new System.Drawing.Size(1115, 911);
+            this.PriorityOrdersTabPage.TabIndex = 4;
+            this.PriorityOrdersTabPage.Text = "Priority Orders";
+            this.PriorityOrdersTabPage.UseVisualStyleBackColor = true;
+            // 
+            // priorityOrderTab1
+            // 
+            this.priorityOrderTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.priorityOrderTab1.Location = new System.Drawing.Point(3, 3);
+            this.priorityOrderTab1.Name = "priorityOrderTab1";
+            this.priorityOrderTab1.Size = new System.Drawing.Size(1109, 905);
+            this.priorityOrderTab1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1113, 844);
+            this.ClientSize = new System.Drawing.Size(1123, 944);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 600);
@@ -158,8 +179,13 @@ namespace ObjectOrientedPractics.View
             this.CustomersTabPage.ResumeLayout(false);
             this.CartsTabPage.ResumeLayout(false);
             this.OrdersTabPage.ResumeLayout(false);
+            this.PriorityOrdersTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private ObjectOrientedPractics.View.Tabs.PriorityOrderTab priorityOrderTab1;
+
+        private System.Windows.Forms.TabPage PriorityOrdersTabPage;
 
         private ObjectOrientedPractics.View.Tabs.OrdersTab OrdersTab;
 
