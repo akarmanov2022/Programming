@@ -22,6 +22,7 @@ namespace ObjectOrientedPractics.View
             ItemsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
+            PriorityOrderTab.Items = _store.Items;
 
             OrdersTab.Customers = _store.Customers;
         }

@@ -51,13 +51,13 @@ namespace ObjectOrientedPractics.View.Tabs
                         {
                             Cells =
                             {
-                                new DataGridViewTextBoxCell() { Value = order.Id },
-                                new DataGridViewTextBoxCell() { Value = order.CreateDate },
-                                new DataGridViewTextBoxCell() { Value = order.History.Keys.Last() },
-                                new DataGridViewTextBoxCell() { Value = order.Status },
-                                new DataGridViewTextBoxCell() { Value = customer.Fullname },
-                                new DataGridViewTextBoxCell() { Value = order.DeliveryAddress.ToString() },
-                                new DataGridViewTextBoxCell() { Value = order.Amount },
+                                new DataGridViewTextBoxCell { Value = order.Id },
+                                new DataGridViewTextBoxCell { Value = order.CreateDate },
+                                new DataGridViewTextBoxCell { Value = order.History.Keys.Last() },
+                                new DataGridViewTextBoxCell { Value = order.Status },
+                                new DataGridViewTextBoxCell { Value = customer.Fullname },
+                                new DataGridViewTextBoxCell { Value = order.DeliveryAddress.ToString() },
+                                new DataGridViewTextBoxCell { Value = order.Amount },
                             }
                         });
                 }

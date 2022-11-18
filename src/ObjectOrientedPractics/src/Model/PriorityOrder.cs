@@ -9,30 +9,30 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class PriorityOrder : Order
     {
+        public PriorityOrder(DateTime deliveryDate, string deliveryTime)
+        {
+            DeliveryDate = deliveryDate;
+            DeliveryInterval = DeliveryTimeInterval.ValueOf(deliveryTime);
+        }
+
         /// <summary>
         /// Дата доставки.
         /// </summary>
-        private DateTime _deliveryDate;
+        public DateTime DeliveryDate { get; set; }
 
         /// <summary>
         /// Время доставки.
         /// </summary>
-        private DeliveryTimeInterval _deliveryInterval;
-
-
-        public PriorityOrder(DateTime deliveryDate, string deliveryTime)
-        {
-            _deliveryDate = deliveryDate;
-            _deliveryInterval = DeliveryTimeInterval.CreateFrom(deliveryTime);
-        }
+        public DeliveryTimeInterval DeliveryInterval { get; set; }
 
         public class DeliveryTimeInterval
         {
-            private static readonly Regex Regex = new Regex("\\d{2}:\\d{2} - \\d{2}:\\d{2}");
+            private static readonly Regex Regex = 
+                new Regex(@"\d{2}:\d{2} - \d{2}:\d{2}");
 
-            public string Value { set; get; }
+            private string Value { get; }
 
-            private DeliveryTimeInterval(string value)
+            public DeliveryTimeInterval(string value)
             {
                 Value = value;
             }
@@ -42,7 +42,7 @@ namespace ObjectOrientedPractics.Model
                 return Value;
             }
 
-            public static DeliveryTimeInterval CreateFrom(string value)
+            public static DeliveryTimeInterval ValueOf(string value)
             {
                 if (Regex.IsMatch(value))
                 {

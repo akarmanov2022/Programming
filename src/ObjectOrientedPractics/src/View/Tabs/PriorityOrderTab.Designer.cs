@@ -45,6 +45,11 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.DeliveryTimeLabel = new System.Windows.Forms.Label();
+            this.AddItemButton = new System.Windows.Forms.Button();
+            this.RemoveItemButton = new System.Windows.Forms.Button();
+            this.ClearOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OrderItemsListBox
@@ -181,10 +186,67 @@ namespace ObjectOrientedPractics.View.Tabs
             this.label1.Text = "Priority Order";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // DeliveryTimeComboBox
+            // 
+            this.DeliveryTimeComboBox.FormattingEnabled = true;
+            this.DeliveryTimeComboBox.Location = new System.Drawing.Point(633, 42);
+            this.DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
+            this.DeliveryTimeComboBox.Size = new System.Drawing.Size(185, 28);
+            this.DeliveryTimeComboBox.TabIndex = 43;
+            this.DeliveryTimeComboBox.TextChanged += new System.EventHandler(this.DeliveryTimeComboBox_TextChanged);
+            // 
+            // DeliveryTimeLabel
+            // 
+            this.DeliveryTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeliveryTimeLabel.Location = new System.Drawing.Point(491, 37);
+            this.DeliveryTimeLabel.Name = "DeliveryTimeLabel";
+            this.DeliveryTimeLabel.Size = new System.Drawing.Size(136, 37);
+            this.DeliveryTimeLabel.TabIndex = 42;
+            this.DeliveryTimeLabel.Text = "Delivery Time:";
+            this.DeliveryTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AddItemButton
+            // 
+            this.AddItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddItemButton.Location = new System.Drawing.Point(3, 845);
+            this.AddItemButton.Name = "AddItemButton";
+            this.AddItemButton.Size = new System.Drawing.Size(192, 98);
+            this.AddItemButton.TabIndex = 44;
+            this.AddItemButton.Text = "Add Item";
+            this.AddItemButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
+            // 
+            // RemoveItemButton
+            // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveItemButton.Location = new System.Drawing.Point(201, 845);
+            this.RemoveItemButton.Name = "RemoveItemButton";
+            this.RemoveItemButton.Size = new System.Drawing.Size(192, 98);
+            this.RemoveItemButton.TabIndex = 45;
+            this.RemoveItemButton.Text = "Remove Item";
+            this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
+            // 
+            // ClearOrderButton
+            // 
+            this.ClearOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearOrderButton.Location = new System.Drawing.Point(857, 848);
+            this.ClearOrderButton.Name = "ClearOrderButton";
+            this.ClearOrderButton.Size = new System.Drawing.Size(192, 98);
+            this.ClearOrderButton.TabIndex = 46;
+            this.ClearOrderButton.Text = "Clear Order";
+            this.ClearOrderButton.UseVisualStyleBackColor = true;
+            this.ClearOrderButton.Click += new System.EventHandler(this.ClearOrderButton_Click);
+            // 
             // PriorityOrderTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ClearOrderButton);
+            this.Controls.Add(this.RemoveItemButton);
+            this.Controls.Add(this.AddItemButton);
+            this.Controls.Add(this.DeliveryTimeComboBox);
+            this.Controls.Add(this.DeliveryTimeLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OrderItemsListBox);
             this.Controls.Add(this.AmountValueLabel);
@@ -203,6 +265,16 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button AddItemButton;
+
+        private System.Windows.Forms.Button RemoveItemButton;
+
+        private System.Windows.Forms.Button ClearOrderButton;
+
+        private System.Windows.Forms.ComboBox DeliveryTimeComboBox;
+
+        private System.Windows.Forms.Label DeliveryTimeLabel;
 
         private System.Windows.Forms.Label label1;
 

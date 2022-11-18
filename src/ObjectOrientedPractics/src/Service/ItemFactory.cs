@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using ObjectOrientedPractics.Model;
@@ -9,11 +10,11 @@ namespace ObjectOrientedPractics.Service
     /// <summary>
     /// Статическая фабрика для создания экземпляров <see cref="Item"/>.
     /// </summary>
-    public class ItemFactory
+    public static class ItemFactory
     {
         private static readonly HttpClient Http = new HttpClient();
 
-        public static List<Item> RandomGenerate(int count)
+        public static IEnumerable<Item> RandomGenerate(int count)
         {
             try
             {
@@ -34,6 +35,11 @@ namespace ObjectOrientedPractics.Service
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public static Item RandomGenerateItem()
+        {
+            return RandomGenerate(1).First();
         }
     }
 }

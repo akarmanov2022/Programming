@@ -33,7 +33,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает или задает адрес доставки.
         /// </summary>
-        public Address DeliveryAddress { get; set; }
+        public Address DeliveryAddress { get; set; } = new Address();
 
         /// <summary>
         /// Возвращает историю статусов заказа.

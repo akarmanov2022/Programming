@@ -40,7 +40,7 @@
             this.OrdersTabPage = new System.Windows.Forms.TabPage();
             this.OrdersTab = new ObjectOrientedPractics.View.Tabs.OrdersTab();
             this.PriorityOrdersTabPage = new System.Windows.Forms.TabPage();
-            this.priorityOrderTab1 = new ObjectOrientedPractics.View.Tabs.PriorityOrderTab();
+            this.PriorityOrderTab = new ObjectOrientedPractics.View.Tabs.PriorityOrderTab();
             this.tabControl1.SuspendLayout();
             this.ItemsTabPage.SuspendLayout();
             this.CustomersTabPage.SuspendLayout();
@@ -146,7 +146,7 @@
             // 
             // PriorityOrdersTabPage
             // 
-            this.PriorityOrdersTabPage.Controls.Add(this.priorityOrderTab1);
+            this.PriorityOrdersTabPage.Controls.Add(this.PriorityOrderTab);
             this.PriorityOrdersTabPage.Location = new System.Drawing.Point(4, 29);
             this.PriorityOrdersTabPage.Name = "PriorityOrdersTabPage";
             this.PriorityOrdersTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -155,13 +155,13 @@
             this.PriorityOrdersTabPage.Text = "Priority Orders";
             this.PriorityOrdersTabPage.UseVisualStyleBackColor = true;
             // 
-            // priorityOrderTab1
+            // PriorityOrderTab
             // 
-            this.priorityOrderTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.priorityOrderTab1.Location = new System.Drawing.Point(3, 3);
-            this.priorityOrderTab1.Name = "priorityOrderTab1";
-            this.priorityOrderTab1.Size = new System.Drawing.Size(1109, 905);
-            this.priorityOrderTab1.TabIndex = 0;
+            this.PriorityOrderTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PriorityOrderTab.Location = new System.Drawing.Point(3, 3);
+            this.PriorityOrderTab.Name = "PriorityOrderTab";
+            this.PriorityOrderTab.Size = new System.Drawing.Size(1109, 905);
+            this.PriorityOrderTab.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -183,7 +183,7 @@
             this.ResumeLayout(false);
         }
 
-        private ObjectOrientedPractics.View.Tabs.PriorityOrderTab priorityOrderTab1;
+        private ObjectOrientedPractics.View.Tabs.PriorityOrderTab PriorityOrderTab;
 
         private System.Windows.Forms.TabPage PriorityOrdersTabPage;
 
