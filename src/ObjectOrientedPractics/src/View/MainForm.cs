@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Service;
-using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics.View
 {

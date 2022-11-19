@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
-using static System.String;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class OrdersTab : UserControl
     {
+        
         private List<Customer> _customers;
 
         private List<Order> Orders { set; get; } = new List<Order>();
-        
+
         public List<Customer> Customers
         {
             set
@@ -33,7 +31,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             UpdateOrders();
         }
-        
+
         public void UpdateOrders()
         {
             if (_customers == null) return;
@@ -70,7 +68,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Order GetOrderById(int id)
         {
-            return Orders.Find(order => id.Equals(order.Id));
+            var orderById = Orders.Find(order => id.Equals(order.Id));
+            return orderById;
         }
 
         private void OrdersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

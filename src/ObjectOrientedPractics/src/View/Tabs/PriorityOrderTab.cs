@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
-using static ObjectOrientedPractics.Model.PriorityOrder;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -23,21 +22,14 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             
-            DeliveryTimeComboBox.Items.AddRange(new object[]
-            {
-                new DeliveryTimeInterval("09:00 - 11:00"),
-                new DeliveryTimeInterval("11:00 - 13:00"),
-                new DeliveryTimeInterval("13:00 - 15:00"),
-                new DeliveryTimeInterval("15:00 - 17:00"),
-                new DeliveryTimeInterval("17:00 - 19:00")
-            });
+            Store.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
 
             foreach (var value in Enum.GetValues(typeof(OrderStatus)))
             {
                 StatusComboBox.Items.Add(value);
             }
 
-            _priorityOrder = new PriorityOrder(DateTime.Now, @"00:00 - 00:00");
+            _priorityOrder = new PriorityOrder();
             UpdatePage();
         }
 
@@ -47,6 +39,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CreatedDateTimePicker.Value = _priorityOrder.CreateDate;
             StatusComboBox.SelectedItem = _priorityOrder.Status;
             DeliveryAddressControl.Address = _priorityOrder.DeliveryAddress;
+            DeliveryTimeComboBox.SelectedItem = _priorityOrder.DeliveryInterval;
             UpdateItemsListBox();
         }
 
@@ -62,7 +55,7 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 DeliveryTimeComboBox.BackColor = BackColorSuccess;
-                _priorityOrder.DeliveryInterval = DeliveryTimeInterval.ValueOf(DeliveryTimeComboBox.Text);
+                _priorityOrder.DeliveryInterval = DeliveryTimeComboBox.SelectedItem as Store.DeliveryTimeInterval;
             }
             catch (Exception exception)
             {
@@ -88,7 +81,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ClearOrderButton_Click(object sender, EventArgs e)
         {
-            _priorityOrder = new PriorityOrder(DateTime.Now, @"00:00 - 00:00");
+            _priorityOrder = new PriorityOrder();
             UpdatePage();
         }
     }

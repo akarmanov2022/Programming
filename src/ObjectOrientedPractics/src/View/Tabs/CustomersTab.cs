@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Service;
@@ -53,6 +52,18 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
         private void CustomersAddButton_Click(object sender, EventArgs e)
         {
             _currentCustomer = new Customer();
@@ -84,6 +95,7 @@ namespace ObjectOrientedPractics.View.Tabs
             SelectedCustomerIdTextBox.Text = _currentCustomer.Id.ToString();
             SelectedCustomerFullnameTextBox.Text = _currentCustomer.Fullname;
             DeliveryAddressControl.Address = _currentCustomer.Address;
+            IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
         }
 
         private void ClearTextBoxes()
@@ -91,6 +103,7 @@ namespace ObjectOrientedPractics.View.Tabs
             SelectedCustomerIdTextBox.Clear();
             SelectedCustomerFullnameTextBox.Clear();
             DeliveryAddressControl.Clear();
+            IsPriorityCheckBox.Checked = false;
         }
 
         private void UpdateCustomersListBox()

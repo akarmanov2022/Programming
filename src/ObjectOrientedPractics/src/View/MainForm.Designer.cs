@@ -70,7 +70,7 @@
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 29);
             this.ItemsTabPage.Name = "ItemsTabPage";
             this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ItemsTabPage.Size = new System.Drawing.Size(1105, 811);
+            this.ItemsTabPage.Size = new System.Drawing.Size(1115, 911);
             this.ItemsTabPage.TabIndex = 0;
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemsTab.Location = new System.Drawing.Point(3, 3);
             this.ItemsTab.Name = "ItemsTab";
-            this.ItemsTab.Size = new System.Drawing.Size(1099, 805);
+            this.ItemsTab.Size = new System.Drawing.Size(1109, 905);
             this.ItemsTab.TabIndex = 0;
             // 
             // CustomersTabPage
@@ -89,7 +89,7 @@
             this.CustomersTabPage.Location = new System.Drawing.Point(4, 29);
             this.CustomersTabPage.Name = "CustomersTabPage";
             this.CustomersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomersTabPage.Size = new System.Drawing.Size(1105, 811);
+            this.CustomersTabPage.Size = new System.Drawing.Size(1115, 911);
             this.CustomersTabPage.TabIndex = 1;
             this.CustomersTabPage.Text = "Customers";
             this.CustomersTabPage.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersTab.Location = new System.Drawing.Point(3, 3);
             this.CustomersTab.Name = "CustomersTab";
-            this.CustomersTab.Size = new System.Drawing.Size(1099, 805);
+            this.CustomersTab.Size = new System.Drawing.Size(1109, 905);
             this.CustomersTab.TabIndex = 0;
             // 
             // CartsTabPage
@@ -108,7 +108,7 @@
             this.CartsTabPage.Location = new System.Drawing.Point(4, 29);
             this.CartsTabPage.Name = "CartsTabPage";
             this.CartsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CartsTabPage.Size = new System.Drawing.Size(1105, 811);
+            this.CartsTabPage.Size = new System.Drawing.Size(1115, 911);
             this.CartsTabPage.TabIndex = 2;
             this.CartsTabPage.Text = "Carts";
             this.CartsTabPage.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.CartsTab.Items = null;
             this.CartsTab.Location = new System.Drawing.Point(3, 3);
             this.CartsTab.Name = "CartsTab";
-            this.CartsTab.Size = new System.Drawing.Size(1099, 805);
+            this.CartsTab.Size = new System.Drawing.Size(1109, 905);
             this.CartsTab.TabIndex = 0;
             // 
             // OrdersTabPage
@@ -129,7 +129,7 @@
             this.OrdersTabPage.Location = new System.Drawing.Point(4, 29);
             this.OrdersTabPage.Name = "OrdersTabPage";
             this.OrdersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.OrdersTabPage.Size = new System.Drawing.Size(1105, 811);
+            this.OrdersTabPage.Size = new System.Drawing.Size(1115, 911);
             this.OrdersTabPage.TabIndex = 3;
             this.OrdersTabPage.Text = "Orders";
             this.OrdersTabPage.UseVisualStyleBackColor = true;
@@ -138,7 +138,6 @@
             // 
             this.OrdersTab.BackColor = System.Drawing.SystemColors.Control;
             this.OrdersTab.Customers = null;
-            this.OrdersTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrdersTab.Location = new System.Drawing.Point(3, 3);
             this.OrdersTab.Name = "OrdersTab";
             this.OrdersTab.Size = new System.Drawing.Size(1099, 805);
@@ -157,7 +156,7 @@
             // 
             // PriorityOrderTab
             // 
-            this.PriorityOrderTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PriorityOrderTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PriorityOrderTab.Location = new System.Drawing.Point(3, 3);
             this.PriorityOrderTab.Name = "PriorityOrderTab";
             this.PriorityOrderTab.Size = new System.Drawing.Size(1109, 905);

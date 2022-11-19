@@ -44,7 +44,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CreatedLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PriorityOptionLabel = new System.Windows.Forms.Label();
             this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
             this.DeliveryTimeLabel = new System.Windows.Forms.Label();
             this.AddItemButton = new System.Windows.Forms.Button();
@@ -175,16 +175,16 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedOrderLabel.Text = "Selected Order";
             this.SelectedOrderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // PriorityOptionLabel
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(491, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(561, 37);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Priority Order";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PriorityOptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriorityOptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PriorityOptionLabel.Location = new System.Drawing.Point(491, 0);
+            this.PriorityOptionLabel.Name = "PriorityOptionLabel";
+            this.PriorityOptionLabel.Size = new System.Drawing.Size(561, 37);
+            this.PriorityOptionLabel.TabIndex = 41;
+            this.PriorityOptionLabel.Text = "Priority Option";
+            this.PriorityOptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DeliveryTimeComboBox
             // 
@@ -247,7 +247,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.AddItemButton);
             this.Controls.Add(this.DeliveryTimeComboBox);
             this.Controls.Add(this.DeliveryTimeLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PriorityOptionLabel);
             this.Controls.Add(this.OrderItemsListBox);
             this.Controls.Add(this.AmountValueLabel);
             this.Controls.Add(this.AmountLabel);
@@ -276,7 +276,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private System.Windows.Forms.Label DeliveryTimeLabel;
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PriorityOptionLabel;
 
         private System.Windows.Forms.ListBox OrderItemsListBox;
 

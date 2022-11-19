@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using static ObjectOrientedPractics.Model.Store;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -9,10 +8,10 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class PriorityOrder : Order
     {
-        public PriorityOrder(DateTime deliveryDate, string deliveryTime)
+        public PriorityOrder()
         {
-            DeliveryDate = deliveryDate;
-            DeliveryInterval = DeliveryTimeInterval.ValueOf(deliveryTime);
+            DeliveryDate = DateTime.Now;
+            DeliveryInterval = DeliveryTimeInterval.ValueOf(@"09:00 - 11:00");
         }
 
         /// <summary>
@@ -24,33 +23,5 @@ namespace ObjectOrientedPractics.Model
         /// Время доставки.
         /// </summary>
         public DeliveryTimeInterval DeliveryInterval { get; set; }
-
-        public class DeliveryTimeInterval
-        {
-            private static readonly Regex Regex = 
-                new Regex(@"\d{2}:\d{2} - \d{2}:\d{2}");
-
-            private string Value { get; }
-
-            public DeliveryTimeInterval(string value)
-            {
-                Value = value;
-            }
-
-            public override string ToString()
-            {
-                return Value;
-            }
-
-            public static DeliveryTimeInterval ValueOf(string value)
-            {
-                if (Regex.IsMatch(value))
-                {
-                    return new DeliveryTimeInterval(value);
-                }
-
-                throw new ArgumentException("Argument not valid!");
-            }
-        }
     }
 }

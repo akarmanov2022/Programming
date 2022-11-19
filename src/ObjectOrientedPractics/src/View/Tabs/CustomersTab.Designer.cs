@@ -41,6 +41,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.DeliveryAddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SelectedCustomerFullnameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIdTextBox = new System.Windows.Forms.TextBox();
@@ -140,6 +141,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel2.Controls.Add(this.IsPriorityCheckBox);
             this.panel2.Controls.Add(this.DeliveryAddressControl);
             this.panel2.Controls.Add(this.SelectedCustomerFullnameTextBox);
             this.panel2.Controls.Add(this.SelectedCustomerIdTextBox);
@@ -152,6 +154,16 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel2.Size = new System.Drawing.Size(722, 882);
             this.panel2.TabIndex = 1;
             // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(107, 140);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.IsPriorityCheckBox.TabIndex = 8;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
             // DeliveryAddressControl
             // 
             address1.Apartment = "";
@@ -162,7 +174,7 @@ namespace ObjectOrientedPractics.View.Tabs
             address1.Street = "";
             this.DeliveryAddressControl.Address = address1;
             this.DeliveryAddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeliveryAddressControl.Location = new System.Drawing.Point(6, 134);
+            this.DeliveryAddressControl.Location = new System.Drawing.Point(9, 192);
             this.DeliveryAddressControl.Name = "DeliveryAddressControl";
             this.DeliveryAddressControl.Size = new System.Drawing.Size(707, 191);
             this.DeliveryAddressControl.TabIndex = 7;
@@ -226,6 +238,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
 
         private ObjectOrientedPractics.View.Controls.AddressControl DeliveryAddressControl;
 

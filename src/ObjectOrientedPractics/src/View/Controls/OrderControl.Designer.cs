@@ -44,6 +44,11 @@ namespace ObjectOrientedPractics.View.Controls
             this.CreatedLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
+            this.PriorityOptionPanel = new System.Windows.Forms.Panel();
+            this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.DeliveryTimeLabel = new System.Windows.Forms.Label();
+            this.PriorityOptionLabel = new System.Windows.Forms.Label();
+            this.PriorityOptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrderItemsListBox
@@ -170,10 +175,51 @@ namespace ObjectOrientedPractics.View.Controls
             this.SelectedOrderLabel.Text = "Selected Order";
             this.SelectedOrderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // PriorityOptionPanel
+            // 
+            this.PriorityOptionPanel.Controls.Add(this.DeliveryTimeComboBox);
+            this.PriorityOptionPanel.Controls.Add(this.DeliveryTimeLabel);
+            this.PriorityOptionPanel.Controls.Add(this.PriorityOptionLabel);
+            this.PriorityOptionPanel.Location = new System.Drawing.Point(405, 0);
+            this.PriorityOptionPanel.Name = "PriorityOptionPanel";
+            this.PriorityOptionPanel.Size = new System.Drawing.Size(381, 148);
+            this.PriorityOptionPanel.TabIndex = 29;
+            // 
+            // DeliveryTimeComboBox
+            // 
+            this.DeliveryTimeComboBox.FormattingEnabled = true;
+            this.DeliveryTimeComboBox.Location = new System.Drawing.Point(142, 42);
+            this.DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
+            this.DeliveryTimeComboBox.Size = new System.Drawing.Size(185, 28);
+            this.DeliveryTimeComboBox.TabIndex = 46;
+            this.DeliveryTimeComboBox.TextChanged += new System.EventHandler(this.DeliveryTimeComboBox_TextChanged);
+            // 
+            // DeliveryTimeLabel
+            // 
+            this.DeliveryTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeliveryTimeLabel.Location = new System.Drawing.Point(3, 37);
+            this.DeliveryTimeLabel.Name = "DeliveryTimeLabel";
+            this.DeliveryTimeLabel.Size = new System.Drawing.Size(133, 37);
+            this.DeliveryTimeLabel.TabIndex = 45;
+            this.DeliveryTimeLabel.Text = "Delivery Time:";
+            this.DeliveryTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PriorityOptionLabel
+            // 
+            this.PriorityOptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriorityOptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PriorityOptionLabel.Location = new System.Drawing.Point(3, 0);
+            this.PriorityOptionLabel.Name = "PriorityOptionLabel";
+            this.PriorityOptionLabel.Size = new System.Drawing.Size(378, 37);
+            this.PriorityOptionLabel.TabIndex = 44;
+            this.PriorityOptionLabel.Text = "Priority Option";
+            this.PriorityOptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // OrderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PriorityOptionPanel);
             this.Controls.Add(this.OrderItemsListBox);
             this.Controls.Add(this.AmountValueLabel);
             this.Controls.Add(this.AmountLabel);
@@ -188,9 +234,18 @@ namespace ObjectOrientedPractics.View.Controls
             this.Controls.Add(this.SelectedOrderLabel);
             this.Name = "OrderControl";
             this.Size = new System.Drawing.Size(786, 841);
+            this.PriorityOptionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Panel PriorityOptionPanel;
+
+        private System.Windows.Forms.ComboBox DeliveryTimeComboBox;
+
+        private System.Windows.Forms.Label DeliveryTimeLabel;
+
+        private System.Windows.Forms.Label PriorityOptionLabel;
 
         private System.Windows.Forms.ListBox OrderItemsListBox;
 
