@@ -36,7 +36,7 @@ namespace ObjectOrientedPractics.View.Controls
                 StatusComboBox.Items.Add(value);
             }
             
-            Store.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
+            PriorityOrder.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 if (!(Order is PriorityOrder priorityOrder)) return;
                 DeliveryTimeComboBox.BackColor = BackColorSuccess;
-                priorityOrder.DeliveryInterval = DeliveryTimeComboBox.SelectedItem as Store.DeliveryTimeInterval;
+                priorityOrder.DeliveryInterval = DeliveryTimeComboBox.SelectedItem as PriorityOrder.DeliveryTimeInterval;
             }
             catch (Exception exception)
             {

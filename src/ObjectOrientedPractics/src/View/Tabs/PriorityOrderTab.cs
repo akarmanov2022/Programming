@@ -22,7 +22,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             
-            Store.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
+            PriorityOrder.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
 
             foreach (var value in Enum.GetValues(typeof(OrderStatus)))
             {
@@ -55,7 +55,7 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 DeliveryTimeComboBox.BackColor = BackColorSuccess;
-                _priorityOrder.DeliveryInterval = DeliveryTimeComboBox.SelectedItem as Store.DeliveryTimeInterval;
+                _priorityOrder.DeliveryInterval = DeliveryTimeComboBox.SelectedItem as PriorityOrder.DeliveryTimeInterval;
             }
             catch (Exception exception)
             {

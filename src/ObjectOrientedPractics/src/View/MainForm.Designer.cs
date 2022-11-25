@@ -138,9 +138,10 @@
             // 
             this.OrdersTab.BackColor = System.Drawing.SystemColors.Control;
             this.OrdersTab.Customers = null;
+            this.OrdersTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrdersTab.Location = new System.Drawing.Point(3, 3);
             this.OrdersTab.Name = "OrdersTab";
-            this.OrdersTab.Size = new System.Drawing.Size(1099, 805);
+            this.OrdersTab.Size = new System.Drawing.Size(1109, 905);
             this.OrdersTab.TabIndex = 0;
             // 
             // PriorityOrdersTabPage
@@ -157,6 +158,7 @@
             // PriorityOrderTab
             // 
             this.PriorityOrderTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriorityOrderTab.Items = null;
             this.PriorityOrderTab.Location = new System.Drawing.Point(3, 3);
             this.PriorityOrderTab.Name = "PriorityOrderTab";
             this.PriorityOrderTab.Size = new System.Drawing.Size(1109, 905);
