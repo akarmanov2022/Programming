@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Service;
-using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics.View
 {
@@ -14,46 +13,26 @@ namespace ObjectOrientedPractics.View
         public MainForm()
         {
             CreateFilesToAppData();
-            LoadFromAppData();
-            
+
             InitializeComponent();
 
+            UpdateStore();
+        }
+
+        private void UpdateStore()
+        {
+            _store = StoreService.LoadStore();
+            UpdateStoreView();
+        }
+
+        private void UpdateStoreView()
+        {
             CustomersTab.Customers = _store.Customers;
             ItemsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
-
+            PriorityOrderTab.Items = _store.Items;
             OrdersTab.Customers = _store.Customers;
-        }
-
-        private void LoadFromAppData()
-        {
-            try
-            {
-                var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
-                var filePath = Path.Combine(directory, "save.json");
-                _store = Serializer<Store>.FromJson(filePath) ?? new Store();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, @"Error", MessageBoxButtons.OK);
-            }
-        }
-
-        private void SaveToAppData()
-        {
-            try
-            {
-                var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
-                var filePath = Path.Combine(directory, "save.json");
-                Serializer<Store>.ToJson(_store, filePath);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, @"Error", MessageBoxButtons.OK);
-            }
         }
 
         /// <summary>
@@ -82,7 +61,7 @@ namespace ObjectOrientedPractics.View
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveToAppData();
+            StoreService.SaveStore(_store);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

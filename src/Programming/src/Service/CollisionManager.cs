@@ -16,10 +16,10 @@ namespace Programming.Service
         /// <returns>Вернет true, если два объекта типа <see cref="Rectangle"/> имеют коллизию, иначе - false.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-            return rectangle1.Center.X < rectangle2.Center.X + rectangle2.Width
-                   && rectangle1.Center.X + rectangle1.Width > rectangle2.Center.X
-                   && rectangle1.Center.Y < rectangle2.Center.Y + rectangle2.Height
-                   && rectangle1.Center.Y + rectangle1.Height > rectangle2.Center.Y;
+            return rectangle1.Center.X < rectangle2.Center.X + rectangle2.Width &&
+                   rectangle1.Center.X + rectangle1.Width > rectangle2.Center.X &&
+                   rectangle1.Center.Y < rectangle2.Center.Y + rectangle2.Height &&
+                   rectangle1.Center.Y + rectangle1.Height > rectangle2.Center.Y;
         }
 
         /// <summary>

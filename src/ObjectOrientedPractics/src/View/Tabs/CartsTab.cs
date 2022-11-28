@@ -75,7 +75,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.Items.Add(item);
             }
         }
-        
+
         /// <summary>
         /// Обновляет данные в <see cref="CartListBox"/>.
         /// </summary>
@@ -130,7 +130,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
-            var order = new Order();
+            var order = _currentCustomer.IsPriority 
+                ? new PriorityOrder() 
+                : new Order();
             foreach (var item in items)
             {
                 order.Items.Add(item);

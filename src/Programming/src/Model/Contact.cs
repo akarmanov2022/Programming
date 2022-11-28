@@ -4,22 +4,22 @@ using static Programming.Service.Validator;
 namespace Programming.Model
 {
     /// <summary>
-    /// Представляет класс Контакта, хранит контактные данные.
+    /// Контактная информация.
     /// </summary>
     public class Contact
     {
         /// <summary>
-        /// Хранит имя контакта.
+        /// Имя.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Хранит фамилию контакта.
+        /// Фамилия.
         /// </summary>
         private string _surname;
 
         /// <summary>
-        /// Возвращает и задает имя контакта. Должен состоять из букв или цифр.
+        /// Вернуть или задать имя. Должно содержать только буквы.
         /// </summary>
         public string Name
         {
@@ -28,7 +28,7 @@ namespace Programming.Model
         }
 
         /// <summary>
-        /// Возвращает и задает фамилию контакта. Должен состоять из букв или цифр.
+        /// Вернуть или задать фамилию. Должно содержать только буквы.
         /// </summary>
         public string Surname
         {
@@ -37,17 +37,17 @@ namespace Programming.Model
         }
 
         /// <summary>
-        /// Возвращает или задает номер контакта.
+        /// Вернуть или задать номер телефона.
         /// </summary>
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Возвращает или задает дату создания контакта.
+        /// Вернуть или задать дату создания.
         /// </summary>
         public DateTime CreateDate { get; set; }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Contact"/>.
+        /// Конструктор.
         /// </summary>
         /// <param name="name">Имя.</param>
         /// <param name="surname">Фамилия.</param>

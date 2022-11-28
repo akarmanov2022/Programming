@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Programming.Model;
 
 namespace Programming.Service
@@ -19,15 +20,15 @@ namespace Programming.Service
         public static List<Rectangle> GenerateRandomRectangles(int count)
         {
             var rectangles = new List<Rectangle>();
-
             for (var i = 0; i < count; i++)
             {
-                rectangles.Add(new Rectangle
+                var rectangle = new Rectangle
                 {
-                    Height = (int) Math.Round(Random.NextDouble() * 1000, 2),
-                    Width = (int) Math.Round(Random.NextDouble() * 1000, 2),
-                    Center = new Point2D(Random.Next(1000), Random.Next(1000))
-                });
+                    Width = Random.Next(1, 100),
+                    Height = Random.Next(1, 100),
+                    Center = new Point2D(x: Random.Next(1, 100), y: Random.Next(1, 100))
+                };
+                rectangles.Add(rectangle);
             }
 
             return rectangles;
@@ -39,23 +40,17 @@ namespace Programming.Service
         /// </summary>
         /// <param name="rectangles">Входной список объектов типа <see cref="Rectangle"/>.</param>
         /// <returns>Идентификатор объекта типа <see cref="Rectangle"/>.</returns>
-        public static int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
+        public static int FindRectangleWithMaxWidth(IEnumerable<Rectangle> rectangles)
         {
-            var maxWidth = 0d;
-            var rectangleId = 0;
-
-            if (rectangles != null)
+            var maxWidth = 0;
+            var id = 0;
+            foreach (var rectangle in rectangles.Where(rectangle => rectangle.Width > maxWidth))
             {
-                foreach (var rectangle in rectangles)
-                {
-                    if (!(maxWidth < rectangle.Width)) continue;
-
-                    maxWidth = rectangle.Width;
-                    rectangleId = rectangle.Id;
-                }
+                maxWidth = rectangle.Width;
+                id = rectangle.Id;
             }
 
-            return rectangleId;
+            return id;
         }
 
         /// <summary>
@@ -66,15 +61,11 @@ namespace Programming.Service
         /// <returns>Новый объект типа <see cref="Rectangle"/>.</returns>
         public static Rectangle GenerateRandomRectangle(int maxWidth, int maxHeight)
         {
-            var height = Random.Next(100, 500);
-            var width = Random.Next(100, 500);
-            var x = Math.Abs(Random.Next(maxWidth) - width / 2);
-            var y = Math.Abs(Random.Next(maxHeight) - height / 2);
             return new Rectangle
             {
-                Height = height,
-                Width = width,
-                Center = new Point2D(x, y)
+                Width = Random.Next(1, maxWidth),
+                Height = Random.Next(1, maxHeight),
+                Center = new Point2D(x: Random.Next(1, maxWidth), y: Random.Next(1, maxHeight))
             };
         }
     }

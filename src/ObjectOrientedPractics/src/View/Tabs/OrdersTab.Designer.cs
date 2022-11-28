@@ -131,11 +131,12 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AmountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.AmountColumn.Width = 75;
             // 
-            // orderControl1
+            // OrderControl
             // 
             this.OrderControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.OrderControl.Location = new System.Drawing.Point(634, 0);
-            this.OrderControl.Name = "orderControl1";
+            this.OrderControl.Name = "OrderControl";
+            this.OrderControl.Order = null;
             this.OrderControl.Size = new System.Drawing.Size(766, 833);
             this.OrderControl.TabIndex = 3;
             // 
@@ -153,8 +154,8 @@ namespace ObjectOrientedPractics.View.Tabs
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).EndInit();
             this.ResumeLayout(false);
         }
-        
-        private ObjectOrientedPractics.View.Controls.OrderControl OrderControl;
+
+        public ObjectOrientedPractics.View.Controls.OrderControl OrderControl;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn LastModifyColumn;
 

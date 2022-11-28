@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
@@ -9,6 +10,10 @@ namespace ObjectOrientedPractics.View.Controls
 {
     public partial class OrderControl : UserControl
     {
+        private static readonly Color BackColorSuccess = Color.White;
+
+        private static readonly Color BackColorException = Color.LightPink;
+
         private Order _order;
 
         public Order Order
@@ -16,7 +21,7 @@ namespace ObjectOrientedPractics.View.Controls
             get => _order;
             set
             {
-                _order = value;
+                _order = value as PriorityOrder ?? value;
                 UpdateFields();
             }
         }
@@ -24,12 +29,16 @@ namespace ObjectOrientedPractics.View.Controls
         public OrderControl()
         {
             InitializeComponent();
-            
+
+            PriorityOptionPanel.Visible = false;
             foreach (var value in Enum.GetValues(typeof(OrderStatus)))
             {
                 StatusComboBox.Items.Add(value);
             }
+
+            PriorityOrder.DeliveryTimeIntervals.ForEach(interval => DeliveryTimeComboBox.Items.Add(interval));
         }
+
         /// <summary>
         /// Очищает поля в <see cref="OrderControl"/>.
         /// </summary>
@@ -60,16 +69,44 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 OrderItemsListBox.Items.Add(item);
             }
+
+            switch (_order)
+            {
+                case PriorityOrder priorityOrder:
+                    PriorityOptionPanel.Visible = true;
+                    DeliveryTimeComboBox.SelectedItem = priorityOrder.DeliveryInterval;
+                    break;
+                default:
+                    PriorityOptionPanel.Visible = false;
+                    DeliveryTimeComboBox.SelectedIndex = -1;
+                    break;
+            }
         }
 
         private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (StatusComboBox.SelectedIndex == -1 || Order == null) return;
-            var status = (OrderStatus) StatusComboBox.SelectedItem;
+            var status = (OrderStatus)StatusComboBox.SelectedItem;
             if (status == Order.Status) return;
             Order.Status = status;
             Order.History.Add(DateTime.Now, status);
-            ((OrdersTab) Parent).UpdateOrders();
+            ((OrdersTab)Parent).UpdateOrders();
+        }
+
+        private void DeliveryTimeComboBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(Order is PriorityOrder priorityOrder)) return;
+                DeliveryTimeComboBox.BackColor = BackColorSuccess;
+                priorityOrder.DeliveryInterval =
+                    DeliveryTimeComboBox.SelectedItem as PriorityOrder.DeliveryTimeInterval;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                DeliveryTimeComboBox.BackColor = BackColorException;
+            }
         }
     }
 }

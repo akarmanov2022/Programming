@@ -1,7 +1,7 @@
 ﻿namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Перечисление всех статусов заказа.
+    /// Перечисление статусов заказа.
     /// </summary>
     public enum OrderStatus
     {

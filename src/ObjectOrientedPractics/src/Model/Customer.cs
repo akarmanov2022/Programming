@@ -15,6 +15,8 @@ namespace ObjectOrientedPractics.Model
         /// Хранит полное имя <see cref="Customer"/>.
         /// </summary>
         private string _fullname;
+        
+        public bool IsPriority { set; get; } = false;
 
         /// <summary>
         /// Возвращает значение идентификатора.
