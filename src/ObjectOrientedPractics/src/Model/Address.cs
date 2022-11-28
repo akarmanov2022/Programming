@@ -3,7 +3,7 @@
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Представляет объект - адрес.
+    /// Этот класс представляет собой сущность "Адрес".
     /// </summary>
     public class Address
     {
@@ -13,7 +13,7 @@ namespace ObjectOrientedPractics.Model
         private int _index;
 
         /// <summary>
-        /// Страна/регион. Не более 50 символов.
+        /// Страна/Регион.
         /// </summary>
         private string _country;
 

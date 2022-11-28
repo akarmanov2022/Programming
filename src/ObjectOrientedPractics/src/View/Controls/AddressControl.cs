@@ -53,12 +53,12 @@ namespace ObjectOrientedPractics.View.Controls
         /// </summary>
         public void Clear()
         {
-            DeliveryAddressApartmentTextBox.Text = "";
-            DeliveryAddressBuildingTextBox.Text = "";
-            DeliveryAddressCityTextBox.Text = "";
-            DeliveryAddressCountryTextBox.Text = "";
-            DeliveryAddressStreetTextBox.Text = "";
-            DeliveryAddressPostIndexTextBox.Text = "";
+            DeliveryAddressApartmentTextBox.Text = Empty;
+            DeliveryAddressBuildingTextBox.Text = Empty;
+            DeliveryAddressCityTextBox.Text = Empty;
+            DeliveryAddressCountryTextBox.Text = Empty;
+            DeliveryAddressStreetTextBox.Text = Empty;
+            DeliveryAddressPostIndexTextBox.Text = Empty;
         }
 
         private void DeliveryAddressPostIndexTextBox_TextChanged(object sender, EventArgs e)

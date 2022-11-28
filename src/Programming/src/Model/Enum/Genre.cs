@@ -1,7 +1,7 @@
 namespace Programming.Model.Enum
 {
     /// <summary>
-    /// Перечисление Жанров.
+    /// Перечисление жанров.
     /// </summary>
     public enum Genre
     {

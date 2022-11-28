@@ -136,6 +136,7 @@
     <Compile Include="src\Service\IdGenerator.cs" />
     <Compile Include="src\Service\ItemFactory.cs" />
     <Compile Include="src\Service\Serializer.cs" />
+    <Compile Include="src\Service\StoreService.cs" />
     <Compile Include="src\Service\ValueValidator.cs" />
     <Compile Include="src\View\Controls\AddressControl.cs">
       <SubType>UserControl</SubType>

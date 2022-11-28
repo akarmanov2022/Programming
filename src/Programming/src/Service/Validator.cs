@@ -4,25 +4,31 @@ using System.Text.RegularExpressions;
 
 namespace Programming.Service
 {
+    /// <summary>
+    /// Валидация ввода.
+    /// </summary>
     public static class Validator
     {
         public static readonly Color BackColorSuccess = Color.White;
 
         public static readonly Color BackColorException = Color.LightPink;
         
+        /// <summary>
+        /// Проверка на положительное число.
+        /// </summary>
         public static void AssertOnPositiveValue(int value, string propertyName)
         {
-            if (value < 0)
+            if (value <= 0)
             {
-                throw new ArgumentException($"{propertyName} < 0: {value}");
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть положительным.");
             }
         }
 
         public static void AssertOnPositiveValue(double value, string propertyName)
         {
-            if (value < 0d)
+            if (value <= 0)
             {
-                throw new ArgumentException($"{propertyName} < 0: {value}");
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть положительным.");
             }
         }
 
@@ -30,7 +36,7 @@ namespace Programming.Service
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть в диапазоне от {min} до {max}.");
             }
         }
 
@@ -38,16 +44,25 @@ namespace Programming.Service
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть в диапазоне от {min} до {max}.");
             }
         }
         
+        /// <summary>
+        /// Проверка на содержание в строке только букв.
+        /// </summary>
+        /// <param name="value">Проверяемая строка.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <returns>Возвращает true, если строка содержит только буквы.</returns>
+        /// <exception cref="ArgumentException">Возникает, если строка содержит не только буквы.</exception>
         public static string AssertStringContainsOnlyLetters(string value, string propertyName)
         {
-            return Regex.IsMatch(value, "[a-zA-Z0-9]")
-                ? value
-                : throw new ArgumentException($@"Некорректное значение в свойстве {nameof(propertyName)}!",
-                    propertyName);
+            if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException($"Значение свойства {propertyName} должно содержать только буквы.");
+            }
+
+            return value;
         }
     }
 }

@@ -9,9 +9,13 @@ namespace Programming.View.Panels
         public EnumerationControl(List<Type> types)
         {
             InitializeComponent();
-            
-            ListBoxEnums.Items.AddRange(types.ToArray());
-            ListBoxEnums.SetSelected(0, true);
+            foreach (var type in types)
+            {
+                var item = new ListViewItem(type.Name);
+                item.SubItems.Add(type.FullName);
+                item.SubItems.Add(type.Assembly.GetName().Name);
+                ListBoxValues.Items.Add(item);
+            }
         }
 
         private void ListBoxEnums_SelectedIndexChanged(object sender, EventArgs e)

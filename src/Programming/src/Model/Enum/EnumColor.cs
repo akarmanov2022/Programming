@@ -1,7 +1,7 @@
 namespace Programming.Model.Enum
 {
-    /// <summary>  
-    /// Перечисление Цветов.
+    /// <summary>
+    /// Перечисление цветов.
     /// </summary>
     public enum EnumColor
     {

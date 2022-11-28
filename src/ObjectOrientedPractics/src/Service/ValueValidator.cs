@@ -18,7 +18,7 @@ namespace ObjectOrientedPractics.Service
         {
             if (str.Length > maxLength)
             {
-                throw new ArgumentException($"{propertyName} length > {maxLength}");
+                throw new ArgumentException($"Длина строки {propertyName} не может превышать {maxLength} символов.");
             }
         }
 
@@ -33,7 +33,9 @@ namespace ObjectOrientedPractics.Service
         public static void AssertOnPositiveValue(double value, double min, double max, string propertyName)
         {
             if (value < min || value > max)
-                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+            {
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть в пределах от {min} до {max}.");
+            }
         }
         
         /// <summary>
@@ -47,7 +49,9 @@ namespace ObjectOrientedPractics.Service
         public static void AssertOnPositiveValue(int value, double min, double max, string propertyName)
         {
             if (value < min || value > max)
-                throw new ArgumentException($"{propertyName} < {min} or {propertyName} > {max}: {value}");
+            {
+                throw new ArgumentException($"Значение свойства {propertyName} должно быть в пределах от {min} до {max}.");
+            }
         }
     }
 }

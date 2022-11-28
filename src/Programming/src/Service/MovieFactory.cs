@@ -44,16 +44,16 @@ namespace Programming.Service
         /// <returns>Идентификатор объекта типа <see cref="Movie"/>.</returns>
         public static int FindMovieWithMaxRating(Movie[] movies)
         {
-            var maxRating = movies[0].Rating;
-            var filmId = 0;
-            for (var i = 1; i < movies.Length; i++)
+            var maxRating = 0;
+            var maxRatingMovieId = 0;
+            for (var i = 0; i < movies.Length; i++)
             {
-                if (!(maxRating < movies[i].Rating)) continue;
+                if (movies[i].Rating <= maxRating) continue;
                 maxRating = movies[i].Rating;
-                filmId = i;
+                maxRatingMovieId = i;
             }
 
-            return filmId;
+            return maxRatingMovieId;
         }
     }
 }

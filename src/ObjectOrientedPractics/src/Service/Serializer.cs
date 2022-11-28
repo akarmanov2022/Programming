@@ -11,29 +11,25 @@ namespace ObjectOrientedPractics.Service
     {
         public static void ToJson(T o, string filePath)
         {
-            var serializer = new JsonSerializer
-            {
-                TypeNameHandling = TypeNameHandling.All
-            };  
-
             using (var sw = new StreamWriter(filePath))
-            using (var writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, o);
+                var serializer = new JsonSerializer
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                };
+                serializer.Serialize(sw, o);
             }
         }
 
         public static T FromJson(string filePath)
         {
-            var serializer = new JsonSerializer
+            using (var sr = new StreamReader(filePath))
             {
-                TypeNameHandling = TypeNameHandling.All
-            };  
-
-            using (var sr = new StreamReader(filePath, false))
-            using (var reader = new JsonTextReader(sr))
-            {
-                return serializer.Deserialize<T>(reader);
+                var serializer = new JsonSerializer
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                };
+                return (T)serializer.Deserialize(sr, typeof(T));
             }
         }
     }
