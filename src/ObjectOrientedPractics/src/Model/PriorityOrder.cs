@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using static ObjectOrientedPractics.Model.Store;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -11,7 +10,7 @@ namespace ObjectOrientedPractics.Model
     public class PriorityOrder : Order
     {
         public static List<DeliveryTimeInterval> DeliveryTimeIntervals { get; } =
-            new List<DeliveryTimeInterval>
+            new()
             {
                 new DeliveryTimeInterval("09:00 - 11:00"),
                 new DeliveryTimeInterval("11:00 - 13:00"),

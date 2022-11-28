@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -12,11 +10,11 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает или задает список объектов типа <see cref="Item"/>
         /// </summary>
-        public List<Item> Items { get; set; } = new List<Item>();
+        public List<Item> Items { get; set; } = new();
 
         /// <summary>
         /// Возвращает или задает список объектов типа <see cref="Customer"/>.
         /// </summary>
-        public List<Customer> Customers { get; set; } = new List<Customer>();
+        public List<Customer> Customers { get; set; } = new();
     }
 }

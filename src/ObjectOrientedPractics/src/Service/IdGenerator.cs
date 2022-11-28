@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ObjectOrientedPractics.Service
+﻿namespace ObjectOrientedPractics.Service
 {
     /// <summary>
     /// Сервисный статический класс-фабрика для генерации целочисленных идентификаторов.

@@ -11,14 +11,14 @@ namespace ObjectOrientedPractics.Service
     /// </summary>
     public static class CustomerFactory
     {
-        private static readonly HttpClient Http = new HttpClient();
+        private static readonly HttpClient Http = new();
 
         /// <summary>
         /// Генерирует случайные <see cref="Customer"/> через ресурс <c>api.randomdatatools.ru</c>.
         /// </summary>
         /// <param name="count">Количество элементов.</param>
         /// <returns>Список <see cref="Customer"/>.</returns>
-        public static List<Customer> RandomGenerate(int count)
+        public static IEnumerable<Customer> RandomGenerate(int count)
         {
             try
             {

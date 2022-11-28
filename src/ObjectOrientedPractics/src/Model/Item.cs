@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using ObjectOrientedPractics.Service;
-using static System.Double;
+﻿using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model
 {
