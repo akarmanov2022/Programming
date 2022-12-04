@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Service;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Orders
 {
     /// <summary>
     /// Представляет объект - заказ.
@@ -50,6 +51,10 @@ namespace ObjectOrientedPractics.Model
                 return Items.Sum(item => item.Cost);
             }
         }
+
+        public double DiscountAmount { get; set; }
+
+        public double TotalAmount => Amount - DiscountAmount;
 
         /// <summary>
         /// Конструктор по умолчанию.

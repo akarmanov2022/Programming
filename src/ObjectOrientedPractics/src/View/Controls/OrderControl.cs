@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Enums;
+using ObjectOrientedPractics.Model.Orders;
 using ObjectOrientedPractics.View.Tabs;
 using static System.String;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ObjectOrientedPractics.Model.Discount;
+namespace ObjectOrientedPractics.Model;
 
 /// <summary>
 /// Интерфейс для реализации скидок.

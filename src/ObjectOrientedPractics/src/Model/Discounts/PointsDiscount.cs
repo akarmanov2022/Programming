@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-namespace ObjectOrientedPractics.Model.Discount;
+namespace ObjectOrientedPractics.Model.Discounts;
 
+/// <summary>
+/// Бальная система скидок.
+/// </summary>
 public class PointsDiscount : IDiscount
 {
+    /// <summary>
+    /// Максимальный процент скидки.
+    /// </summary>
     private const int MaxDiscountPercent = 30;
 
+    /// <summary>
+    /// Вернуть информацию о скидке.
+    /// </summary>
     public string Info => $"Накопительная - {Points} баллов.";
 
+    /// <summary>
+    /// Вернуть количество баллов.
+    /// </summary>
     public int Points { get; private set; }
 
     public double Calculate(List<Item> items)

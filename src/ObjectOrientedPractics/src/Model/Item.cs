@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Service;
+﻿using ObjectOrientedPractics.Model.Enums;
+using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model
 {

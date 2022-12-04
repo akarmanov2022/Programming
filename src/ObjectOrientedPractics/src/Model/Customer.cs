@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.Model.Orders;
 using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model
@@ -14,7 +16,7 @@ namespace ObjectOrientedPractics.Model
         /// Хранит полное имя <see cref="Customer"/>.
         /// </summary>
         private string _fullname;
-        
+
         public bool IsPriority { set; get; } = false;
 
         /// <summary>
@@ -53,7 +55,7 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает или задает значение отчества.
         /// </summary>
         public string FatherName { get; set; }
-        
+
         /// <summary>
         ///  Возвращает или задает адрес <see cref="Customer"/>.
         /// </summary>
@@ -69,6 +71,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public List<Order> Orders { set; get; } = new List<Order>();
 
+        public List<IDiscount> Discounts { get; set; }
+
         /// <summary>
         /// Конструктор по умолчанию. 
         /// </summary>
@@ -77,6 +81,7 @@ namespace ObjectOrientedPractics.Model
             Id = IdGenerator.GetNextId();
             Address = new Address();
             Cart = new Cart();
+            Discounts = new List<IDiscount>() { new PointsDiscount() };
         }
 
         public override string ToString()
