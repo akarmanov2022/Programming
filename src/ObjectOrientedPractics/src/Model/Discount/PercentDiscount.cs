@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model.Discount;
 
 public class PercentDiscount : IDiscount
 {
-    private const int MaxDiscount = 10;
+    private const int MaxPercentDiscount = 10;
 
     public PercentDiscount(Category category)
     {
@@ -14,40 +14,37 @@ public class PercentDiscount : IDiscount
 
     public Category Category { get; set; }
 
-    public string Info => $"Процентная «{Category}» - {CurrentDiscountPercent}%";
+    public double PurchaseAmount { get; set; }
 
-    public int CurrentDiscountPercent { get; set; } = 1;
+    public string Info => $"Процентная «{Category}» - {CurrentPercentDiscount}%";
+
+    public int CurrentPercentDiscount { get; set; } = 1;
 
     public double Calculate(List<Item> items)
     {
-        var itemsByCategory = items.Where(item => item.Category == Category).ToList();
-        if (!itemsByCategory.Any())
-        {
-            return 0;
-        }
-        var sum = itemsByCategory.Sum(item => item.Cost);
-        if (sum >= 1000 && CurrentDiscountPercent <= MaxDiscount)
-        {
-            CurrentDiscountPercent++;
-        }
-        return sum / CurrentDiscountPercent;
+        var sum = items.Where(item => item.Category == Category)
+            .Sum(item => item.Cost);
+        return sum / CurrentPercentDiscount;
     }
 
     public double Apply(List<Item> items)
     {
-        var currentDiscount = CurrentDiscountPercent;
-        CurrentDiscountPercent = 0;
-        var itemsByCategory = items.Where(item => item.Category == Category).ToList();
-        return itemsByCategory.Sum(item => item.Cost) / currentDiscount;
+        var currentDiscount = CurrentPercentDiscount;
+        CurrentPercentDiscount = 0;
+        var sum = items.Where(item => item.Category == Category)
+            .Sum(item => item.Cost);
+        return sum / currentDiscount;
     }
 
     public void Update(List<Item> items)
     {
-        var itemsByCategory = items.Where(item => item.Category == Category).ToList();
-        var sum = itemsByCategory.Sum(item => item.Cost);
-        if (sum >= 1000 && CurrentDiscountPercent <= MaxDiscount)
+        var sum = items.Where(item => item.Category == Category)
+            .Sum(item => item.Cost);
+        PurchaseAmount += sum;
+        var newDiscountPercent = (int)(sum / 1000);
+        if (newDiscountPercent <= MaxPercentDiscount)
         {
-            CurrentDiscountPercent++;
+            CurrentPercentDiscount = newDiscountPercent;
         }
     }
 }
