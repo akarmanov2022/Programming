@@ -41,7 +41,7 @@ public class PercentDiscount : IDiscount
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
         PurchaseAmount += sum;
-        var newDiscountPercent = (int)(sum / 1000);
+        var newDiscountPercent = (int)(PurchaseAmount / 1000);
         if (newDiscountPercent <= MaxPercentDiscount)
         {
             CurrentPercentDiscount = newDiscountPercent;
