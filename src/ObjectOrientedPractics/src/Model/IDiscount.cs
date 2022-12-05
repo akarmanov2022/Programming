@@ -17,18 +17,18 @@ public interface IDiscount
     /// </summary>
     /// <param name="items">Набор товаров.</param>
     /// <returns>Сумма скидки.</returns>
-    double Calculate(List<Item> items);
+    double Calculate(IEnumerable<Item> items);
 
     /// <summary>
     /// Применить скидку к набору товаров.
     /// </summary>
     /// <param name="items">Набор товаров.</param>
     /// <returns>Скидка.</returns>
-    double Apply(List<Item> items);
+    double Apply(IEnumerable<Item> items);
 
     /// <summary>
     /// Обновить скидку.
     /// </summary>
     /// <param name="items">Набор товаров.</param>
-    void Update(List<Item> items);
+    void Update(IEnumerable<Item> items);
 }

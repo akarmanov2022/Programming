@@ -24,7 +24,7 @@ public class PointsDiscount : IDiscount
     /// </summary>
     public int Points { get; private set; }
 
-    public double Calculate(List<Item> items)
+    public double Calculate(IEnumerable<Item> items)
     {
         var sum = items.Sum(item => item.Cost);
         var maxDiscount = (int)Math.Ceiling(sum / 100 * MaxDiscountPercent);
@@ -33,7 +33,7 @@ public class PointsDiscount : IDiscount
             : maxDiscount;
     }
 
-    public double Apply(List<Item> items)
+    public double Apply(IEnumerable<Item> items)
     {
         var points = Points;
         var sum = items.Sum(item => item.Cost);
@@ -46,8 +46,13 @@ public class PointsDiscount : IDiscount
         return points;
     }
 
-    public void Update(List<Item> items)
+    public void Update(IEnumerable<Item> items)
     {
         Points = (int)(items.Sum(item => item.Cost) / 10);
+    }
+
+    public override string ToString()
+    {
+        return Info;
     }
 }

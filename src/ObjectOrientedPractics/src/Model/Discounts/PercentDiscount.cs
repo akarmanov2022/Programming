@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.Model.Discounts;
 
@@ -43,14 +42,14 @@ public class PercentDiscount : IDiscount
     /// </summary>
     public int CurrentPercentDiscount { get; set; } = 1;
 
-    public double Calculate(List<Item> items)
+    public double Calculate(IEnumerable<Item> items)
     {
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
         return sum / CurrentPercentDiscount;
     }
 
-    public double Apply(List<Item> items)
+    public double Apply(IEnumerable<Item> items)
     {
         var currentDiscount = CurrentPercentDiscount;
         CurrentPercentDiscount = 0;
@@ -59,7 +58,7 @@ public class PercentDiscount : IDiscount
         return sum / currentDiscount;
     }
 
-    public void Update(List<Item> items)
+    public void Update(IEnumerable<Item> items)
     {
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
@@ -69,5 +68,10 @@ public class PercentDiscount : IDiscount
         {
             CurrentPercentDiscount = newDiscountPercent;
         }
+    }
+
+    public override string ToString()
+    {
+        return Info;
     }
 }

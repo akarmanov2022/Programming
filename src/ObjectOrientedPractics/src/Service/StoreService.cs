@@ -3,59 +3,58 @@ using System.IO;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 
-namespace ObjectOrientedPractics.Service
+namespace ObjectOrientedPractics.Service;
+
+/// <summary>
+/// Сервис для работы с магазином.
+/// </summary>
+public static class StoreService
 {
     /// <summary>
-    /// Сервис для работы с магазином.
+    /// Загрузить магазин из файла.
     /// </summary>
-    public static class StoreService
+    /// <returns>Магазин.</returns>
+    public static Store LoadStore()
     {
-        /// <summary>
-        /// Загрузить магазин из файла.
-        /// </summary>
-        /// <returns>Магазин.</returns>
-        public static Store LoadStore()
-        {
-            return LoadFromAppData();
-        }
+        return LoadFromAppData();
+    }
 
-        /// <summary>
-        /// Сохранить магазин в файл.
-        /// </summary>
-        /// <param name="store">Магазин.</param>
-        public static void SaveStore(Store store)
-        {
-            SaveToAppData(store);
-        }
+    /// <summary>
+    /// Сохранить магазин в файл.
+    /// </summary>
+    /// <param name="store">Магазин.</param>
+    public static void SaveStore(Store store)
+    {
+        SaveToAppData(store);
+    }
         
-        private static Store LoadFromAppData()
+    private static Store LoadFromAppData()
+    {
+        try
         {
-            try
-            {
-                var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
-                var filePath = Path.Combine(directory, "save.json");
-                return Serializer<Store>.FromJson(filePath) ?? new Store();
-            }
-            catch (Exception exception)
-            {
-                throw new Exception("Error while loading store", exception);
-            }
+            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
+            var filePath = Path.Combine(directory, "save.json");
+            return Serializer<Store>.FromJson(filePath) ?? new Store();
         }
-
-        private static void SaveToAppData(Store store)
+        catch (Exception exception)
         {
-            try
-            {
-                var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
-                var filePath = Path.Combine(directory, "save.json");
-                Serializer<Store>.ToJson(store, filePath);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, @"Error", MessageBoxButtons.OK);
-            }
+            throw new Exception("Error while loading store", exception);
+        }
+    }
+
+    private static void SaveToAppData(Store store)
+    {
+        try
+        {
+            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var directory = Path.Combine(appDataPath, "ObjectOrientedPractics");
+            var filePath = Path.Combine(directory, "save.json");
+            Serializer<Store>.ToJson(store, filePath);
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show(exception.Message, @"Error", MessageBoxButtons.OK);
         }
     }
 }
