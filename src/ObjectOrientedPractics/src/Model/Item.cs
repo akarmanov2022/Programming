@@ -110,36 +110,6 @@ public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
             : Name;
     }
 
-    public bool Equals(Item other)
-    {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
-        return _name == other._name && _info == other._info && _cost.Equals(other._cost) && Id == other.Id &&
-               CarBrand == other.CarBrand && CarModel == other.CarModel && Category == other.Category;
-    }
-
-    public override bool Equals(object obj)
-    {
-        if (ReferenceEquals(null, obj)) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        return obj.GetType() == this.GetType() && Equals((Item)obj);
-    }
-
-    public override int GetHashCode()
-    {
-        unchecked
-        {
-            var hashCode = (_name != null ? _name.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (_info != null ? _info.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ _cost.GetHashCode();
-            hashCode = (hashCode * 397) ^ Id;
-            hashCode = (hashCode * 397) ^ (CarBrand != null ? CarBrand.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (CarModel != null ? CarModel.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ Category.GetHashCode();
-            return hashCode;
-        }
-    }
-
     public object Clone()
     {
         return new Item
@@ -187,5 +157,45 @@ public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
     public static bool operator >=(Item left, Item right)
     {
         return Comparer<Item>.Default.Compare(left, right) >= 0;
+    }
+
+    public bool Equals(Item other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return _name == other._name && _info == other._info && _cost.Equals(other._cost) && Id == other.Id &&
+               CarBrand == other.CarBrand && CarModel == other.CarModel && Category == other.Category;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == GetType() && Equals((Item)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            var hashCode = (_name != null ? _name.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_info != null ? _info.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ _cost.GetHashCode();
+            hashCode = (hashCode * 397) ^ Id;
+            hashCode = (hashCode * 397) ^ (CarBrand != null ? CarBrand.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (CarModel != null ? CarModel.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ Category.GetHashCode();
+            return hashCode;
+        }
+    }
+
+    public static bool operator ==(Item left, Item right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Item left, Item right)
+    {
+        return !Equals(left, right);
     }
 }

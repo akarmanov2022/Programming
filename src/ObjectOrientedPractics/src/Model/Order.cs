@@ -8,7 +8,7 @@ namespace ObjectOrientedPractics.Model;
 /// <summary>
 /// Представляет объект - заказ.
 /// </summary>
-public class Order
+public class Order : IEquatable<Order>
 {
     /// <summary>
     /// Возвращает идентификатор заказа.
@@ -45,10 +45,7 @@ public class Order
     /// </summary>
     public double Amount
     {
-        get
-        {
-            return Items.Sum(item => item.Cost);
-        }
+        get { return Items.Sum(item => item.Cost); }
     }
 
     public double DiscountAmount { get; set; }
@@ -63,5 +60,46 @@ public class Order
         Id = IdGenerator.GetNextId();
         CreateDate = DateTime.Now;
         Status = OrderStatus.New;
+    }
+
+    public bool Equals(Order other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return Id == other.Id && CreateDate.Equals(other.CreateDate) && Equals(Items, other.Items) &&
+               Status == other.Status && Equals(DeliveryAddress, other.DeliveryAddress) &&
+               Equals(History, other.History) && DiscountAmount.Equals(other.DiscountAmount);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == this.GetType() && Equals((Order)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            var hashCode = Id;
+            hashCode = (hashCode * 397) ^ CreateDate.GetHashCode();
+            hashCode = (hashCode * 397) ^ (Items != null ? Items.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (int)Status;
+            hashCode = (hashCode * 397) ^ (DeliveryAddress != null ? DeliveryAddress.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (History != null ? History.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ DiscountAmount.GetHashCode();
+            return hashCode;
+        }
+    }
+
+    public static bool operator ==(Order left, Order right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Order left, Order right)
+    {
+        return !Equals(left, right);
     }
 }
