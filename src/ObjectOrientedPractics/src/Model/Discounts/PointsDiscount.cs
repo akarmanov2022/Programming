@@ -7,7 +7,7 @@ namespace ObjectOrientedPractics.Model.Discounts;
 /// <summary>
 /// Бальная система скидок.
 /// </summary>
-public class PointsDiscount : IDiscount
+public class PointsDiscount : IDiscount, IComparable<PointsDiscount>, IComparable
 {
     /// <summary>
     /// Максимальный процент скидки.
@@ -62,5 +62,40 @@ public class PointsDiscount : IDiscount
     public override string ToString()
     {
         return Info;
+    }
+
+    public int CompareTo(PointsDiscount other)
+    {
+        if (ReferenceEquals(this, other)) return 0;
+        return ReferenceEquals(null, other) ? 1 : Points.CompareTo(other.Points);
+    }
+
+    public int CompareTo(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return 1;
+        if (ReferenceEquals(this, obj)) return 0;
+        return obj is PointsDiscount other
+            ? CompareTo(other)
+            : throw new ArgumentException($"Object must be of type {nameof(PointsDiscount)}");
+    }
+
+    public static bool operator <(PointsDiscount left, PointsDiscount right)
+    {
+        return Comparer<PointsDiscount>.Default.Compare(left, right) < 0;
+    }
+
+    public static bool operator >(PointsDiscount left, PointsDiscount right)
+    {
+        return Comparer<PointsDiscount>.Default.Compare(left, right) > 0;
+    }
+
+    public static bool operator <=(PointsDiscount left, PointsDiscount right)
+    {
+        return Comparer<PointsDiscount>.Default.Compare(left, right) <= 0;
+    }
+
+    public static bool operator >=(PointsDiscount left, PointsDiscount right)
+    {
+        return Comparer<PointsDiscount>.Default.Compare(left, right) >= 0;
     }
 }

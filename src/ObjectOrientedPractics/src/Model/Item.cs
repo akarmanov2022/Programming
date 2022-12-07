@@ -124,41 +124,6 @@ public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
         };
     }
 
-    public int CompareTo(Item other)
-    {
-        if (ReferenceEquals(this, other)) return 0;
-        return ReferenceEquals(null, other) ? 1 : _cost.CompareTo(other._cost);
-    }
-
-    public int CompareTo(object obj)
-    {
-        if (ReferenceEquals(null, obj)) return 1;
-        if (ReferenceEquals(this, obj)) return 0;
-        return obj is Item other
-            ? CompareTo(other)
-            : throw new ArgumentException($"Object must be of type {nameof(Item)}");
-    }
-
-    public static bool operator <(Item left, Item right)
-    {
-        return Comparer<Item>.Default.Compare(left, right) < 0;
-    }
-
-    public static bool operator >(Item left, Item right)
-    {
-        return Comparer<Item>.Default.Compare(left, right) > 0;
-    }
-
-    public static bool operator <=(Item left, Item right)
-    {
-        return Comparer<Item>.Default.Compare(left, right) <= 0;
-    }
-
-    public static bool operator >=(Item left, Item right)
-    {
-        return Comparer<Item>.Default.Compare(left, right) >= 0;
-    }
-
     public bool Equals(Item other)
     {
         if (ReferenceEquals(null, other)) return false;
@@ -197,5 +162,40 @@ public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
     public static bool operator !=(Item left, Item right)
     {
         return !Equals(left, right);
+    }
+
+    public int CompareTo(Item other)
+    {
+        if (ReferenceEquals(this, other)) return 0;
+        return ReferenceEquals(null, other) ? 1 : _cost.CompareTo(other._cost);
+    }
+
+    public int CompareTo(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return 1;
+        if (ReferenceEquals(this, obj)) return 0;
+        return obj is Item other
+            ? CompareTo(other)
+            : throw new ArgumentException($"Object must be of type {nameof(Item)}");
+    }
+
+    public static bool operator <(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) < 0;
+    }
+
+    public static bool operator >(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) > 0;
+    }
+
+    public static bool operator <=(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) <= 0;
+    }
+
+    public static bool operator >=(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) >= 0;
     }
 }
