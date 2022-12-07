@@ -1,11 +1,13 @@
-﻿using ObjectOrientedPractics.Service;
+﻿using System;
+using System.Collections.Generic;
+using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model;
 
 /// <summary>
 /// Представляет объект "Товар".
 /// </summary>
-public class Item
+public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
 {
     /// <summary>
     /// Хранит имя товара.
@@ -25,7 +27,7 @@ public class Item
     /// <summary>
     /// Возвращает идентификатор.
     /// </summary>
-    public int Id { get; }
+    public int Id { get; private set; }
 
     /// <summary>
     /// Возвращает или задает значение имени. Длина строки не должна превышать 200./>
@@ -69,7 +71,7 @@ public class Item
             _cost = value;
         }
     }
-        
+
     public string CarBrand { set; get; }
 
     public string CarModel { set; get; }
@@ -106,5 +108,107 @@ public class Item
         return string.IsNullOrWhiteSpace(Name)
             ? $"{nameof(Item)}-{Id + 1}"
             : Name;
+    }
+
+    public bool Equals(Item other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return _name == other._name && _info == other._info && _cost.Equals(other._cost) && Id == other.Id &&
+               CarBrand == other.CarBrand && CarModel == other.CarModel && Category == other.Category;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == this.GetType() && Equals((Item)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            var hashCode = (_name != null ? _name.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_info != null ? _info.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ _cost.GetHashCode();
+            hashCode = (hashCode * 397) ^ Id;
+            hashCode = (hashCode * 397) ^ (CarBrand != null ? CarBrand.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (CarModel != null ? CarModel.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ Category.GetHashCode();
+            return hashCode;
+        }
+    }
+
+    public object Clone()
+    {
+        return new Item
+        {
+            _name = _name,
+            _info = _info,
+            _cost = _cost,
+            Id = Id,
+            CarBrand = CarBrand,
+            CarModel = CarModel,
+            Category = Category
+        };
+    }
+
+
+    public static bool operator ==(Item left, Item right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Item left, Item right)
+    {
+        return !Equals(left, right);
+    }
+
+    public int CompareTo(Item other)
+    {
+        if (ReferenceEquals(this, other)) return 0;
+        if (ReferenceEquals(null, other)) return 1;
+        var nameComparison = string.Compare(_name, other._name, StringComparison.Ordinal);
+        if (nameComparison != 0) return nameComparison;
+        var infoComparison = string.Compare(_info, other._info, StringComparison.Ordinal);
+        if (infoComparison != 0) return infoComparison;
+        var costComparison = _cost.CompareTo(other._cost);
+        if (costComparison != 0) return costComparison;
+        var idComparison = Id.CompareTo(other.Id);
+        if (idComparison != 0) return idComparison;
+        var carBrandComparison = string.Compare(CarBrand, other.CarBrand, StringComparison.Ordinal);
+        if (carBrandComparison != 0) return carBrandComparison;
+        var carModelComparison = string.Compare(CarModel, other.CarModel, StringComparison.Ordinal);
+        return carModelComparison != 0 ? carModelComparison : Nullable.Compare(Category, other.Category);
+    }
+
+    public int CompareTo(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return 1;
+        if (ReferenceEquals(this, obj)) return 0;
+        return obj is Item other
+            ? CompareTo(other)
+            : throw new ArgumentException($"Object must be of type {nameof(Item)}");
+    }
+
+    public static bool operator <(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) < 0;
+    }
+
+    public static bool operator >(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) > 0;
+    }
+
+    public static bool operator <=(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) <= 0;
+    }
+
+    public static bool operator >=(Item left, Item right)
+    {
+        return Comparer<Item>.Default.Compare(left, right) >= 0;
     }
 }
