@@ -1,17 +1,16 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Model;
+
+/// <summary>
+/// Перечисление категории товаров.
+/// </summary>
+public enum Category
 {
-    /// <summary>
-    /// Перечисление категории товаров.
-    /// </summary>
-    public enum Category
-    {
-        Cars,
-        Sweets,
-        Furniture,
-        BuildingMaterials,
-        Electronics,
-        Food,
-        Education,
-        Medicine
-    }
+    Cars,
+    Sweets,
+    Furniture,
+    BuildingMaterials,
+    Electronics,
+    Food,
+    Education,
+    Medicine
 }
