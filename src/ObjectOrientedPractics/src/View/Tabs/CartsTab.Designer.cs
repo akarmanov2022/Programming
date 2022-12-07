@@ -43,6 +43,12 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ClearCartButton = new System.Windows.Forms.Button();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.CartListBox = new System.Windows.Forms.ListBox();
+            this.DiscountsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.DiscountsLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountValueLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountLabel = new System.Windows.Forms.Label();
+            this.TotalValuelabel = new System.Windows.Forms.Label();
+            this.TotalLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ItemsLabel
@@ -62,13 +68,13 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsListBox.ItemHeight = 20;
             this.ItemsListBox.Location = new System.Drawing.Point(3, 40);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(457, 684);
+            this.ItemsListBox.Size = new System.Drawing.Size(457, 804);
             this.ItemsListBox.TabIndex = 1;
             // 
             // AddToCartButton
             // 
             this.AddToCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddToCartButton.Location = new System.Drawing.Point(3, 730);
+            this.AddToCartButton.Location = new System.Drawing.Point(3, 866);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(177, 73);
             this.AddToCartButton.TabIndex = 2;
@@ -131,10 +137,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CreateOrderButton
             // 
-            this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateOrderButton.Location = new System.Drawing.Point(516, 561);
+            this.CreateOrderButton.Location = new System.Drawing.Point(466, 561);
             this.CreateOrderButton.Name = "CreateOrderButton";
-            this.CreateOrderButton.Size = new System.Drawing.Size(177, 73);
+            this.CreateOrderButton.Size = new System.Drawing.Size(116, 49);
             this.CreateOrderButton.TabIndex = 9;
             this.CreateOrderButton.Text = "Create Order";
             this.CreateOrderButton.UseVisualStyleBackColor = true;
@@ -142,10 +147,10 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ClearCartButton
             // 
-            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearCartButton.Location = new System.Drawing.Point(882, 561);
+            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearCartButton.Location = new System.Drawing.Point(943, 561);
             this.ClearCartButton.Name = "ClearCartButton";
-            this.ClearCartButton.Size = new System.Drawing.Size(177, 73);
+            this.ClearCartButton.Size = new System.Drawing.Size(116, 49);
             this.ClearCartButton.TabIndex = 10;
             this.ClearCartButton.Text = "Clear Cart";
             this.ClearCartButton.UseVisualStyleBackColor = true;
@@ -153,10 +158,10 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // RemoveItemButton
             // 
-            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveItemButton.Location = new System.Drawing.Point(699, 561);
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveItemButton.Location = new System.Drawing.Point(821, 561);
             this.RemoveItemButton.Name = "RemoveItemButton";
-            this.RemoveItemButton.Size = new System.Drawing.Size(177, 73);
+            this.RemoveItemButton.Size = new System.Drawing.Size(116, 49);
             this.RemoveItemButton.TabIndex = 11;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
@@ -172,10 +177,82 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CartListBox.Size = new System.Drawing.Size(593, 324);
             this.CartListBox.TabIndex = 12;
             // 
+            // DiscountsCheckedListBox
+            // 
+            this.DiscountsCheckedListBox.BackColor = System.Drawing.SystemColors.Control;
+            this.DiscountsCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DiscountsCheckedListBox.FormattingEnabled = true;
+            this.DiscountsCheckedListBox.Location = new System.Drawing.Point(466, 653);
+            this.DiscountsCheckedListBox.Name = "DiscountsCheckedListBox";
+            this.DiscountsCheckedListBox.Size = new System.Drawing.Size(353, 189);
+            this.DiscountsCheckedListBox.TabIndex = 13;
+            this.DiscountsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DiscountsCheckedListBox_ItemCheck);
+            this.DiscountsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountsCheckedListBox_SelectedIndexChanged);
+            // 
+            // DiscountsLabel
+            // 
+            this.DiscountsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountsLabel.Location = new System.Drawing.Point(466, 613);
+            this.DiscountsLabel.Name = "DiscountsLabel";
+            this.DiscountsLabel.Size = new System.Drawing.Size(116, 37);
+            this.DiscountsLabel.TabIndex = 14;
+            this.DiscountsLabel.Text = "Discounts:";
+            this.DiscountsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DiscountAmountValueLabel
+            // 
+            this.DiscountAmountValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscountAmountValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountValueLabel.Location = new System.Drawing.Point(821, 650);
+            this.DiscountAmountValueLabel.Name = "DiscountAmountValueLabel";
+            this.DiscountAmountValueLabel.Size = new System.Drawing.Size(238, 69);
+            this.DiscountAmountValueLabel.TabIndex = 16;
+            this.DiscountAmountValueLabel.Text = "0";
+            this.DiscountAmountValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // DiscountAmountLabel
+            // 
+            this.DiscountAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscountAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountLabel.Location = new System.Drawing.Point(821, 613);
+            this.DiscountAmountLabel.Name = "DiscountAmountLabel";
+            this.DiscountAmountLabel.Size = new System.Drawing.Size(238, 37);
+            this.DiscountAmountLabel.TabIndex = 15;
+            this.DiscountAmountLabel.Text = "Discount Amount:";
+            this.DiscountAmountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TotalValuelabel
+            // 
+            this.TotalValuelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalValuelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalValuelabel.Location = new System.Drawing.Point(821, 881);
+            this.TotalValuelabel.Name = "TotalValuelabel";
+            this.TotalValuelabel.Size = new System.Drawing.Size(238, 69);
+            this.TotalValuelabel.TabIndex = 18;
+            this.TotalValuelabel.Text = "0";
+            this.TotalValuelabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TotalLabel
+            // 
+            this.TotalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalLabel.Location = new System.Drawing.Point(821, 844);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Size = new System.Drawing.Size(238, 37);
+            this.TotalLabel.TabIndex = 17;
+            this.TotalLabel.Text = "Total:";
+            this.TotalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TotalValuelabel);
+            this.Controls.Add(this.TotalLabel);
+            this.Controls.Add(this.DiscountAmountValueLabel);
+            this.Controls.Add(this.DiscountAmountLabel);
+            this.Controls.Add(this.DiscountsLabel);
+            this.Controls.Add(this.DiscountsCheckedListBox);
             this.Controls.Add(this.CartListBox);
             this.Controls.Add(this.RemoveItemButton);
             this.Controls.Add(this.ClearCartButton);
@@ -189,9 +266,19 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.ItemsListBox);
             this.Controls.Add(this.ItemsLabel);
             this.Name = "CartsTab";
-            this.Size = new System.Drawing.Size(1074, 814);
+            this.Size = new System.Drawing.Size(1074, 950);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label TotalValuelabel;
+
+        private System.Windows.Forms.Label TotalLabel;
+
+        private System.Windows.Forms.Label DiscountsLabel;
+        private System.Windows.Forms.Label DiscountAmountLabel;
+        private System.Windows.Forms.Label DiscountAmountValueLabel;
+
+        private System.Windows.Forms.CheckedListBox DiscountsCheckedListBox;
 
         private System.Windows.Forms.ListBox CartListBox;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
@@ -102,6 +103,16 @@ public partial class CartsTab : UserControl
 
         _currentCustomer = customer;
         UpdateCartListBox();
+        UpdateDiscountsCheckedListBox();
+    }
+
+    private void UpdateDiscountsCheckedListBox()
+    {
+        DiscountsCheckedListBox.Items.Clear();
+        foreach (var discount in _currentCustomer.Discounts)
+        {
+            DiscountsCheckedListBox.Items.Add(discount, false);
+        }
     }
 
     private void AddToCartButton_Click(object sender, EventArgs e)
@@ -153,5 +164,15 @@ public partial class CartsTab : UserControl
         items.Clear();
         CartListBox.Items.Clear();
         AmountValueLabel.Text = @"0";
+    }
+
+    private void DiscountsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void DiscountsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+    {
+        DiscountsCheckedListBox.BackColor = Color.Brown;
     }
 }
