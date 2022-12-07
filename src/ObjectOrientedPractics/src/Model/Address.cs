@@ -1,11 +1,13 @@
-﻿using ObjectOrientedPractics.Service;
+﻿using System;
+using System.Collections.Generic;
+using ObjectOrientedPractics.Service;
 
 namespace ObjectOrientedPractics.Model;
 
 /// <summary>
 /// Этот класс представляет собой сущность "Адрес".
 /// </summary>
-public class Address
+public class Address : ICloneable, IEquatable<Address>
 {
     /// <summary>
     /// Почтовый индекс.
@@ -118,5 +120,57 @@ public class Address
     public override string ToString()
     {
         return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);
+    }
+
+    public object Clone()
+    {
+        return new Address
+        {
+            Index = Index,
+            Country = Country,
+            City = City,
+            Street = Street,
+            Building = Building,
+            Apartment = Apartment
+        };
+    }
+
+    public bool Equals(Address other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return _index == other._index && _country == other._country && _city == other._city &&
+               _street == other._street && _building == other._building && _apartment == other._apartment;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == GetType() && Equals((Address)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            var hashCode = _index;
+            hashCode = (hashCode * 397) ^ (_country != null ? _country.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_city != null ? _city.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_street != null ? _street.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_building != null ? _building.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (_apartment != null ? _apartment.GetHashCode() : 0);
+            return hashCode;
+        }
+    }
+
+    public static bool operator ==(Address left, Address right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Address left, Address right)
+    {
+        return !Equals(left, right);
     }
 }
