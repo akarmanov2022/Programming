@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.Service;
 using static System.String;
 
@@ -66,7 +67,10 @@ public partial class CustomersTab : UserControl
 
     private void CustomersAddButton_Click(object sender, EventArgs e)
     {
-        _currentCustomer = new Customer();
+        _currentCustomer = new Customer()
+        {
+            Discounts = { new PointsDiscount() }
+        };
         _currentCustomer.Fullname = $"{nameof(Customer)} {_currentCustomer.Id}";
         Customers.Add(_currentCustomer);
         UpdateCustomersListBox();
@@ -84,8 +88,7 @@ public partial class CustomersTab : UserControl
 
     private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var selectedCustomer = (Customer)CustomersListBox.SelectedItem;
-        _currentCustomer = selectedCustomer;
+        _currentCustomer = (Customer)CustomersListBox.SelectedItem;
         UpdateFields();
         CustomersRemoveButton.Enabled = true;
         DiscountsAddButton.Enabled = true;
@@ -136,5 +139,10 @@ public partial class CustomersTab : UserControl
         var discount = form.PercentDiscount;
         _currentCustomer.Discounts.Add(discount);
         DiscountsListBox.Items.Add(discount);
+    }
+
+    private void DiscountsListBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DiscountsRemoveButton.Enabled = DiscountsListBox.SelectedItem is not PointsDiscount;
     }
 }

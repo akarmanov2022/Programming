@@ -14,10 +14,16 @@ public class PointsDiscount : IDiscount
     /// </summary>
     private const int MaxDiscountPercent = 30;
 
+    private string _info;
+
     /// <summary>
     /// Вернуть информацию о скидке.
     /// </summary>
-    public string Info => $"Накопительная - {Points} баллов.";
+    public string Info
+    {
+        get => $"Накопительная - {Points} баллов.";
+        set => _info = value;
+    }
 
     /// <summary>
     /// Вернуть количество баллов.

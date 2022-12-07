@@ -291,6 +291,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DiscountsListBox.Name = "DiscountsListBox";
             this.DiscountsListBox.Size = new System.Drawing.Size(493, 164);
             this.DiscountsListBox.TabIndex = 10;
+            this.DiscountsListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountsListBox_SelectedIndexChanged);
             // 
             // DiscountsLabel
             // 
