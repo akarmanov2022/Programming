@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ObjectOrientedPractics.Model;
@@ -6,7 +7,7 @@ namespace ObjectOrientedPractics.Model;
 /// <summary>
 /// Представляет объект - Корзина.
 /// </summary>
-public class Cart
+public class Cart : ICloneable
 {   
     /// <summary>
     /// Возвращает или задает список <see cref="Item"/>.
@@ -22,5 +23,13 @@ public class Cart
         {
             return Items?.Sum(item => item.Cost) ?? 0D;
         }
+    }
+
+    public object Clone()
+    {
+        return new Cart
+        {
+            Items = Items?.Select(item => (Item)item.Clone()).ToList()
+        };
     }
 }

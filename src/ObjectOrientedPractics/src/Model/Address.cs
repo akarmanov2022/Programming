@@ -7,7 +7,7 @@ namespace ObjectOrientedPractics.Model;
 /// <summary>
 /// Этот класс представляет собой сущность "Адрес".
 /// </summary>
-public class Address : IEquatable<Address>, IComparable<Address>, IComparable, ICloneable
+public class Address : ICloneable
 {
     /// <summary>
     /// Почтовый индекс.
@@ -122,35 +122,6 @@ public class Address : IEquatable<Address>, IComparable<Address>, IComparable, I
         return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);
     }
 
-    public bool Equals(Address other)
-    {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
-        return _index == other._index && _country == other._country && _city == other._city &&
-               _street == other._street && _building == other._building && _apartment == other._apartment;
-    }
-
-    public override bool Equals(object obj)
-    {
-        if (ReferenceEquals(null, obj)) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        return obj.GetType() == GetType() && Equals((Address)obj);
-    }
-
-    public override int GetHashCode()
-    {
-        unchecked
-        {
-            var hashCode = _index;
-            hashCode = (hashCode * 397) ^ (_country != null ? _country.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (_city != null ? _city.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (_street != null ? _street.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (_building != null ? _building.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (_apartment != null ? _apartment.GetHashCode() : 0);
-            return hashCode;
-        }
-    }
-
     public object Clone()
     {
         return new Address
@@ -162,62 +133,5 @@ public class Address : IEquatable<Address>, IComparable<Address>, IComparable, I
             Building = Building,
             Apartment = Apartment
         };
-    }
-
-    public static bool operator ==(Address left, Address right)
-    {
-        return Equals(left, right);
-    }
-
-    public static bool operator !=(Address left, Address right)
-    {
-        return !Equals(left, right);
-    }
-
-    public int CompareTo(Address other)
-    {
-        if (ReferenceEquals(this, other)) return 0;
-        if (ReferenceEquals(null, other)) return 1;
-        var indexComparison = _index.CompareTo(other._index);
-        if (indexComparison != 0) return indexComparison;
-        var countryComparison = string.Compare(_country, other._country, StringComparison.Ordinal);
-        if (countryComparison != 0) return countryComparison;
-        var cityComparison = string.Compare(_city, other._city, StringComparison.Ordinal);
-        if (cityComparison != 0) return cityComparison;
-        var streetComparison = string.Compare(_street, other._street, StringComparison.Ordinal);
-        if (streetComparison != 0) return streetComparison;
-        var buildingComparison = string.Compare(_building, other._building, StringComparison.Ordinal);
-        return buildingComparison != 0
-            ? buildingComparison
-            : string.Compare(_apartment, other._apartment, StringComparison.Ordinal);
-    }
-
-    public int CompareTo(object obj)
-    {
-        if (ReferenceEquals(null, obj)) return 1;
-        if (ReferenceEquals(this, obj)) return 0;
-        return obj is Address other
-            ? CompareTo(other)
-            : throw new ArgumentException($"Object must be of type {nameof(Address)}");
-    }
-
-    public static bool operator <(Address left, Address right)
-    {
-        return Comparer<Address>.Default.Compare(left, right) < 0;
-    }
-
-    public static bool operator >(Address left, Address right)
-    {
-        return Comparer<Address>.Default.Compare(left, right) > 0;
-    }
-
-    public static bool operator <=(Address left, Address right)
-    {
-        return Comparer<Address>.Default.Compare(left, right) <= 0;
-    }
-
-    public static bool operator >=(Address left, Address right)
-    {
-        return Comparer<Address>.Default.Compare(left, right) >= 0;
     }
 }

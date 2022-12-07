@@ -154,33 +154,10 @@ public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
         };
     }
 
-
-    public static bool operator ==(Item left, Item right)
-    {
-        return Equals(left, right);
-    }
-
-    public static bool operator !=(Item left, Item right)
-    {
-        return !Equals(left, right);
-    }
-
     public int CompareTo(Item other)
     {
         if (ReferenceEquals(this, other)) return 0;
-        if (ReferenceEquals(null, other)) return 1;
-        var nameComparison = string.Compare(_name, other._name, StringComparison.Ordinal);
-        if (nameComparison != 0) return nameComparison;
-        var infoComparison = string.Compare(_info, other._info, StringComparison.Ordinal);
-        if (infoComparison != 0) return infoComparison;
-        var costComparison = _cost.CompareTo(other._cost);
-        if (costComparison != 0) return costComparison;
-        var idComparison = Id.CompareTo(other.Id);
-        if (idComparison != 0) return idComparison;
-        var carBrandComparison = string.Compare(CarBrand, other.CarBrand, StringComparison.Ordinal);
-        if (carBrandComparison != 0) return carBrandComparison;
-        var carModelComparison = string.Compare(CarModel, other.CarModel, StringComparison.Ordinal);
-        return carModelComparison != 0 ? carModelComparison : Nullable.Compare(Category, other.Category);
+        return ReferenceEquals(null, other) ? 1 : _cost.CompareTo(other._cost);
     }
 
     public int CompareTo(object obj)
