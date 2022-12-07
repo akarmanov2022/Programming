@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ObjectOrientedPractics.Model;
 
 /// <summary>
 /// Интерфейс для реализации скидок.
 /// </summary>
-public interface IDiscount
+public interface IDiscount : ICloneable
 {
     /// <summary>
     /// Информация о скидке.

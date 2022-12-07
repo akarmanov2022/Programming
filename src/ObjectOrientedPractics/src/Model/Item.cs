@@ -5,7 +5,7 @@ using ObjectOrientedPractics.Service;
 namespace ObjectOrientedPractics.Model;
 
 /// <summary>
-/// Представляет объект "Товар".
+/// Товар.
 /// </summary>
 public class Item : IComparable<Item>, IComparable, IEquatable<Item>, ICloneable
 {

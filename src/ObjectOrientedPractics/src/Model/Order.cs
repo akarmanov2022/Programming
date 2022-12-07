@@ -8,7 +8,7 @@ namespace ObjectOrientedPractics.Model;
 /// <summary>
 /// Представляет объект - заказ.
 /// </summary>
-public class Order : IEquatable<Order>
+public class Order : IEquatable<Order>, ICloneable
 {
     /// <summary>
     /// Возвращает идентификатор заказа.
@@ -91,6 +91,25 @@ public class Order : IEquatable<Order>
             hashCode = (hashCode * 397) ^ DiscountAmount.GetHashCode();
             return hashCode;
         }
+    }
+
+    public object Clone()
+    {
+        var order = new Order
+        {
+            Id = Id,
+            CreateDate = CreateDate,
+            Status = Status,
+            DeliveryAddress = (Address)DeliveryAddress.Clone(),
+            DiscountAmount = DiscountAmount
+        };
+
+        foreach (var item in Items)
+        {
+            order.Items.Add((Item)item.Clone());
+        }
+
+        return order;
     }
 
     public static bool operator ==(Order left, Order right)
