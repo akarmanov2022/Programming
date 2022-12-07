@@ -37,6 +37,8 @@ public class PercentDiscount : IDiscount
     /// </summary>
     public string Info => $"Процентная «{Category}» - {CurrentPercentDiscount}%";
 
+    public bool Active { get; set; } = true;
+
     /// <summary>
     /// Текущий процент скидки.
     /// </summary>
@@ -46,16 +48,15 @@ public class PercentDiscount : IDiscount
     {
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
-        return sum / CurrentPercentDiscount;
+        return sum / 100 * CurrentPercentDiscount;
     }
 
     public double Apply(IEnumerable<Item> items)
     {
         var currentDiscount = CurrentPercentDiscount;
-        CurrentPercentDiscount = 0;
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
-        return sum / currentDiscount;
+        return sum / 100 * currentDiscount;
     }
 
     public void Update(IEnumerable<Item> items)
@@ -63,10 +64,9 @@ public class PercentDiscount : IDiscount
         var sum = items.Where(item => item.Category == Category)
             .Sum(item => item.Cost);
         PurchaseAmount += sum;
-        var newDiscountPercent = (int)(PurchaseAmount / 1000);
-        if (newDiscountPercent <= MaxPercentDiscount)
+        if (PurchaseAmount / 1000 >= CurrentPercentDiscount && CurrentPercentDiscount <= MaxPercentDiscount)
         {
-            CurrentPercentDiscount = newDiscountPercent;
+            CurrentPercentDiscount++;
         }
     }
 

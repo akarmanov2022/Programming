@@ -12,6 +12,8 @@ public interface IDiscount
     /// </summary>
     string Info { get; }
 
+    public bool Active { get; set; }
+
     /// <summary>
     /// Рассчитать скидку для набора товаров.
     /// </summary>

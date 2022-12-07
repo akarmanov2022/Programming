@@ -148,9 +148,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // ClearCartButton
             // 
             this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearCartButton.Location = new System.Drawing.Point(943, 561);
+            this.ClearCartButton.Location = new System.Drawing.Point(909, 561);
             this.ClearCartButton.Name = "ClearCartButton";
-            this.ClearCartButton.Size = new System.Drawing.Size(116, 49);
+            this.ClearCartButton.Size = new System.Drawing.Size(150, 49);
             this.ClearCartButton.TabIndex = 10;
             this.ClearCartButton.Text = "Clear Cart";
             this.ClearCartButton.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // RemoveItemButton
             // 
             this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveItemButton.Location = new System.Drawing.Point(821, 561);
+            this.RemoveItemButton.Location = new System.Drawing.Point(753, 561);
             this.RemoveItemButton.Name = "RemoveItemButton";
-            this.RemoveItemButton.Size = new System.Drawing.Size(116, 49);
+            this.RemoveItemButton.Size = new System.Drawing.Size(150, 49);
             this.RemoveItemButton.TabIndex = 11;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
@@ -187,7 +187,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DiscountsCheckedListBox.Size = new System.Drawing.Size(353, 189);
             this.DiscountsCheckedListBox.TabIndex = 13;
             this.DiscountsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DiscountsCheckedListBox_ItemCheck);
-            this.DiscountsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountsCheckedListBox_SelectedIndexChanged);
             // 
             // DiscountsLabel
             // 

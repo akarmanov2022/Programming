@@ -25,6 +25,8 @@ public class PointsDiscount : IDiscount
         set => _info = value;
     }
 
+    public bool Active { get; set; } = true;
+
     /// <summary>
     /// Вернуть количество баллов.
     /// </summary>
