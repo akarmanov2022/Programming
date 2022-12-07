@@ -45,7 +45,7 @@ public partial class OrdersTab : UserControl
             {
                 Orders.Add(order);
                 OrdersDataGridView.Rows.Add(
-                    new DataGridViewRow()
+                    new DataGridViewRow
                     {
                         Cells =
                         {
@@ -56,6 +56,7 @@ public partial class OrdersTab : UserControl
                             new DataGridViewTextBoxCell { Value = customer.Fullname },
                             new DataGridViewTextBoxCell { Value = order.DeliveryAddress.ToString() },
                             new DataGridViewTextBoxCell { Value = order.Amount },
+                            new DataGridViewTextBoxCell { Value = order.TotalAmount }
                         }
                     });
             }

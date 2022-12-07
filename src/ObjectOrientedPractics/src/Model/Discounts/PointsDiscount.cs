@@ -30,7 +30,7 @@ public class PointsDiscount : IDiscount
     /// <summary>
     /// Вернуть количество баллов.
     /// </summary>
-    public int Points { get; private set; }
+    public int Points { get; set; }
 
     public double Calculate(IEnumerable<Item> items)
     {

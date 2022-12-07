@@ -41,6 +41,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderControl = new ObjectOrientedPractics.View.Controls.OrderControl();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.OrdersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left)));
             this.OrdersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrdersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.IdColumn, this.CreatedColumn, this.LastModifyColumn, this.OrderStatusColumn, this.CustomerFullNameColumn, this.DeliveryAddressColumn, this.AmountColumn });
+            this.OrdersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.IdColumn, this.CreatedColumn, this.LastModifyColumn, this.OrderStatusColumn, this.CustomerFullNameColumn, this.DeliveryAddressColumn, this.AmountColumn, this.Total });
             this.OrdersDataGridView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OrdersDataGridView.Location = new System.Drawing.Point(0, 53);
             this.OrdersDataGridView.MultiSelect = false;
@@ -140,6 +141,13 @@ namespace ObjectOrientedPractics.View.Tabs
             this.OrderControl.Size = new System.Drawing.Size(766, 833);
             this.OrderControl.TabIndex = 3;
             // 
+            // Total
+            // 
+            this.Total.HeaderText = "TotalColumn";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 123;
+            // 
             // OrdersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -154,6 +162,8 @@ namespace ObjectOrientedPractics.View.Tabs
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
 
         public ObjectOrientedPractics.View.Controls.OrderControl OrderControl;
 
