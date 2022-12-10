@@ -23,17 +23,13 @@ public partial class ItemsTab : UserControl
     internal List<Item> Items
     {
         get => _items;
-        set
-        {
-            _items = value;
-            UpdateItemsListBox();
-        }
+        set => UpdateItemsListBox(_items = value);
     }
 
     public ItemsTab()
     {
         InitializeComponent();
-            
+
         ItemsRemoveButton.Enabled = false;
         SelectedItemCategoryComboBox.Sorted = true;
 
@@ -116,7 +112,7 @@ public partial class ItemsTab : UserControl
     {
         _currentItem = new Item();
         Items.Add(_currentItem);
-        UpdateItemsListBox();
+        UpdateItemsListBox(Items);
         ClearFields();
     }
 
@@ -129,10 +125,10 @@ public partial class ItemsTab : UserControl
         SelectedItemCategoryComboBox.SelectedIndex = -1;
     }
 
-    private void UpdateItemsListBox()
+    private void UpdateItemsListBox(List<Item> items)
     {
         ItemsListBox.Items.Clear();
-        foreach (var item in Items)
+        foreach (var item in items)
         {
             ItemsListBox.Items.Add(item);
         }
@@ -158,7 +154,7 @@ public partial class ItemsTab : UserControl
     private void ItemsRemoveButton_Click(object sender, EventArgs e)
     {
         Items.Remove(_currentItem);
-        UpdateItemsListBox();
+        UpdateItemsListBox(Items);
         ClearFields();
         ItemsRemoveButton.Enabled = false;
         _currentItem = new Item();
@@ -169,7 +165,20 @@ public partial class ItemsTab : UserControl
         var random = new Random();
         Items.Clear();
         Items.AddRange(ItemFactory.RandomGenerate(random.Next(10, 100)));
-        UpdateItemsListBox();
+        UpdateItemsListBox(Items);
         ClearFields();
+    }
+
+    private void ItemsFindTextBox_TextChanged(object sender, EventArgs e)
+    {
+        var text = ItemsFindTextBox.Text;
+        if (text == Empty)
+        {
+            UpdateItemsListBox(Items);
+            return;
+        }
+        var findItems = DataTools.FindByPredicate(
+            Items, item => item.ToString().ToLower().Contains(text.ToLower()));
+        UpdateItemsListBox(findItems);
     }
 }

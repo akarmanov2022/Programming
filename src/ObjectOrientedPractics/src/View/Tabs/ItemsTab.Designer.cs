@@ -49,6 +49,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1 = new System.Windows.Forms.Panel();
             this.SelectedItemCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.SelectedItemCategoryLabel = new System.Windows.Forms.Label();
+            this.ItemsFindTextBox = new System.Windows.Forms.TextBox();
+            this.ItemsFindlabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -118,9 +120,9 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.ItemHeight = 20;
-            this.ItemsListBox.Location = new System.Drawing.Point(0, 46);
+            this.ItemsListBox.Location = new System.Drawing.Point(0, 106);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(429, 1004);
+            this.ItemsListBox.Size = new System.Drawing.Size(429, 944);
             this.ItemsListBox.TabIndex = 3;
             this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
@@ -242,10 +244,29 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemCategoryLabel.Text = "Category:";
             this.SelectedItemCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ItemsFindTextBox
+            // 
+            this.ItemsFindTextBox.Location = new System.Drawing.Point(99, 67);
+            this.ItemsFindTextBox.Name = "ItemsFindTextBox";
+            this.ItemsFindTextBox.Size = new System.Drawing.Size(330, 26);
+            this.ItemsFindTextBox.TabIndex = 8;
+            this.ItemsFindTextBox.TextChanged += new System.EventHandler(this.ItemsFindTextBox_TextChanged);
+            // 
+            // ItemsFindlabel
+            // 
+            this.ItemsFindlabel.Location = new System.Drawing.Point(-3, 67);
+            this.ItemsFindlabel.Name = "ItemsFindlabel";
+            this.ItemsFindlabel.Size = new System.Drawing.Size(96, 26);
+            this.ItemsFindlabel.TabIndex = 7;
+            this.ItemsFindlabel.Text = "Find:";
+            this.ItemsFindlabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ItemsFindTextBox);
+            this.Controls.Add(this.ItemsFindlabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ItemsListBox);
             this.Controls.Add(this.ItemsLabel);
@@ -256,7 +277,12 @@ namespace ObjectOrientedPractics.View.Tabs
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
+
+        private System.Windows.Forms.TextBox ItemsFindTextBox;
+
+        private System.Windows.Forms.Label ItemsFindlabel;
 
         private System.Windows.Forms.Label SelectedItemCategoryLabel;
 

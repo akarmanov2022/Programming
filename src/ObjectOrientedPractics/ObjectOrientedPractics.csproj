@@ -137,6 +137,7 @@
     <Compile Include="src\Model\PriorityOrder.cs" />
     <Compile Include="src\Model\Store.cs" />
     <Compile Include="src\Service\CustomerFactory.cs" />
+    <Compile Include="src\Service\DataTools.cs" />
     <Compile Include="src\Service\IdGenerator.cs" />
     <Compile Include="src\Service\ItemFactory.cs" />
     <Compile Include="src\Service\Serializer.cs" />
