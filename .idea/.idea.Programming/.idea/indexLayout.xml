@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="UserContentModel">
-    <attachedFolders />
+    <attachedFolders>
+      <Path>doc</Path>
+      <Path>src/ListOfNotesApplication</Path>
+    </attachedFolders>
     <explicitIncludes>
       <Path>src/ListOfNotesApplication</Path>
     </explicitIncludes>
