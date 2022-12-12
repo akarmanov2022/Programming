@@ -16,7 +16,9 @@ public partial class ItemsTab : UserControl
 
     private static readonly Color BackColorException = Color.LightPink;
 
-    private Item _currentItem = new Item();
+    private Item _currentItem = new();
+
+    private List<Item> _displayItems;
 
     private List<Item> _items;
 
@@ -37,6 +39,13 @@ public partial class ItemsTab : UserControl
         {
             SelectedItemCategoryComboBox.Items.Add(category);
         }
+        
+        ItemsOrderByComboBox.Items.AddRange(new object[]
+        {
+            "Name (ASC)",
+            "Cost (ASC)",
+            "Cost (DESC)"
+        });
     }
 
     private void SelectedItemCostTextBox_TextChanged(object sender, EventArgs e)
@@ -128,6 +137,22 @@ public partial class ItemsTab : UserControl
     private void UpdateItemsListBox(List<Item> items)
     {
         ItemsListBox.Items.Clear();
+        var index = ItemsOrderByComboBox.SelectedIndex;
+        switch (index)
+        {
+            case 0:
+                DataTools.Sort(items, (item, item1) => 
+                    Compare(item.Name, item1.Name, StringComparison.Ordinal) <= 0);
+                break;
+            case 1:
+                DataTools.Sort(items, (item, item1) => 
+                    item.Cost.CompareTo(item1.Cost) <= 0);
+                break;
+            case 2:
+                DataTools.Sort(items, (item, item1) => 
+                    item.Cost.CompareTo(item1.Cost) >= 0);
+                break;
+        }
         foreach (var item in items)
         {
             ItemsListBox.Items.Add(item);
@@ -174,11 +199,17 @@ public partial class ItemsTab : UserControl
         var text = ItemsFindTextBox.Text;
         if (text == Empty)
         {
+            _displayItems = null;
             UpdateItemsListBox(Items);
             return;
         }
-        var findItems = DataTools.FindByPredicate(
+        _displayItems = DataTools.FindByPredicate(
             Items, item => item.ToString().ToLower().Contains(text.ToLower()));
-        UpdateItemsListBox(findItems);
+        UpdateItemsListBox(_displayItems);
+    }
+
+    private void ItemsOrderByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        UpdateItemsListBox(_displayItems ?? _items);
     }
 }

@@ -281,6 +281,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsOrderByComboBox.Name = "ItemsOrderByComboBox";
             this.ItemsOrderByComboBox.Size = new System.Drawing.Size(330, 28);
             this.ItemsOrderByComboBox.TabIndex = 10;
+            this.ItemsOrderByComboBox.SelectedIndexChanged += new System.EventHandler(this.ItemsOrderByComboBox_SelectedIndexChanged);
             // 
             // ItemsTab
             // 

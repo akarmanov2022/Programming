@@ -19,7 +19,7 @@ namespace ObjectOrientedPractics.Service
             return list;
         }
 
-        public static List<Item> Sort(List<Item> items, Func<Item, Item, bool> compare)
+        public static void Sort(List<Item> items, Func<Item, Item, bool> compare)
         {
             for (var i = 0; i < items.Count; i++)
             {
@@ -29,7 +29,6 @@ namespace ObjectOrientedPractics.Service
                     (items[i], items[j]) = (items[j], items[i]);
                 }
             }
-            return items;
         }
     }
 }
