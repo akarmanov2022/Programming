@@ -30,10 +30,10 @@ public partial class PriorityOrderTab : UserControl
         }
 
         _priorityOrder = new PriorityOrder();
-        UpdatePage();
+        RefreshData();
     }
 
-    private void UpdatePage()
+    public void RefreshData()
     {
         IdTextBox.Text = _priorityOrder.Id.ToString();
         CreatedDateTimePicker.Value = _priorityOrder.CreateDate;
@@ -82,6 +82,6 @@ public partial class PriorityOrderTab : UserControl
     private void ClearOrderButton_Click(object sender, EventArgs e)
     {
         _priorityOrder = new PriorityOrder();
-        UpdatePage();
+        RefreshData();
     }
 }

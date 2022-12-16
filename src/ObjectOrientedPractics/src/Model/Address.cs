@@ -10,6 +10,11 @@ namespace ObjectOrientedPractics.Model;
 public class Address : ICloneable, IEquatable<Address>
 {
     /// <summary>
+    /// Обрабатывает событие изменения свойства <see cref="Address"/>.
+    /// </summary>
+    public event EventHandler<EventArgs> AddressChanged; 
+
+    /// <summary>
     /// Почтовый индекс.
     /// </summary>
     private int _index;
@@ -48,6 +53,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertOnPositiveValue(value, 0, 999_999, nameof(Index));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _index = value;
         }
     }
@@ -61,6 +67,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _country = value;
         }
     }
@@ -74,6 +81,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertStringOnLength(value, 50, nameof(City));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _city = value;
         }
     }
@@ -87,6 +95,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _street = value;
         }
     }
@@ -100,6 +109,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _building = value;
         }
     }
@@ -113,6 +123,7 @@ public class Address : ICloneable, IEquatable<Address>
         set
         {
             ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
+            AddressChanged?.Invoke(this, EventArgs.Empty);
             _apartment = value;
         }
     }

@@ -17,6 +17,16 @@ public partial class MainForm : Form
         InitializeComponent();
 
         UpdateStore();
+
+        ItemsTab.ItemsChanged += ItemsTab_ItemsChanged;
+    }
+
+    private void ItemsTab_ItemsChanged(object sender, EventArgs e)
+    {
+        CartsTab.RefreshData();    
+        CustomersTab.RefreshData();
+        OrdersTab.RefreshData();
+        PriorityOrderTab.RefreshData();
     }
 
     private void UpdateStore()

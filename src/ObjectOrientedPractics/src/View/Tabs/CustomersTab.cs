@@ -89,13 +89,14 @@ public partial class CustomersTab : UserControl
     private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
         _currentCustomer = (Customer)CustomersListBox.SelectedItem;
-        UpdateFields();
+        RefreshData();
         CustomersRemoveButton.Enabled = true;
         DiscountsAddButton.Enabled = true;
     }
 
-    private void UpdateFields()
+    public void RefreshData()
     {
+        if (_currentCustomer == null) return;
         SelectedCustomerIdTextBox.Text = _currentCustomer.Id.ToString();
         SelectedCustomerFullnameTextBox.Text = _currentCustomer.Fullname;
         DeliveryAddressControl.Address = _currentCustomer.Address;

@@ -16,6 +16,8 @@ public partial class ItemsTab : UserControl
 
     private static readonly Color BackColorException = Color.LightPink;
 
+    public event EventHandler<EventArgs> ItemsChanged; 
+
     private Item _currentItem = new();
 
     private List<Item> _displayItems;
@@ -58,9 +60,8 @@ public partial class ItemsTab : UserControl
             _currentItem.Cost = cost;
             SelectedItemCostTextBox.BackColor = BackColorSuccess;
         }
-        catch (Exception exception)
+        catch (Exception)
         {
-            Console.WriteLine(exception);
             _currentItem.Cost = NaN;
             SelectedItemCostTextBox.BackColor = BackColorException;
         }
@@ -75,9 +76,8 @@ public partial class ItemsTab : UserControl
             _currentItem.Name = text;
             SelectedItemNameTextBox.BackColor = BackColorSuccess;
         }
-        catch (Exception exception)
+        catch (Exception)
         {
-            Console.WriteLine(exception);
             _currentItem.Name = Empty;
             SelectedItemNameTextBox.BackColor = BackColorException;
         }
@@ -92,9 +92,8 @@ public partial class ItemsTab : UserControl
             _currentItem.Category = category;
             SelectedItemCategoryComboBox.BackColor = BackColorSuccess;
         }
-        catch (Exception exception)
+        catch (Exception)
         {
-            Console.WriteLine(exception);
             _currentItem.Category = null;
             SelectedItemCategoryComboBox.BackColor = BackColorException;
         }
@@ -109,9 +108,8 @@ public partial class ItemsTab : UserControl
             _currentItem.Info = text;
             SelectedItemDescriptionTextBox.BackColor = BackColorSuccess;
         }
-        catch (Exception exception)
+        catch (Exception)
         {
-            Console.WriteLine(exception);
             _currentItem.Info = Empty;
             SelectedItemDescriptionTextBox.BackColor = BackColorException;
         }
@@ -179,10 +177,16 @@ public partial class ItemsTab : UserControl
     private void ItemsRemoveButton_Click(object sender, EventArgs e)
     {
         Items.Remove(_currentItem);
-        UpdateItemsListBox(Items);
-        ClearFields();
+        RefreshData();
         ItemsRemoveButton.Enabled = false;
         _currentItem = new Item();
+        ItemsChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RefreshData()
+    {
+        UpdateItemsListBox(Items);
+        ClearFields();
     }
 
     private void ItemsRandomButton_Click(object sender, EventArgs e)
@@ -190,8 +194,8 @@ public partial class ItemsTab : UserControl
         var random = new Random();
         Items.Clear();
         Items.AddRange(ItemFactory.RandomGenerate(random.Next(10, 100)));
-        UpdateItemsListBox(Items);
-        ClearFields();
+        RefreshData();
+        ItemsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void ItemsFindTextBox_TextChanged(object sender, EventArgs e)
@@ -206,6 +210,7 @@ public partial class ItemsTab : UserControl
         _displayItems = DataTools.FindByPredicate(
             Items, item => item.ToString().ToLower().Contains(text.ToLower()));
         UpdateItemsListBox(_displayItems);
+        ItemsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void ItemsOrderByComboBox_SelectedIndexChanged(object sender, EventArgs e)
