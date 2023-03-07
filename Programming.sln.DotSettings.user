@@ -2,10 +2,12 @@
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">D:\Programs\JetBrains\Toolbox\apps\Rider\ch-0\223.8617.53\tools\MSBuild\Current\Bin\MSBuild.exe</s:String>
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114112</s:Int64>
 	
+	
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ListOfNotesApplication_002FProperties_002FResources/@EntryIndexedValue">False</s:Boolean>
 	
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FMainForm/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FCustomersTab/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FMainForm/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ObjectOrientedPractics_002Fsrc_002FView_002FTabs_002FCustomersTab/@EntryIndexedValue">False</s:Boolean>
 	
 	
 	
