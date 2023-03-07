@@ -11,10 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{34578554
 		C:\Users\arsen\AppData\Roaming\ObjectOrientedPractics\save.json = C:\Users\arsen\AppData\Roaming\ObjectOrientedPractics\save.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Individual6", "src\OOP-Individual6\OOP-Individual6.csproj", "{61B12F5E-9985-4C6E-BCEB-5CD42557F102}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactEvents", "src\ContactEvents\ContactEvents.csproj", "{F251A38A-2A8B-4191-BA5E-0D4FFCFC3A65}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
