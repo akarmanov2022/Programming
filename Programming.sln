@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{34578554
 		C:\Users\arsen\AppData\Roaming\ObjectOrientedPractics\save.json = C:\Users\arsen\AppData\Roaming\ObjectOrientedPractics\save.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "src\Contacts\Contacts.csproj", "{C3134615-FDEE-4FBC-AFFF-8F3040FB1D4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{F251A38A-2A8B-4191-BA5E-0D4FFCFC3A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F251A38A-2A8B-4191-BA5E-0D4FFCFC3A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F251A38A-2A8B-4191-BA5E-0D4FFCFC3A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3134615-FDEE-4FBC-AFFF-8F3040FB1D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3134615-FDEE-4FBC-AFFF-8F3040FB1D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3134615-FDEE-4FBC-AFFF-8F3040FB1D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3134615-FDEE-4FBC-AFFF-8F3040FB1D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
