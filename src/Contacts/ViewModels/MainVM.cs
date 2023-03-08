@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Contacts.Models;
@@ -11,48 +10,37 @@ namespace Contacts.ViewModels;
 /// </summary>
 public sealed class MainVM : INotifyPropertyChanged
 {
-    private string _name;
-
-    private string _phoneNumber;
-
-    private string _email;
-
-    public MainVM(Contact contact)
-    {
-        Contact = contact;
-    }
-
-    public Contact Contact { get; }
+    public Contact Contact { get; } = new();
 
     public string Name
     {
-        get => _name;
+        get => Contact.Name;
         set
         {
-            if (value == _name) return;
-            _name = value;
+            if (value == Contact.Name) return;
+            Contact.Name = value;
             OnPropertyChanged();
         }
     }
 
     public string PhoneNumber
     {
-        get => _phoneNumber;
+        get => Contact.PhoneNumber;
         set
         {
-            if (value == _phoneNumber) return;
-            _phoneNumber = value;
+            if (value == Contact.PhoneNumber) return;
+            Contact.PhoneNumber = value;
             OnPropertyChanged();
         }
     }
 
     public string Email
     {
-        get => _email;
+        get => Contact.Email;
         set
         {
-            if (value == _email) return;
-            _email = value;
+            if (value == Contact.Email) return;
+            Contact.Email = value;
             OnPropertyChanged();
         }
     }
@@ -63,13 +51,5 @@ public sealed class MainVM : INotifyPropertyChanged
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
     }
 }

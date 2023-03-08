@@ -32,7 +32,7 @@
                             Margin="0, 3">
                         </Label>
                         <TextBox 
-                            Text="{Binding Name}"
+                            Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0, 3">
                         </TextBox>
                     </StackPanel>
@@ -43,6 +43,7 @@
                             Padding="0">
                         </Label>
                         <TextBox
+                            Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0,3">
                         </TextBox>
                     </StackPanel>
@@ -53,6 +54,7 @@
                             Padding="0">
                         </Label>
                         <TextBox
+                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0,3">
                         </TextBox>
                     </StackPanel>
@@ -89,6 +91,7 @@
                             Padding="0">
                         </Label>
                         <Label
+                            Content="{Binding PhoneNumber}"
                             Padding="0"
                             Height="18"
                             FontWeight="Bold"
@@ -102,6 +105,7 @@
                             Padding="0">
                         </Label>
                         <Label
+                            Content="{Binding Email}"
                             FontWeight="Bold"
                             Padding="0"
                             Height="18"

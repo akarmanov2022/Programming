@@ -12,7 +12,7 @@ namespace Contacts
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM(new Contact());
+            DataContext = new MainVM();
         }
     }
 }
