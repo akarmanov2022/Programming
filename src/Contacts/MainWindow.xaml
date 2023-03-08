@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Contacts.ViewModels"
         mc:Ignorable="d"
-        Title="Contacts" Height="450" Width="800" Padding="15">
+        Title="Contacts" Height="450" Width="800" Padding="15" d:DataContext="{d:DesignInstance local:MainVM}">
     <Grid Column="2" Row="2">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -30,7 +31,9 @@
                             Padding="0"
                             Margin="0, 3">
                         </Label>
-                        <TextBox Margin="0, 3">
+                        <TextBox 
+                            Text="{Binding Name}"
+                            Margin="0, 3">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Margin="3">
@@ -72,6 +75,7 @@
                             Margin="0, 3">
                         </Label>
                         <Label
+                            Content="{Binding Name}"
                             FontWeight="Bold"
                             Margin="0, 3"
                             Padding="0"

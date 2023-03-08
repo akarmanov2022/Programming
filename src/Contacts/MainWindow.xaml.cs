@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media.Imaging;
-using Contacts.ViewModel;
+﻿using System.Windows;
+using Contacts.Models;
+using Contacts.ViewModels;
 
 namespace Contacts
 {
@@ -13,7 +12,7 @@ namespace Contacts
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM();
+            DataContext = new MainVM(new Contact());
         }
     }
 }
