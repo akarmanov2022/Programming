@@ -10,18 +10,16 @@ namespace Contacts.Models.Services;
 /// <typeparam name="T">Тип данных для сериализации/десериализации.</typeparam>
 public static class Serializer<T>
 {
-    private static readonly string DefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
     public static void ToJson(T o, string filePath)
     {
-        using var sw = new StreamWriter(Path.Combine(DefaultPath, filePath));
+        using var sw = new StreamWriter(filePath);
         var serializer = new JsonSerializer();
         serializer.Serialize(sw, o);
     }
 
     public static T FromJson(string filePath)
     {
-        using var sr = new StreamReader(Path.Combine(DefaultPath, filePath));
+        using var sr = new StreamReader(filePath);
         var serializer = new JsonSerializer();
         return (T)serializer.Deserialize(sr, typeof(T))!;
     }

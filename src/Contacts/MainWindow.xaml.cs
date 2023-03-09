@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Windows;
 using Contacts.Models;
 using Contacts.ViewModels;
 
@@ -12,7 +14,29 @@ namespace Contacts
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM();
+            CreateMetaFiles();
+            DataContext = new MainVm(new Contact());
+        }
+        
+        private static void CreateMetaFiles()
+        {
+            try
+            {
+                var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var directory = Path.Combine(appDataPath, nameof(Contacts));
+
+                if (Directory.Exists(directory)) return;
+                Directory.CreateDirectory(directory);
+
+                var filePath = Path.Combine(directory, "save.json");
+
+                if (File.Exists(filePath)) return;
+                File.Create(filePath);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK);
+            }
         }
     }
 }

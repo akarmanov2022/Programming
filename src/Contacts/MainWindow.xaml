@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts.ViewModels"
         mc:Ignorable="d"
-        Title="Contacts" Height="450" Width="800" Padding="15" d:DataContext="{d:DesignInstance local:MainVM}">
+        Title="Contacts" Height="450" Width="800" Padding="15" d:DataContext="{d:DesignInstance local:MainVm}">
     <Grid Column="2" Row="2">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -123,11 +123,15 @@
             Grid.ColumnSpan="2"
             Grid.Row="1">
             <Button
+                Command="{Binding SaveCommand}"
+                CommandParameter="{Binding Contact}"
                 Content="Save"
                 Margin="3"
                 Width="75"
                 Height="25" />
             <Button
+                Command="{Binding LoadCommand}"
+                CommandParameter="{Binding Contact}"
                 Content="Load"
                 Margin="3"
                 Width="75"
