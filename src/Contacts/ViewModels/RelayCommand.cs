@@ -10,10 +10,14 @@ namespace Contacts.ViewModels;
 public class RelayCommand<T> : ICommand
 {
     /// <summary>
-    /// Хранит операцию над типом данных <see cref="T"/>.
+    /// Инкапсулирует метод для исполнения командой при вызове.
     /// </summary>
     private readonly Action<T> _execute;
 
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
+    /// <param name="execute">Метод, который имеет один параметр и не возвращает значение.</param>
     public RelayCommand(Action<T> execute)
     {
         _execute = execute;

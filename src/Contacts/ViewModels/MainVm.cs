@@ -16,17 +16,17 @@ public sealed class MainVm : INotifyPropertyChanged
 {
 
     /// <summary>
-    /// Хранит экземпляр текущего объекта типа <see cref="Contact"/>.
+    /// Инкапулирует экземпляр текущего объекта типа <see cref="Contact"/>.
     /// </summary>
     private Contact _contact;
 
     /// <summary>
-    /// Хранит команду <see cref="ICommand"/> на сохранение объекта типа <see cref="Contact"/> в файл.
+    /// Инкапулирует команду <see cref="ICommand"/> на сохранение объекта типа <see cref="Contact"/> в файл.
     /// </summary>
     private RelayCommand<Contact>? _saveCommand;
 
     /// <summary>
-    /// Хранит команду <see cref="ICommand"/> на загрузку объекта типа <see cref="Contact"/> из файла. 
+    /// Инкапулирует команду <see cref="ICommand"/> на загрузку объекта типа <see cref="Contact"/> из файла. 
     /// </summary>
     private RelayCommand<Contact>? _loadCommand;
 
