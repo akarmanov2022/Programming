@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Newtonsoft.Json;
 
-namespace Contacts.Models.Services;
+namespace Contacts.Services;
 
 /// <summary>
 /// Статический класс с набором методов для преобразования объектов в строку json, и наоборот.

@@ -3,8 +3,15 @@ using System.Windows.Input;
 
 namespace Contacts.ViewModels;
 
+/// <summary>
+/// Определяет релейную команду.
+/// </summary>
+/// <typeparam name="T">Тип данных объектов, переданных команде на исполнение.</typeparam>
 public class RelayCommand<T> : ICommand
 {
+    /// <summary>
+    /// Хранит операцию над типом данных <see cref="T"/>.
+    /// </summary>
     private readonly Action<T> _execute;
 
     public RelayCommand(Action<T> execute)

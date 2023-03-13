@@ -18,6 +18,9 @@ namespace Contacts
             DataContext = new MainVm(new Contact());
         }
         
+        /// <summary>
+        /// Создает мета-данные приложения.
+        /// </summary>
         private static void CreateMetaFiles()
         {
             try
