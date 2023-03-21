@@ -120,7 +120,8 @@ public sealed class MainVm : INotifyPropertyChanged
             var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             Contact = Serializer<Contact>.FromJson(Path.Combine(folderPath, "Contacts", "save.json"));
         });
-
+    
+    /// <inheritdoc />
     public event PropertyChangedEventHandler? PropertyChanged;
 
     /// <summary>

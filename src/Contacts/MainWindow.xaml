@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Contacts.ViewModels"
         mc:Ignorable="d"
         Title="Contacts" Height="450" Width="800" Padding="15" d:DataContext="{d:DesignInstance local:MainVm}">
-    <Grid Column="2" Row="2">
+    <Grid Column="2" Row="2" Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -30,7 +30,7 @@
                             Content="Name:"
                             Padding="0"
                             Margin="0, 3" />
-                        <TextBox 
+                        <TextBox
                             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0, 3" />
                     </StackPanel>
@@ -103,7 +103,6 @@
                 </StackPanel>
             </GroupItem>
         </GroupBox>
-
         <StackPanel
             HorizontalAlignment="Right"
             Orientation="Horizontal"
